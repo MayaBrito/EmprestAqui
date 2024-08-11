@@ -1,0 +1,22 @@
+<doctype html>
+    <title>pedidos feitos abertos</title>
+    <h1>pedidos recebidos</h1>
+    <ul>
+    {% for pedido in pedidos.values() %}
+      <li>
+        {{pedido.interessado}} quer:
+        <a href="./{{url_for('item',id=pedido.item)}}" >{{ itens[pedido.item].nome|e }} </a>
+        {% if pedido.estado is equalto 'aceito' %} 
+            entre em contato:{{pedido.interessado_contato}}
+        {% endif %}
+        {% if pedido.estado is equalto 'aberto' %} 
+            <form method="post" action="/aceitar"> 
+                <input type="submit" name="aceitar" id="aceitar" value="aceitar"/>
+                <input type="hidden" name="id" value={{pedido.item}} />
+                <input type="hidden" name="interessado" value="{{pedido.interessado}}"/>
+            </form> 
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+    

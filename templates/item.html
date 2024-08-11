@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>item</title> 
+    </head> 
+    <body> 
+        <dd>id: {{item.id}}</dd>
+        <dd>nome: {{item.nome}}</dd>
+        <dd>descrição: {{item.descricao}}</dd>
+        <dd>foto: {{item.foto}}</dd>
+        <dd>disponibilidade: {{item.disponivel}}</dd>
+        <form method="post" action="/requisitar"> 
+            <input type="submit" name="requisitar" id="requisitar" value="requisitar"/>
+            <input type="hidden" name="id" value={{item.id}} />
+        </form> 
+        <br>
+        <br>
+        Comentatios:
+        <br>
+        <br>
+        {% for comentador in comentarios.keys() %}
+            <li>{{comentador}}</li>
+            <p style="text-indent:30px;">
+                {{comentarios[comentador].comentario}}
+            </p>
+        {% endfor %}
+    </body> 
+</html>
