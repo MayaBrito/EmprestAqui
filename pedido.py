@@ -1,5 +1,5 @@
 class Pedido:
-    def __init__(self,estado:str,item:str,interessado:str,interessado_contato:str=None,fornecedor_contato:str=None):
+    def __init__(self,estado:str,item:int,interessado:int,interessado_contato:str=None,fornecedor_contato:str=None):
         self._estado = estado
         self._item = item
         self._interessado = interessado
@@ -12,7 +12,7 @@ class Pedido:
         return self._estado
     
     @property
-    def interessado(self)-> str:
+    def interessado(self)-> int:
         """get para o interessado no pedido"""
         return self._interessado
     
@@ -27,7 +27,7 @@ class Pedido:
         return self._fornecedor_contato
     
     @property
-    def item(self)-> str:
+    def item(self)-> int:
         """get para o id do item"""
         return self._item
     

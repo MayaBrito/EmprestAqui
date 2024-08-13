@@ -1,2 +1,3 @@
 shell.nix
 __pycache__/
+.venv

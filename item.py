@@ -1,8 +1,8 @@
 from comentario import Comentario
 
 class Item:
-    _comentarios:dict[str,Comentario] = {}
-    def __init__(self,id:int,nome:str,dono_id:str,preco:float=None,desc:str=None,foto:str=None,disponivel:bool=True):
+    _comentarios:dict[int,Comentario] = {}
+    def __init__(self,id:int,nome:str,dono_id:int,preco:float=None,desc:str=None,foto:str=None,disponivel:bool=True):
         self._id = id
         self._nome = nome
         self._preco = preco
@@ -18,7 +18,7 @@ class Item:
         return self._id
     
     @property
-    def dono_id(self)->str:
+    def dono_id(self)->int:
         """get para o id do dono"""
         return self._dono_id
 

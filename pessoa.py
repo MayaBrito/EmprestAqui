@@ -3,12 +3,13 @@ from item import Item
 from pedido import Pedido
 
 class Pessoa:
-    _comentarios:dict[str,Comentario] = {}
-    _itens:dict[str,Item] = {}
+    _comentarios:dict[int,Comentario] = {}
+    _itens:dict[int,Item] = {}
     _pedidos_feitos:dict[int,Pedido] = {}
     _pedidos_recebidos:dict[(str,int),Pedido] = {} #item_id,interessado_id
-    def __init__(self,nome:str,desc:str,contato:str,senha:str):
+    def __init__(self,nome:str,desc:str,contato:str,senha:str, id: int = 0):
         self._nome = nome
+        self._id = id
         self._desc = desc
         self._contato = contato
         #TODO telefone
