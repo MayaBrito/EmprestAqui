@@ -1,32 +1,32 @@
-from comentario import Comentario
+from comment import Comment
 from item import Item
-from pessoa import Pessoa
-from pedido import Pedido
+from person import Person
+from request import Request
 from utils import read_csv
-from engine_busca import Engine
-from formulario import Formulario
+from engine_search import Engine
+from forms import Forms
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for
 
 app = Flask(__name__)
-usuarios = {}
+users = {}
 itens = {}
 
-def verifica_usuario() ->(str,bool):
-    nome = request.cookies.get("username")
-    senha = request.cookies.get("password")
+def check_user() ->(str,bool):
+    name = request.cookies.get("username")
+    password = request.cookies.get("password")
     err = False
-    if not valida_senha(nome,senha):
+    if not validate_password(name,password):
         err = True
-    return nome, err
+    return name, err
 
-def valida_senha(nome,senha):
-    vazio = (usuario == None or senha == None)
-    conta_real = nome in usuarios.keys()
-    return not vazio and conta_real and (usuarios[nome].senha == senha)
+def validate_password(name,password):
+    null = (user == None or password == None)
+    real_account = name in users.keys()
+    return not null and real_account and (users[name].password == password)
 
 @app.route('/',methods=['GET'])
 def Login():
-    usuario,err = verifica_usuario()
+    user,err = check_user()
     if err:
         return render_template('login.html')
     else:
@@ -36,170 +36,170 @@ def Login():
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'POST': 
-        nome = request.form['username']
-        senha = request.form['password']
-        if valida_senha(nome,senha):
+        name = request.form['username']
+        password = request.form['password']
+        if validate_password(name,password):
             resp = make_response(redirect(url_for('menu'))) 
-            resp.set_cookie('username', nome)
-            resp.set_cookie('password',senha)
+            resp.set_cookie('username', name)
+            resp.set_cookie('password',password)
         else:
-            output = "usuário ou senha erradas" 
+            output = "wrong username or password" 
             resp = make_response(output) 
     return resp
 
-@app.route('/registrar',methods=['GET','POST'])
-def registrar():
+@app.route('/register',methods=['GET','POST'])
+def register():
     return render_template('register.html')
 
-@app.route('/confirmacao', methods = ['GET','POST']) 
-def confirmacao(): 
+@app.route('/confirmation', methods = ['GET','POST']) 
+def confirmation(): 
     if request.method == 'POST': 
-        nome = request.form['username']
-        descricao = request.form['description']
-        contato = request.form['contato']
-        senha = request.form['password']
-        if nome not in usuarios:
-            novo_usuario = Pessoa(nome,descricao,contato,senha)
-            usuarios[nome] = novo_usuario
+        name = request.form['username']
+        desc = request.form['description']
+        phone = request.form['phone']
+        password = request.form['password']
+        if name not in users:
+            new_user = Person(name,desc,phone,password)
+            users[name] = new_user
             resp = make_response(redirect(url_for('menu')))
-            resp.set_cookie('username', nome)
-            resp.set_cookie('password',senha)
+            resp.set_cookie('username', name)
+            resp.set_cookie('password',password)
         else:
-            output = "usuario já cadastrado com esse nome" 
+            output = "user already registered with this name" 
             resp = make_response(output) 
     return resp
 
 @app.route('/menu',methods=['GET','POST'])
 def menu():
-    usuario,err = verifica_usuario()
+    user,err = check_user()
     if err:
         return redirect("/")
 
-    pesquisa = Formulario(request.form)
+    search = Forms(request.form)
     if request.method == 'POST':
-        return resultados(pesquisa,usuario)
+        return results(search,user)
     else:
-        return render_template('index.html', form=pesquisa,nome=usuario)
+        return render_template('index.html', form=search,name=user)
 
 
-@app.route('/resultados')
-def resultados(pesquisa,usuario):
-    resultados = []
-    texto_pesquisa = pesquisa.data['pesquisa']
-    filtro = pesquisa.data['filtro']
-    resultados = engine.buscar(texto_pesquisa,filtro)
+@app.route('/results')
+def results(search,user):
+    results = []
+    text_search = search.data['search']
+    filter = search.data['filter']
+    results = engine.search(text_search,filter)
 
-    if len(resultados) == 0:
-        #flash('sem resultados, tente novamente!') 
+    if len(results) == 0:
+        #flash('sem results, tente novamente!') 
         return redirect(url_for('menu'))
     else:
-        return render_template('results.html', results=resultados)
+        return render_template('results.html', results=results)
 
 @app.route('/item')
 def item():
     item_id = int(request.args['id'])
     if item_id not in itens.keys():
-        output = "item inexistente" 
+        output = "non-existent item" 
         resp = make_response(output)
         return resp
     else:
         item = itens[item_id]
-        return render_template('item.html',item=item,comentarios=item.comentarios)
+        return render_template('item.html',item=item,comments=item.comments)
 
-@app.route('/requisitar',methods=['GET','POST'])
-def requisitar():
-    nome, err = verifica_usuario()
+@app.route('/requisition',methods=['GET','POST'])
+def requisition():
+    name, err = check_user()
     if err:
         return redirect("/")
     item_id = int(request.form["id"])
-    usuario = usuarios[nome]
-    vendedor = usuarios[itens[item_id].dono_id]
-    novo_pedido = Pedido("aberto",item_id,nome,usuario.contato,vendedor.contato)
-    usuario.pedidos_feitos[item_id] = novo_pedido
-    vendedor.pedidos_recebidos[(item_id,nome)] = novo_pedido
-    return redirect(url_for("pedidos_feitos_abertos"))
+    user = users[name]
+    seller = users[itens[item_id].owner_id]
+    new_request = Request("open",item_id,name,user.phone,seller.phone)
+    user.requests_made[item_id] = new_request
+    seller.received_requests[(item_id,name)] = new_request
+    return redirect(url_for("open_requests"))
 
-@app.route('/aceitar',methods=['GET','POST'])
-def aceitar():
-    nome, err = verifica_usuario()
+@app.route('/accept',methods=['GET','POST'])
+def accept():
+    name, err = check_user()
     if err:
         return redirect("/")
     item_id = int(request.form["id"])
-    usuario = usuarios[nome]
-    interessado = request.form["interessado"]
-    usuario.pedidos_recebidos[(item_id,interessado)].estado = 'aceito'
-    return redirect(url_for("pedidos_recebidos_abertos"))
+    user = users[name]
+    interested = request.form["interested"]
+    user.received_requests[(item_id,interested)].state = 'accepted'
+    return redirect(url_for("open_received_requests"))
 
-@app.route('/publicar_item')
-def publicar():
-    return render_template('publicar_item.html')
+@app.route('/publish_item')
+def publish():
+    return render_template('publish_item.html')
 
-@app.route('/avaliar_pubicacao',methods=['GET','POST'])
-def avaliar_pubicacao():
-    usuario, err= verifica_usuario()
+@app.route('/evaluate_publication',methods=['GET','POST'])
+def evaluate_publication():
+    user, err= check_user()
     if err:
         return redirect("/") 
-    nome = request.form['nome']
-    descricao = request.form['descricao']
-    foto = request.form['foto']
+    name = request.form['name']
+    desc = request.form['desc']
+    photo = request.form['photo']
     item_id = len(itens)
-    novo_item = Item(item_id,nome,dono_id=usuario,desc=descricao,foto=foto)
-    usuarios[usuario].publica_item(novo_item)
-    itens[item_id] = novo_item
-    engine.adicionar_item(novo_item)
+    new_item = Item(item_id,name,owner_id=user,desc=desc,photo=photo)
+    users[user].publica_item(new_item)
+    itens[item_id] = new_item
+    engine.adicionar_item(new_item)
     return make_response(redirect(url_for('menu'))) 
 
-@app.route('/usuario')#meus itens postados
-def usuario():
-    nome, err = verifica_usuario()
-    usuario = usuarios[nome]
+@app.route('/user')#meus itens postados
+def user():
+    name, err = check_user()
+    user = users[name]
     if err:
         return redirect("/")
-    return render_template('usuario.html', usuario=usuario)
+    return render_template('user.html', user=user)
 
-@app.route('/pedidos_recebidos_abertos')
-def pedidos_recebidos_abertos():
-    nome, err = verifica_usuario()
-    usuario = usuarios[nome]
+@app.route('/open_received_requests')
+def open_received_requests():
+    name, err = check_user()
+    user = users[name]
     if err:
         return redirect("/")
-    return render_template('pedidos_recebidos_abertos.html',pedidos=usuario.pedidos_recebidos,itens=itens)
+    return render_template('open_received_requests.html',requests=user.received_requests,itens=itens)
 
-@app.route('/pedidos_feitos_abertos')
-def pedidos_feitos_abertos():
-    nome, err = verifica_usuario()
-    usuario = usuarios[nome]
+@app.route('/open_requests')
+def open_requests():
+    name, err = check_user()
+    user = users[name]
     if err:
         return redirect("/")
     
-    return render_template('pedidos_feitos_abertos.html',pedidos=usuario.pedidos_feitos,itens=itens)   
+    return render_template('open_requests.html',requests=user.requests_made,itens=itens)   
 
 if __name__ == '__main__':
-    programadores = [
-        Pessoa("joão", "henrrique", "99999999","xavier"),
-        Pessoa("guilherme","silva", "88888888","toledo")
+    programmers = [
+        Person("joão", "henrrique", "99999999","xavier"),
+        Person("guilherme","silva", "88888888","toledo")
     ]
     bananas = [
         Item(1,"banana maçã","joão"),
         Item(2,"banana nanica","joão"),
         Item(3,"maçã","joão"),
         Item(4,"banana prata","joão"),
-        Item(5,"banana nevada","guilherme",desc="da gromis",foto="https://receitinhas.com.br/receita/pizza-de-banana-nevada/")
+        Item(5,"banana nevada","guilherme",desc="da gromis",photo="https://receitinhas.com.br/receita/pizza-de-banana-nevada/")
     ]
-    bananas[-1].comentarios["carlos"] = Comentario("achei ruim\nbem ruim\nnão é lá essas coisas",2)
-    pedido_1 = Pedido('aberto',1,programadores[1].nome,programadores[1].contato,programadores[0].contato)
-    pedido_2 = Pedido('aceito',5,programadores[0].nome,programadores[0].contato,programadores[1].contato)
-    programadores[0].pedidos_recebidos[(pedido_1.item,pedido_1.interessado)] = pedido_1
-    programadores[1].pedidos_feitos[pedido_1.item] = pedido_1
-    programadores[1].pedidos_recebidos[(pedido_2.item,pedido_2.interessado)] = pedido_2
-    programadores[0].pedidos_feitos[pedido_2.item] = pedido_2
+    bananas[-1].comments["carlos"] = Comment("achei ruim\nbem ruim\nnão é lá essas coisas",2)
+    request_1 = Request('open',1,programmers[1].name,programmers[1].phone,programmers[0].phone)
+    request_2 = Request('accepted',5,programmers[0].name,programmers[0].phone,programmers[1].phone)
+    programmers[0].received_requests[(request_1.item,request_1.interested)] = request_1
+    programmers[1].requests_made[request_1.item] = request_1
+    programmers[1].received_requests[(request_2.item,request_2.interested)] = request_2
+    programmers[0].requests_made[request_2.item] = request_2
 
-    for p in programadores:
-        usuarios[p.nome] = p
+    for p in programmers:
+        users[p.name] = p
 
     for b in bananas:
         itens[b.id] = b
-        usuarios[b.dono_id].itens[b.id] = b
+        users[b.owner_id].itens[b.id] = b
 
     engine = Engine(bananas)
     app.run()

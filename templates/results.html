@@ -1,8 +1,8 @@
 <doctype html>
-<title>resultados</title>
+<title>Resultados</title>
 <h1>Members</h1>
 <ul>
 {% for post in results %}
-  <li><a href="./{{url_for('item',id=post.id)}}" >{{ post.nome|e }}</a></li>
+  <li><a href="./{{url_for('item',id=post.id)}}" >{{ post.name|e }}</a></li>
 {% endfor %}
 </ul>
