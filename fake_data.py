@@ -24,20 +24,26 @@ class DataFakerConfig:
         # Number of requests
         self._requests_n: int = requests_n
         # Generates number of comments per person
+
         def default_comments_per_person() -> Generator[int, None, None]:
             while True:
                 yield 20
-        self._comments_per_person = gen_comments_per_person() if gen_comments_per_person else default_comments_per_person()
+        self._comments_per_person = gen_comments_per_person(
+        ) if gen_comments_per_person else default_comments_per_person()
         # Generates number of items per person
+
         def default_items_per_person() -> Generator[int, None, None]:
             while True:
                 yield 10
-        self._items_per_person = gen_items_per_person() if gen_items_per_person else default_items_per_person()
+        self._items_per_person = gen_items_per_person(
+        ) if gen_items_per_person else default_items_per_person()
         # Generates number of comments per item
+
         def default_comments_per_item() -> Generator[int, None, None]:
             while True:
                 yield 30
-        self._comments_per_item = gen_comments_per_item() if gen_comments_per_item else default_comments_per_item()
+        self._comments_per_item = gen_comments_per_item(
+        ) if gen_comments_per_item else default_comments_per_item()
 
     @property
     def comments_per_item(self) -> int:
@@ -65,10 +71,12 @@ class DataFaker:
         self._item_id_seq = -1
         self._person_id_seq = -1
         self._comment_id_seq = -1
+        self._request_id_seq = -1
+
         self._people: dict[int, Pessoa] = {}
         self._comments: dict[int, Comentario] = {}
         self._items: dict[int, Item] = {}
-        self._requests: dict[(int, int), Pedido] = {} # Item id, Interested id
+        self._requests: dict[int, Pedido] = {}  # Item id, Interested id
 
     @property
     def people(self) -> dict[int, Pessoa]:
@@ -110,18 +118,16 @@ class DataFaker:
                         other_p_id = math.ceil(random() * cfg.people_n)
 
                     item._comentarios[other_p_id] = c
-                
+
                 p._itens[item.id] = item
 
         # Creating requests for people
         requests = self.fake_requests(fk, cfg.requests_n)
         for req in requests.values():
             interested = self._people[req.interessado]
-            print(self._items[req.item].dono_id)
             owner = self._people[self._items[req.item].dono_id]
             owner._pedidos_recebidos[(req.item, req.interessado)] = req
             interested._pedidos_feitos[req.item] = req
-
 
     def _fake_n(self, fk: Faker, n: int, fake_fn: Callable[[Faker], tuple[any, any]]) -> dict[any, any]:
         l = {}
@@ -138,8 +144,8 @@ class DataFaker:
         return new_comments
 
     def fake_comment(self, fk: Faker) -> tuple[Comentario, int]:
-        self._comment_id_seq+=1
-        return Comentario(fk.text(), fk.random_int(0, 10)), self._comment_id_seq
+        self._comment_id_seq += 1
+        return Comentario(fk.text(), fk.random_int(0, 10), self._comment_id_seq), self._comment_id_seq
 
     def fake_items(self, fk: Faker, n: int = 1) -> dict[int, Item]:
         new_items = self._fake_n(fk, n, self.fake_item)
@@ -154,23 +160,24 @@ class DataFaker:
         desc = fk.text(200)
         return Item(self._item_id_seq, name, 0, price, desc), self._item_id_seq
 
-    def fake_requests(self, fk: Faker, n: int = 1) -> dict[(int, int), Pedido]:
+    def fake_requests(self, fk: Faker, n: int = 1) -> dict[int, Pedido]:
         new_requests = self._fake_n(fk, n, self.fake_request)
         self._requests.update(new_requests)
         return new_requests
 
-    def fake_request(self, fk: Faker, n: int = 1) -> tuple[Pedido, (int, int)]:
+    def fake_request(self, fk: Faker, n: int = 1) -> tuple[Pedido, int]:
+        self._request_id_seq += 1
         estado = fk.state()
         item_id = math.ceil(random() * self._item_id_seq)
         item = self._items[item_id]
         owner = self._people[item.dono_id]
 
         interested_id = item.dono_id
-        while interested_id != item.dono_id:
+        while interested_id == item.dono_id:
             interested_id = math.ceil(random() * self._person_id_seq)
         interested = self._people[interested_id]
 
-        return Pedido(estado, item_id, interested_id, interested.contato, owner.contato), (item_id, interested_id)
+        return Pedido(estado, item_id, interested_id, interested.contato, owner.contato, self._request_id_seq), self._request_id_seq
 
     def fake_people(self, fk: Faker, n: int = 1) -> dict[int, Pessoa]:
         new_people = self._fake_n(fk, n, self.fake_person)
@@ -194,5 +201,7 @@ if __name__ == "__main__":
     seed(42)  # Seed for python's random
 
     dfk.create_fake_data(fk, cfg)
-    # with open('people.json', 'w') as f:
-    #     f.write(json.dumps(dfk.people))
+    for resource in ["people", "comments", "items", "requests"]:
+        with open(f'{resource}.json', 'w') as f:
+            f.write(json.dumps(dfk.__getattribute__(
+                resource), default=lambda x: x.to_dict()))
