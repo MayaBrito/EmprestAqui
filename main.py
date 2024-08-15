@@ -144,7 +144,7 @@ def evaluate_publication():
     photo = request.form['photo']
     item_id = len(itens)
     new_item = Item(item_id,name,owner_id=user,desc=desc,photo=photo)
-    users[user].publica_item(new_item)
+    users[user].itens[item_id] = new_item
     itens[item_id] = new_item
     engine.adicionar_item(new_item)
     return make_response(redirect(url_for('menu'))) 
@@ -180,11 +180,11 @@ if __name__ == '__main__':
         Person("guilherme","silva", "88888888","toledo")
     ]
     bananas = [
-        Item(1,"banana maçã","joão"),
-        Item(2,"banana nanica","joão"),
-        Item(3,"maçã","joão"),
-        Item(4,"banana prata","joão"),
-        Item(5,"banana nevada","guilherme",desc="da gromis",photo="https://receitinhas.com.br/receita/pizza-de-banana-nevada/")
+        Item(0,"banana maçã","joão"),
+        Item(1,"banana nanica","joão"),
+        Item(2,"maçã","joão"),
+        Item(3,"banana prata","joão"),
+        Item(4,"banana nevada","guilherme",desc="da gromis",photo="https://receitinhas.com.br/receita/pizza-de-banana-nevada/")
     ]
     bananas[-1].comments["carlos"] = Comment("achei ruim\nbem ruim\nnão é lá essas coisas",2)
     request_1 = Request('open',1,programmers[1].name,programmers[1].phone,programmers[0].phone)
