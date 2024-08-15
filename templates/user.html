@@ -1,0 +1,14 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>item</title> 
+    </head> 
+    <body> 
+        <dd>nome: {{user.name}}</dd>
+        <dd>descrição: {{user.desc}}</dd>
+        <dd>telefone: {{user.phone}}</dd>
+        {% for item in user.itens.values() %}
+            <li><a href="./{{url_for('item',id=item.id)}}" >{{ item.name|e }}</a></li>
+        {% endfor %}
+    </body> 
+</html>

@@ -1,0 +1,21 @@
+<doctype html>
+    <title>Pedidos feitos abertos</title>
+    <h1>Pedidos feitos</h1>
+    <ul>
+    {% for request in requests.values() %}
+      <li>
+        {% if request.state is equalto 'accepted' %} 
+            request accepted de
+        {% endif %}
+        <a href="./{{url_for('item',id=request.item)}}" >{{ itens[request.item].name|e }}</a>
+        {% if request.state is equalto 'accepted' %} 
+            Entre em phone:{{request.supplier_contact}}
+        {% endif %}
+      </li>
+      <!-- <form method="post" action="/cancelar"> 
+        <input type="submit" name="requisition" id="requisition" value="requisition"/>
+        <input type="hidden" name="id" value={{request.item}} />
+      </form>  -->
+    {% endfor %}
+    </ul>
+    

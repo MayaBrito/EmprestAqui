@@ -14,16 +14,16 @@
 </ul>
 {% endif %}
 {% endwith %}
-<dd><a href="./usuario">{{nome}}</a></dd>
-<li><a href="./publicar_item">Publicar item</a></li>
-<li><a href="./pedidos_recebidos_abertos">Pedidos recebidos</a></li>
-<li><a href="./pedidos_feitos_abertos">Pedidos feitos</a></li>
+<dd><a href="./user">{{name}}</a></dd>
+<li><a href="./publish_item">Publicar item</a></li>
+<li><a href="./open_received_requests">Pedidos recebidos</a></li>
+<li><a href="./open_requests">Pedidos feitos</a></li>
 {% from "_formhelper.html" import render_field %}
 <form method=post>
     <dl>
-    {{ render_field(form.filtro) }}
+    {{ render_field(form.filter) }}
     <p>
-    {{ render_field(form.pesquisa) }}
+    {{ render_field(form.search) }}
     </dl>
-    <p><input type=submit value=buscar>
+    <p><input type=submit value=Buscar>
 </form>

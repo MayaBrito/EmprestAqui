@@ -1,16 +1,16 @@
-from comentario import Comentario
+from comment import Comment
 
 class Item:
-    _comentarios:dict[str,Comentario] = {}
-    def __init__(self,id:int,nome:str,dono_id:str,preco:float=None,desc:str=None,foto:str=None,disponivel:bool=True):
+    _comments:dict[str,Comment] = {}
+    def __init__(self,id:int,name:str,owner_id:str,preco:float=None,desc:str=None,photo:str=None,available:bool=True):
         self._id = id
-        self._nome = nome
+        self._name = name
         self._preco = preco
         self._desc = desc
-        self._foto = foto
-        self._disponivel = disponivel
-        self._dono_id = dono_id
-        self._comentarios = {}
+        self._photo = photo
+        self._disponivel = available
+        self._owner_id = owner_id
+        self._comments = {}
     
     @property
     def id(self)->int:
@@ -18,15 +18,15 @@ class Item:
         return self._id
     
     @property
-    def dono_id(self)->str:
+    def owner_id(self)->str:
         """get para o id do dono"""
-        return self._dono_id
+        return self._owner_id
 
 
     @property
-    def nome(self)-> str:
-        """get para o nome do item"""
-        return self._nome
+    def name(self)-> str:
+        """get para o name do item"""
+        return self._name
     
     @property
     def preco(self)-> str:
@@ -34,38 +34,38 @@ class Item:
         return self._preco
     
     @property
-    def descricao(self)-> str:
-        """get para a descricao do item"""
+    def desc(self)-> str:
+        """get para a desc do item"""
         return self._desc
     
     @property
-    def foto(self)->str:
-        """get para a foto do item"""
-        return self._foto
+    def photo(self)->str:
+        """get para a photo do item"""
+        return self._photo
 
     @property
-    def comentarios(self)->dict[str,Comentario]:
-        """get para os comentarios do item"""
-        return self._comentarios
+    def comments(self)->dict[str,Comment]:
+        """get para os comments do item"""
+        return self._comments
 
     @property
-    def disponivel(self)->bool:
+    def available(self)->bool:
         """get para a disponibilidade do item"""
         return self._disponivel
     
-    @disponivel.setter
-    def disponivel(self,valor:bool):
+    @available.setter
+    def available(self,value:bool):
         """set para a disponibilidade do item"""
-        self._disponivel = valor
+        self._disponivel = value
 
     @classmethod
     def get_nota_media(self)->float:
-        numero_comentarios:float = float(len(self._comentarios))
-        total_notas:float = 0.0
-        for comentario in self._comentarios.values():
-            total_notas += comentario.get_nota()
-        return total_notas/numero_comentarios
+        numero_comments:float = float(len(self._comments))
+        total_score:float = 0.0
+        for comment in self._comments.values():
+            total_score += comment.get_nota()
+        return total_score/numero_comments
     
     @classmethod
-    def adiciona_comentario(self,pessoa,comentario:Comentario)->None:
-        self._comentarios[pessoa.nome] = comentario
+    def adiciona_comment(self,person,comment:Comment)->None:
+        self._comments[person.name] = comment
