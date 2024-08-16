@@ -12,30 +12,37 @@ emailsearch = {}
 users = {}
 itens = {}
 
-def save_item(name,owner_id,desc,photo,available):
+# helper function for saving item
+def save_item(name,owner_id,desc,photo,available) -> int:
     item_id = len(itens)
     item_instance = Item(item_id,name,owner_id,desc,photo,available)
     itens[item_instance.id] = item_instance
     users[item_instance.owner_id].itens[item_instance.id] = item_instance
     return item_id
 
-def save_user(name,password,phone,email,city,resp=None):
+# helper fuction for saving user
+def save_user(name,password,phone,email,city,resp=None) -> int:
     user_id = len(users)
     new_user = Person(user_id,name,password,phone,email,city)
     users[user_id] = new_user
     emailsearch[email] = user_id
     return user_id
 
+# helper function for saving cookies
 def save_cookies(resp,email,password):
     resp.set_cookie('email', email)
     resp.set_cookie('password',password)
     return resp
 
+# helper function for creating a request object and applyting it to users
 def make_request(item_id,interested_id,supplier_id,state='open'):
     new_request = Request('open',item_id,interested_id,supplier_id)
     users[supplier_id].received_requests[(item_id,interested_id)] = new_request
     users[interested_id].requests_made[item_id] = new_request
 
+#TODO helper function to create comments
+
+# simple user validation implement saver metods if made into a comercial product
 def check_user() ->(str,bool):
     email = request.cookies.get("email")
     password = request.cookies.get("password")
@@ -44,7 +51,8 @@ def check_user() ->(str,bool):
         err = True
     return email, err
 
-def validate_password(email,password):
+# simple password checking implement at least hashing if made into a comercial product
+def validate_password(email,password) ->bool:
     null = (email == None or password == None)
     real_account = email in emailsearch.keys()
     return not null and real_account and (
@@ -52,7 +60,7 @@ def validate_password(email,password):
         )
 
 @app.route('/',methods=['GET'])
-def Login():
+def default():
     resp = make_response(redirect(url_for('menu'))) 
     return resp
 
@@ -150,7 +158,7 @@ def accept_request():
     return redirect(url_for("open_received_requests"))
 
 @app.route('/publish_item',methods=['GET','POST'])
-def publish():
+def publish_item():
     email, err = check_user()
     if err:
         return render_template('login.html')
