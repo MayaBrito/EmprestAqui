@@ -14,12 +14,18 @@
 </ul>
 {% endif %}
 {% endwith %}
-<form method="post" action="/user">
-    <input type="submit" name="user" id="usar" value="👤"/>
+<form method="post" action="/change_location">
+    <input type="submit" name="change_location" id="change_location" value="📍"/>
 </form>
-<li><a href="./publish_item">Publicar item</a></li>
+<form method="post" action="/user">
+    <input type="submit" name="user" id="user" value="👤"/>
+</form>
+<form method="post" action="/login">
+    <input type="submit" name="exit" id="exit" value="🔚"/>
+</form>
+<!-- <li><a href="./publish_item">Publicar item</a></li>
 <li><a href="./open_received_requests">Pedidos recebidos</a></li>
-<li><a href="./open_requests">Pedidos feitos</a></li>
+<li><a href="./open_requests">Pedidos feitos</a></li> -->
 {% from "_formhelper.html" import render_field %}
 <form method=post>
     <dl>

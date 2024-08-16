@@ -66,6 +66,10 @@ def default():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
+    return render_template('login.html')
+
+@app.route('/login_confirmation',methods=['GET','POST'])
+def login_confirmation():
     if request.method == 'POST': 
         email = request.form['email']
         password = request.form['password']
@@ -187,6 +191,16 @@ def user():
         return render_template('login.html')
     user = users[emailsearch[email]]
     return render_template('user.html', user=user)
+
+@app.route('/change_location',methods=['GET','POST'])
+def change_location():
+    email, err = check_user()
+    if err:
+        return render_template('login.html')
+    user = users[emailsearch[email]]
+    output = "not implemented yet" 
+    resp = make_response(output)
+    return resp
 
 @app.route('/open_received_requests',methods=['GET','POST'])
 def open_received_requests():
