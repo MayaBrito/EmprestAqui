@@ -14,7 +14,9 @@
 </ul>
 {% endif %}
 {% endwith %}
-<dd><a href="./user">{{name}}</a></dd>
+<form method="post" action="/user">
+    <input type="submit" name="user" id="usar" value="👤"/>
+</form>
 <li><a href="./publish_item">Publicar item</a></li>
 <li><a href="./open_received_requests">Pedidos recebidos</a></li>
 <li><a href="./open_requests">Pedidos feitos</a></li>

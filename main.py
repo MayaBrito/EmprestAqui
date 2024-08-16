@@ -8,40 +8,60 @@ from forms import Forms
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for
 
 app = Flask(__name__)
+emailsearch = {}
 users = {}
 itens = {}
 
+def save_user(resp,name,password,phone,email,city):
+    new_id = len(users)
+    new_user = Person(new_id,name,password,phone,email,city)
+    users[new_id] = new_user
+    emailsearch[email] = new_id
+    resp.set_cookie('email', name)
+    resp.set_cookie('password',password)
+    return resp
+
+def save_cookies(resp,email,password):
+    resp.set_cookie('email', email)
+    resp.set_cookie('password',password)
+    return resp
+
 def check_user() ->(str,bool):
-    name = request.cookies.get("username")
+    email = request.cookies.get("email")
     password = request.cookies.get("password")
     err = False
-    if not validate_password(name,password):
+    if not validate_password(email,password):
         err = True
-    return name, err
+    return email, err
 
-def validate_password(name,password):
-    null = (user == None or password == None)
-    real_account = name in users.keys()
-    return not null and real_account and (users[name].password == password)
+def validate_password(email,password):
+    # print(email,password)
+    # print(emailsearch)
+    # users[emailsearch[email]].password
+    null = (email == None or password == None)
+    real_account = email in emailsearch.keys()
+    return not null and real_account and (
+        users[emailsearch[email]].password == password
+        )
 
 @app.route('/',methods=['GET'])
 def Login():
-    user,err = check_user()
-    if err:
-        return render_template('login.html')
-    else:
-        resp = make_response(redirect(url_for('menu'))) 
-        return resp
+    # user,err = check_user()
+    # if err:
+    #     return render_template('login.html')
+    # else:
+    resp = make_response(redirect(url_for('menu'))) 
+    return resp
 
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'POST': 
-        name = request.form['username']
+        email = request.form['email']
         password = request.form['password']
-        if validate_password(name,password):
+        if validate_password(email,password):
             resp = make_response(redirect(url_for('menu'))) 
-            resp.set_cookie('username', name)
-            resp.set_cookie('password',password)
+            resp = save_cookies(resp,email,password)
+            return resp
         else:
             output = "wrong username or password" 
             resp = make_response(output) 
@@ -55,25 +75,24 @@ def register():
 def confirmation(): 
     if request.method == 'POST': 
         name = request.form['username']
-        desc = request.form['description']
-        phone = request.form['phone']
         password = request.form['password']
-        if name not in users:
-            new_user = Person(name,desc,phone,password)
-            users[name] = new_user
+        phone = request.form['phone']
+        email = request.form['email']
+        city = request.form['city']
+        if email not in emailsearch:
             resp = make_response(redirect(url_for('menu')))
-            resp.set_cookie('username', name)
-            resp.set_cookie('password',password)
+            save_user(resp,name,password,phone,email,city)
+            return resp
         else:
-            output = "user already registered with this name" 
+            output = "user already registered with this email" 
             resp = make_response(output) 
     return resp
 
 @app.route('/menu',methods=['GET','POST'])
 def menu():
-    user,err = check_user()
-    if err:
-        return redirect("/")
+    # user,err = check_user()
+    # if err:
+    #     return redirect("/")
 
     search = Forms(request.form)
     if request.method == 'POST':
@@ -106,96 +125,111 @@ def item():
         item = itens[item_id]
         return render_template('item.html',item=item,comments=item.comments)
 
-@app.route('/requisition',methods=['GET','POST'])
-def requisition():
-    name, err = check_user()
+@app.route('/item_request',methods=['GET','POST'])
+def item_request():
+    email, err = check_user()
     if err:
-        return redirect("/")
+        return render_template('login.html')
     item_id = int(request.form["id"])
-    user = users[name]
+    user = users[emailsearch[email]]
     seller = users[itens[item_id].owner_id]
     new_request = Request("open",item_id,name,user.phone,seller.phone)
     user.requests_made[item_id] = new_request
     seller.received_requests[(item_id,name)] = new_request
     return redirect(url_for("open_requests"))
 
-@app.route('/accept',methods=['GET','POST'])
+@app.route('/accept_request',methods=['GET','POST'])
 def accept():
-    name, err = check_user()
+    email, err = check_user()
     if err:
-        return redirect("/")
+        return render_template('login.html')
     item_id = int(request.form["id"])
-    user = users[name]
+    user = users[emailsearch[email]]
     interested = request.form["interested"]
     user.received_requests[(item_id,interested)].state = 'accepted'
     return redirect(url_for("open_received_requests"))
 
-@app.route('/publish_item')
+# @app.route('/reject_request',methods=['GET','POST'])
+# def accept():
+#     email, err = check_user()
+#     if err:
+#         return render_template('login.html')
+#     item_id = int(request.form["id"])
+#     user = users[emailsearch[email]]
+#     interested = request.form["interested"]
+#     user.received_requests[(item_id,interested)].state = 'accepted'
+#     return redirect(url_for("open_received_requests"))
+
+@app.route('/publish_item',methods=['GET','POST'])
 def publish():
+    email, err = check_user()
+    if err:
+        return render_template('login.html')
     return render_template('publish_item.html')
 
 @app.route('/evaluate_publication',methods=['GET','POST'])
 def evaluate_publication():
-    user, err= check_user()
+    email, err= check_user()
     if err:
-        return redirect("/") 
+        return render_template('login.html')
     name = request.form['name']
     desc = request.form['desc']
     photo = request.form['photo']
     item_id = len(itens)
-    new_item = Item(item_id,name,owner_id=user,desc=desc,photo=photo)
-    users[user].itens[item_id] = new_item
+    user = users[emailsearch[email]]
+    new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo)
+    user.itens[item_id] = new_item
     itens[item_id] = new_item
     engine.adicionar_item(new_item)
     return make_response(redirect(url_for('menu'))) 
 
-@app.route('/user')#meus itens postados
+@app.route('/user',methods=['GET','POST'])#meus itens postados
 def user():
-    name, err = check_user()
-    user = users[name]
+    email, err = check_user()
     if err:
-        return redirect("/")
+        return render_template('login.html')
+    user = users[emailsearch[email]]
     return render_template('user.html', user=user)
 
-@app.route('/open_received_requests')
+@app.route('/open_received_requests',methods=['GET','POST'])
 def open_received_requests():
-    name, err = check_user()
-    user = users[name]
+    email, err = check_user()
     if err:
-        return redirect("/")
+        return render_template('login.html')
+    user = users[emailsearch[email]]
     return render_template('open_received_requests.html',requests=user.received_requests,itens=itens)
 
-@app.route('/open_requests')
+@app.route('/open_requests',methods=['GET','POST'])
 def open_requests():
-    name, err = check_user()
-    user = users[name]
+    email, err = check_user()
     if err:
-        return redirect("/")
-    
+        return render_template('login.html')
+    user = users[emailsearch[email]]
     return render_template('open_requests.html',requests=user.requests_made,itens=itens)   
 
 if __name__ == '__main__':
     programmers = [
-        Person("joão", "henrrique", "99999999","xavier"),
-        Person("guilherme","silva", "88888888","toledo")
+        Person(0,"joão", "henrrique", "99999999","xavier@gmail.com","bananeiras"),
+        Person(1,"guilherme","silva", "88888888","toledo@gmail.com","bahia")
     ]
     bananas = [
-        Item(0,"banana maçã","joão"),
-        Item(1,"banana nanica","joão"),
-        Item(2,"maçã","joão"),
-        Item(3,"banana prata","joão"),
-        Item(4,"banana nevada","guilherme",desc="da gromis",photo="https://receitinhas.com.br/receita/pizza-de-banana-nevada/")
+        Item(0,"banana maçã",0),
+        Item(1,"banana nanica",0),
+        Item(2,"maçã",0),
+        Item(3,"banana prata",0),
+        Item(4,"banana nevada",1,desc="da gromis",photo="https://receitinhas.com.br/receita/pizza-de-banana-nevada/")
     ]
     bananas[-1].comments["carlos"] = Comment("achei ruim\nbem ruim\nnão é lá essas coisas",2)
     request_1 = Request('open',1,programmers[1].name,programmers[1].phone,programmers[0].phone)
-    request_2 = Request('accepted',5,programmers[0].name,programmers[0].phone,programmers[1].phone)
+    request_2 = Request('accepted',4,programmers[0].name,programmers[0].phone,programmers[1].phone)
     programmers[0].received_requests[(request_1.item,request_1.interested)] = request_1
     programmers[1].requests_made[request_1.item] = request_1
     programmers[1].received_requests[(request_2.item,request_2.interested)] = request_2
     programmers[0].requests_made[request_2.item] = request_2
 
     for p in programmers:
-        users[p.name] = p
+        users[p.id] = p
+        emailsearch[p.email] = p.id
 
     for b in bananas:
         itens[b.id] = b

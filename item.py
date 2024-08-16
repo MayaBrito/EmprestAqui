@@ -2,10 +2,9 @@ from comment import Comment
 
 class Item:
     _comments:dict[str,Comment] = {}
-    def __init__(self,id:int,name:str,owner_id:str,preco:float=None,desc:str=None,photo:str=None,available:bool=True):
-        self._id = id
+    def __init__(self,item_id:int,name:str,owner_id:str,desc:str=None,photo:str=None,available:bool=True):
+        self._id = item_id
         self._name = name
-        self._preco = preco
         self._desc = desc
         self._photo = photo
         self._disponivel = available
@@ -22,16 +21,15 @@ class Item:
         """get para o id do dono"""
         return self._owner_id
 
-
     @property
     def name(self)-> str:
         """get para o name do item"""
         return self._name
     
     @property
-    def preco(self)-> str:
+    def general_score(self)-> str:
         """get para o preco do item"""
-        return self._preco
+        return sum([c.score for c in self._comments.values()])
     
     @property
     def desc(self)-> str:
