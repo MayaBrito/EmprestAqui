@@ -4,10 +4,10 @@
     <ul>
     {% for request in requests.values() %}
       <li>
-        {{request.interested}} quer:
+        {{users[request.interested].name}} quer:
         <a href="./{{url_for('item',id=request.item_id)}}" >{{ itens[request.item_id].name|e }} </a>
         {% if request.state is equalto 'accepted' %} 
-            entre em phone:{{users[request.interested].phone}}
+            entre em contato:{{users[request.interested].phone}}
         {% endif %}
         {% if request.state is equalto 'open' %} 
             <form method="post" action="/accept_request"> 

@@ -18,7 +18,6 @@ def save_item(name,owner_id,desc,photo,available):
     itens[item_instance.id] = item_instance
     users[item_instance.owner_id].itens[item_instance.id] = item_instance
     return item_id
-    
 
 def save_user(name,password,phone,email,city,resp=None):
     user_id = len(users)
@@ -32,6 +31,11 @@ def save_cookies(resp,email,password):
     resp.set_cookie('password',password)
     return resp
 
+def make_request(item_id,interested_id,supplier_id,state='open'):
+    new_request = Request('open',item_id,interested_id,supplier_id)
+    users[supplier_id].received_requests[(item_id,interested_id)] = new_request
+    users[interested_id].requests_made[item_id] = new_request
+
 def check_user() ->(str,bool):
     email = request.cookies.get("email")
     password = request.cookies.get("password")
@@ -41,9 +45,6 @@ def check_user() ->(str,bool):
     return email, err
 
 def validate_password(email,password):
-    # print(email,password)
-    # print(emailsearch)
-    # users[emailsearch[email]].password
     null = (email == None or password == None)
     real_account = email in emailsearch.keys()
     return not null and real_account and (
@@ -52,10 +53,6 @@ def validate_password(email,password):
 
 @app.route('/',methods=['GET'])
 def Login():
-    # user,err = check_user()
-    # if err:
-    #     return render_template('login.html')
-    # else:
     resp = make_response(redirect(url_for('menu'))) 
     return resp
 
@@ -97,10 +94,6 @@ def confirmation():
 
 @app.route('/menu',methods=['GET','POST'])
 def menu():
-    # user,err = check_user()
-    # if err:
-    #     return redirect("/")
-
     search = Forms(request.form)
     if request.method == 'POST':
         return results(search,user)
@@ -156,17 +149,6 @@ def accept_request():
     user.received_requests[(item_id,interested)].state = 'accepted'
     return redirect(url_for("open_received_requests"))
 
-# @app.route('/reject_request',methods=['GET','POST'])
-# def accept():
-#     email, err = check_user()
-#     if err:
-#         return render_template('login.html')
-#     item_id = int(request.form["id"])
-#     user = users[emailsearch[email]]
-#     interested = request.form["interested"]
-#     user.received_requests[(item_id,interested)].state = 'accepted'
-#     return redirect(url_for("open_received_requests"))
-
 @app.route('/publish_item',methods=['GET','POST'])
 def publish():
     email, err = check_user()
@@ -190,7 +172,7 @@ def evaluate_publication():
     engine.adicionar_item(new_item)
     return make_response(redirect(url_for('menu'))) 
 
-@app.route('/user',methods=['GET','POST'])#meus itens postados
+@app.route('/user',methods=['GET','POST'])
 def user():
     email, err = check_user()
     if err:
@@ -227,12 +209,7 @@ if __name__ == '__main__':
         save_item("banana nevada",programmers[1],"da groomis","receitinhas.com.br/receita/pizza-de-banana-nevada/",True),
     ]
     itens[bananas[-1]].comments["carlos"] = Comment("achei ruim\nbem ruim\nnão é lá essas coisas",2)
-    request_1 = Request('open',bananas[1],programmers[1],programmers[0])
-    request_2 = Request('accepted',bananas[4],programmers[0],programmers[1])
-    users[programmers[0]].received_requests[(request_1.item_id,request_1.interested)] = request_1
-    users[programmers[1]].requests_made[request_1.item_id] = request_1
-    users[programmers[1]].received_requests[(request_2.item_id,request_2.interested)] = request_2
-    users[programmers[0]].requests_made[request_2.item_id] = request_2
-
+    make_request(bananas[1],programmers[1],programmers[0])
+    make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     engine = Engine(itens.values())
     app.run()

@@ -5,11 +5,11 @@
     {% for request in requests.values() %}
       <li>
         {% if request.state is equalto 'accepted' %} 
-            request accepted de
+            pedido aceito de
         {% endif %}
         <a href="./{{url_for('item',id=request.item_id)}}" >{{ itens[request.item_id].name|e }}</a>
         {% if request.state is equalto 'accepted' %} 
-            Entre em phone:{{users[request.supplier].phone}}
+            Entre em contato:{{users[request.supplier].phone}}
         {% endif %}
       </li>
       <!-- <form method="post" action="/cancelar"> 
