@@ -7,9 +7,9 @@
         {% if request.state is equalto 'accepted' %} 
             request accepted de
         {% endif %}
-        <a href="./{{url_for('item',id=request.item)}}" >{{ itens[request.item].name|e }}</a>
+        <a href="./{{url_for('item',id=request.item_id)}}" >{{ itens[request.item_id].name|e }}</a>
         {% if request.state is equalto 'accepted' %} 
-            Entre em phone:{{request.supplier_contact}}
+            Entre em phone:{{users[request.supplier].phone}}
         {% endif %}
       </li>
       <!-- <form method="post" action="/cancelar"> 
