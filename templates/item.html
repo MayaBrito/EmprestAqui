@@ -31,10 +31,15 @@
         <br>
         <br>
         {% for commenter in comments.keys() %}
-            <li>{{commenter}}: - NOTA {{comments[commenter].score}}</li>
+            <li>{{users[commenter].name}}: - NOTA {{comments[commenter].score}}</li>
             <p style="text-indent:30px;">
                 {{comments[commenter].comment}}
             </p>
         {% endfor %}
+        <form method="post" action="/comment"> 
+            <input type="submit" name="comment" id="comment" value="Avaliar">
+            <input type="hidden" name="id" value={{item.id}}>
+            <input type="hidden" name="type" value="item">
+        </form> 
     </body> 
 </html>

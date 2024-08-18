@@ -1,7 +1,7 @@
 from comment import Comment
 
 class Item:
-    _comments:dict[str,Comment] = {}
+    _comments:dict[int,Comment] = {}
     def __init__(self,item_id:int,name:str,owner_id:str,desc:str=None,photo:str=None,available:bool=True):
         self._id = item_id
         self._name = name
@@ -42,7 +42,7 @@ class Item:
         return self._photo
 
     @property
-    def comments(self)->dict[str,Comment]:
+    def comments(self)->dict[int,Comment]:
         """get para os comments do item"""
         return self._comments
 
@@ -55,15 +55,4 @@ class Item:
     def available(self,value:bool):
         """set para a disponibilidade do item"""
         self._disponivel = value
-
-    @classmethod
-    def get_nota_media(self)->float:
-        numero_comments:float = float(len(self._comments))
-        total_score:float = 0.0
-        for comment in self._comments.values():
-            total_score += comment.get_nota()
-        return total_score/numero_comments
     
-    @classmethod
-    def adiciona_comment(self,person,comment:Comment)->None:
-        self._comments[person.name] = comment

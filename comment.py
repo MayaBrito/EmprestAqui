@@ -1,5 +1,5 @@
 class Comment:
-    def __init__(self,comment:str,score:str,photo:str=None):
+    def __init__(self,comment:str,score:str):
         self._comment = comment
         self._score = score
     

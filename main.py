@@ -34,6 +34,13 @@ def save_cookies(resp,email,password):
     resp.set_cookie('password',password)
     return resp
 
+def save_comment(comment,score,commenter,receiver,receiver_type):
+    new_comment = Comment(comment,score)
+    if receiver_type == "item":
+        itens[receiver].comments[commenter] = new_comment
+    if receiver_type == "user":
+        users[receiver].received_comments[commenter] = new_comment
+
 # helper function for creating a request object and applyting it to users
 def make_request(item_id,interested_id,supplier_id,state='open'):
     new_request = Request('open',item_id,interested_id,supplier_id)
@@ -135,7 +142,33 @@ def item():
         return resp
     else:
         item = itens[item_id]
-        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id])
+        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users)
+
+@app.route('/comment',methods=['GET','POST'])
+def comment():
+    email, err = check_user()
+    if err:
+        return render_template('login.html')
+    user = users[emailsearch[email]]
+    instance_id = request.form['id']
+    instance_type = request.form['type']
+    return render_template('comment.html',instance_id=instance_id,instance_type=instance_type)
+
+@app.route('/apply_comment',methods=['GET','POST'])
+def apply_comment():
+    email, err = check_user()
+    if err:
+        return render_template('login.html')
+    user = users[emailsearch[email]]
+    instance_id = int(request.form["id"])
+    instance_type = request.form["type"]
+    new_score = int(request.form["score"])
+    new_comment = request.form["comment"]
+    save_comment(new_comment,new_score,user.id,instance_id,instance_type)
+    if instance_type == "item":
+        return redirect(url_for("item",id=instance_id))
+    else:
+        return redirect(url_for("user",id=instance_id))
 
 @app.route('/item_request',methods=['GET','POST'])
 def item_request():
@@ -158,7 +191,10 @@ def accept_request():
     item_id = int(request.form["id"])
     user = users[emailsearch[email]]
     interested = int(request.form["interested"])
-    user.received_requests[(item_id,interested)].state = 'accepted'
+    if "accept" in request.form:
+        user.received_requests[(item_id,interested)].state = 'accepted'
+    else:
+        user.received_requests[(item_id,interested)].state = 'rejected'
     return redirect(url_for("open_received_requests"))
 
 @app.route('/publish_item',methods=['GET','POST'])
@@ -198,7 +234,7 @@ def user():
     active_user = False
     if (requested_user_id == user.id):
         active_user=True
-    return render_template('user.html',user=requested_user,active_user=active_user)
+    return render_template('user.html',user=requested_user,active_user=active_user,users=users)
 
 @app.route('/change_location',methods=['GET','POST'])
 def change_location():
@@ -249,7 +285,7 @@ if __name__ == '__main__':
         save_item("banana prata",programmers[0],"ingual o fredie mercury","prateado",True),
         save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
     ]
-    itens[bananas[-1]].comments["carlos"] = Comment("achei ruim\nbem ruim\nnão é lá essas coisas",2)
+    save_comment("olha eu commentando em mim mesmo, como isso é possivel?",10,1,1,"user")
     make_request(bananas[1],programmers[1],programmers[0])
     make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     engine = Engine(itens.values())

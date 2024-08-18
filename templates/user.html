@@ -17,7 +17,7 @@
         <b>nome:</b> {{user.name}}
         <br>
         <b>cidade:</b> {{user.city}}
-        {%if active_user%}
+        {%if active_user %}
             <form method="post" action="/open_requests">
                 <input type="submit" name="minhasSolicitacoes" id="minhasSolicitacoes" value="Minhas solicitações"/>
             </form>
@@ -44,10 +44,17 @@
         <br>
         <br>
         {% for commenter in user.received_comments.keys() %}
-            <li>{{commenter}}: - NOTA {{comments[comenter].score}}</li>
+            <li>{{users[commenter].name}}: - NOTA {{user.received_comments[commenter].score}}</li>
             <p style="text-indent:30px;">
                 {{user.received_comments[commenter].comment}}
             </p>
         {% endfor %}
+        {% if not active_user %}
+            <form method="post" action="/comment"> 
+                <input type="submit" name="comment" id="comment" value="Avaliar">
+                <input type="hidden" name="id" value={{user.id}}>
+                <input type="hidden" name="type" value="user">
+            </form> 
+        {% endif %}
     </body> 
 </html>
