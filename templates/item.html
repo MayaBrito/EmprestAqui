@@ -30,10 +30,10 @@
         Avaliacoes: NOTA GERAL: {{item.general_score}}
         <br>
         <br>
-        {% for commentator in comments.keys() %}
-            <li>{{commentator}}: - NOTA {{comments[commentator].score}}</li>
+        {% for commenter in comments.keys() %}
+            <li>{{commenter}}: - NOTA {{comments[commenter].score}}</li>
             <p style="text-indent:30px;">
-                {{comments[commentator].comment}}
+                {{comments[commenter].comment}}
             </p>
         {% endfor %}
     </body> 

@@ -43,10 +43,10 @@
         Comentarios: NOTA GERAL: {{user.general_score}}
         <br>
         <br>
-        {% for commentator in user.received_comments.keys() %}
-            <li>{{commentator}}: - NOTA {{comments[commentator].score}}</li>
+        {% for commenter in user.received_comments.keys() %}
+            <li>{{commenter}}: - NOTA {{comments[comenter].score}}</li>
             <p style="text-indent:30px;">
-                {{user.received_comments[commentator].comment}}
+                {{user.received_comments[commenter].comment}}
             </p>
         {% endfor %}
     </body> 
