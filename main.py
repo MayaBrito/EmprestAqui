@@ -135,7 +135,7 @@ def item():
         return resp
     else:
         item = itens[item_id]
-        return render_template('item.html',item=item,comments=item.comments)
+        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id])
 
 @app.route('/item_request',methods=['GET','POST'])
 def item_request():
@@ -239,7 +239,7 @@ if __name__ == '__main__':
         save_item("banana nanica",programmers[0],"🤏","https://img.freepik.com/premium-photo/very-small-banana-hand_679905-1202.jpg?w=2000",True),
         save_item("maça",programmers[0],"👩‍⚕️🏃‍♀️","🍏",False),
         save_item("banana prata",programmers[0],"ingual o fredie mercury","prateado",True),
-        save_item("banana nevada",programmers[1],"da groomis","receitinhas.com.br/receita/pizza-de-banana-nevada/",True),
+        save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
     ]
     itens[bananas[-1]].comments["carlos"] = Comment("achei ruim\nbem ruim\nnão é lá essas coisas",2)
     make_request(bananas[1],programmers[1],programmers[0])
