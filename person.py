@@ -58,6 +58,10 @@ class Person:
     def city(self)->str:
         return self._city
     
+    @city.setter
+    def city(self,value:str):
+        self._city = value
+
     @property
     def phone(self)-> str:
         """get para o numero da pessoa"""

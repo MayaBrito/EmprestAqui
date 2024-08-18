@@ -66,7 +66,7 @@ def default():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
-    return render_template('login.html')
+    return  render_template('login.html')
 
 @app.route('/login_confirmation',methods=['GET','POST'])
 def login_confirmation():
@@ -198,9 +198,20 @@ def change_location():
     if err:
         return render_template('login.html')
     user = users[emailsearch[email]]
-    output = "not implemented yet" 
-    resp = make_response(output)
-    return resp
+
+    return render_template('change_location.html')
+
+@app.route('/apply_location_changes',methods=['GET','POST'])
+def apply_location():
+    email, err = check_user()
+    if err:
+        return render_template('login.html')
+    user = users[emailsearch[email]]
+
+    new_address = request.form["city"]
+    user.city = new_address
+
+    return redirect(url_for("user"))
 
 @app.route('/open_received_requests',methods=['GET','POST'])
 def open_received_requests():
@@ -220,8 +231,8 @@ def open_requests():
 
 if __name__ == '__main__':
     programmers = [
-        save_user("joão", "henrrique", "99999999","xavier@gmail.com","bananeiras"),
-        save_user("guilherme","silva", "88888888","toledo@gmail.com","bahia")
+        save_user("joão", "henrrique", "99999999","xavier@gmail.com","João Pessoa"),
+        save_user("guilherme","silva", "88888888","toledo@gmail.com","Campina Grande")
     ]
     bananas = [
         save_item("banana maçã",programmers[0],"não é uma maçã","https://st.focusedcollection.com/11312302/i/1800/focused_150226594-stock-photo-apple-and-yellow-banana.jpg",True),
