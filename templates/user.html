@@ -40,11 +40,11 @@
         {% endfor %}
         <br>
         <br>
-        Comentarios:
+        Comentarios: NOTA GERAL: {{user.general_score}}
         <br>
         <br>
         {% for commentator in user.received_comments.keys() %}
-            <li>{{commentator}}</li>
+            <li>{{commentator}}: - NOTA {{comments[commentator].score}}</li>
             <p style="text-indent:30px;">
                 {{user.received_comments[commentator].comment}}
             </p>
