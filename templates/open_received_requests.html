@@ -1,17 +1,31 @@
 <doctype html>
     <title>pedidos feitos abertos</title>
-    <h1>pedidos recebidos</h1>
+      <form method="post" action="/change_location">
+        <input type="submit" name="change_location" id="change_location" value="📍"/>
+      </form>
+      <form method="post" action="/user">
+          <input type="submit" name="user" id="user" value="👤"/>
+      </form>
+      <form method="post" action="/login">
+          <input type="submit" name="exit" id="exit" value="🔚"/>
+      </form>
+    <h1>Solicitações Recebidas</h1>
     <ul>
     {% for request in requests.values() %}
       <li>
-        {{users[request.interested].name}} quer:
-        <a href="{{url_for('item',id=request.item_id)}}" >{{ itens[request.item_id].name|e }} </a>
+        <b>item:</b> <a href="{{url_for('item',id=request.item_id)}}" >{{ itens[request.item_id].name|e }} </a>
+        <br>
+        <b>Nome do solicitante:</b><a href="{{url_for('user',id=users[request.interested].id)}}" >{{users[request.interested].name}}</a>
         {% if request.state is equalto 'accepted' %} 
-            entre em contato:{{users[request.interested].phone}}
+            <br>
+            <b>email do solicitante:</b>{{users[request.interested].email}}
+            <br>
+            <b>telefone do solicitante:</b>{{users[request.interested].phone}}
         {% endif %}
         {% if request.state is equalto 'open' %} 
             <form method="post" action="/accept_request"> 
-                <input type="submit" name="accept" id="accept" value="accept"/>
+                <input type="submit" name="accept" id="accept" value="Aceitar"/>
+                <input type="submit" name="reject" id="reject" value="Recusar"/>
                 <input type="hidden" name="id" value={{request.item_id}} />
                 <input type="hidden" name="interested" value="{{request.interested}}"/>
             </form> 
