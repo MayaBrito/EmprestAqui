@@ -190,7 +190,15 @@ def user():
     if err:
         return render_template('login.html')
     user = users[emailsearch[email]]
-    return render_template('user.html', user=user)
+    if 'id' in request.args:
+        requested_user_id = int(request.args['id'])
+    else:
+        requested_user_id = user.id
+    requested_user = users[requested_user_id]
+    active_user = False
+    if (requested_user_id == user.id):
+        active_user=True
+    return render_template('user.html',user=requested_user,active_user=active_user)
 
 @app.route('/change_location',methods=['GET','POST'])
 def change_location():

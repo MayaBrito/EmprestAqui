@@ -1,4 +1,5 @@
-<doctype html>
+<!DOCTYPE html> 
+<html> 
 <title>Resultados</title>
 <h2>Resultados</h2>
 <body>
@@ -11,9 +12,7 @@
   <form method="post" action="/login">
       <input type="submit" name="exit" id="exit" value="🔚"/>
   </form>
-</body>
-<ul>
-{% for post in results %}
+  {% for post in results %}
   <li>
     <a href="./{{url_for('item',id=post.id)}}" >
       <img src="{{post.photo}}"
@@ -21,7 +20,8 @@
             width="100"
             height="100">
     </a>
-  
-  </li>
-{% endfor %}
-</ul>
+    
+    </li>
+  {% endfor %}
+</body>
+</html>
