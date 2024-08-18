@@ -16,7 +16,7 @@
             <input type="submit" name="cadastrarNovosItens" id="cadastrarNovosItens" value="Cadastrar novos itens"/>
         </form>
         {% for item in user.itens.values() %}
-            <li><a href="./{{url_for('item',id=item.id)}}" >{{ item.name|e }}</a></li>
+            <li><a href=".{{url_for('item',id=item.id)}}" >{{ item.name|e }}</a></li>
         {% endfor %}
         <br>
         <br>

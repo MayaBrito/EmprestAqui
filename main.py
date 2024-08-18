@@ -59,7 +59,7 @@ def validate_password(email,password) ->bool:
         users[emailsearch[email]].password == password
         )
 
-@app.route('/',methods=['GET'])
+@app.route('/',methods=['GET','POST'])
 def default():
     resp = make_response(redirect(url_for('menu'))) 
     return resp
@@ -78,8 +78,8 @@ def login_confirmation():
             resp = save_cookies(resp,email,password)
             return resp
         else:
-            output = "wrong username or password" 
-            resp = make_response(output) 
+            output = "Usuario ou Senha Incorretos" 
+            resp = render_template('error.html',error=output)
     return resp
 
 @app.route('/register',methods=['GET','POST'])
@@ -100,8 +100,8 @@ def confirmation():
             resp = save_cookies(resp,email,password)
             return resp
         else:
-            output = "user already registered with this email" 
-            resp = make_response(output) 
+            output = "Usuario já registrado com esse email" 
+            resp = render_template("error.html",error=output) 
     return resp
 
 @app.route('/menu',methods=['GET','POST'])
@@ -131,7 +131,7 @@ def item():
     item_id = int(request.args['id'])
     if item_id not in itens.keys():
         output = "non-existent item" 
-        resp = make_response(output)
+        resp = render_template("error.html",error=output)
         return resp
     else:
         item = itens[item_id]
