@@ -14,7 +14,7 @@
   </form>
   {% for post in results %}
   <li>
-    <a href="./{{url_for('item',id=post.id)}}" >
+    <a href="{{url_for('item',id=post.id)}}" >
       <img src="{{post.photo}}"
             alt="{{post.name}}"
             width="100"

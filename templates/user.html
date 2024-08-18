@@ -30,7 +30,7 @@
         {% endif%}
         {% for item in user.itens.values() %}
             <li>
-                <a href="./{{url_for('item',id=item.id)}}" >
+                <a href="{{url_for('item',id=item.id)}}" >
                     <img src="{{item.photo}}"
                         alt="{{item.name}}"
                         width="100"
