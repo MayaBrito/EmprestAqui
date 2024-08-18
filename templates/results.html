@@ -1,8 +1,27 @@
 <doctype html>
 <title>Resultados</title>
-<h1>Members</h1>
+<h2>Resultados</h2>
+<body>
+  <form method="post" action="/change_location">
+    <input type="submit" name="change_location" id="change_location" value="📍"/>
+  </form>
+  <form method="post" action="/user">
+      <input type="submit" name="user" id="user" value="👤"/>
+  </form>
+  <form method="post" action="/login">
+      <input type="submit" name="exit" id="exit" value="🔚"/>
+  </form>
+</body>
 <ul>
 {% for post in results %}
-  <li><a href="./{{url_for('item',id=post.id)}}" >{{ post.name|e }}</a></li>
+  <li>
+    <a href="./{{url_for('item',id=post.id)}}" >
+      <img src="{{post.photo}}"
+            alt="{{post.name}}"
+            width="100"
+            height="100">
+    </a>
+  
+  </li>
 {% endfor %}
 </ul>
