@@ -1,36 +1,149 @@
-<doctype html>
-    <title>pedidos feitos abertos</title>
-      <form method="post" action="/change_location">
-        <input type="submit" name="change_location" id="change_location" value="📍"/>
-      </form>
-      <form method="post" action="/user">
-          <input type="submit" name="user" id="user" value="👤"/>
-      </form>
-      <form method="post" action="/login">
-          <input type="submit" name="exit" id="exit" value="🔚"/>
-      </form>
-    <h1>Solicitações Recebidas</h1>
-    <ul>
-    {% for request in requests.values() %}
-      <li>
-        <b>item:</b> <a href="{{url_for('item',id=request.item_id)}}" >{{ itens[request.item_id].name|e }} </a>
-        <br>
-        <b>Nome do solicitante:</b><a href="{{url_for('user',id=users[request.interested].id)}}" >{{users[request.interested].name}}</a>
-        {% if request.state is equalto 'accepted' %} 
-            <br>
-            <b>email do solicitante:</b>{{users[request.interested].email}}
-            <br>
-            <b>telefone do solicitante:</b>{{users[request.interested].phone}}
-        {% endif %}
-        {% if request.state is equalto 'open' %} 
-            <form method="post" action="/accept_request"> 
-                <input type="submit" name="accept" id="accept" value="Aceitar"/>
-                <input type="submit" name="reject" id="reject" value="Recusar"/>
-                <input type="hidden" name="id" value={{request.item_id}} />
-                <input type="hidden" name="interested" value="{{request.interested}}"/>
-            </form> 
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ul>
-    
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedidos Feitos Abertos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        b {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .action-buttons input {
+            background-color: #1ECAA1;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 48%;
+        }
+
+        .action-buttons input[type="submit"]:nth-child(2) {
+            background-color: #e74c3c;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <form method="post" action="/change_location">
+            <button type="submit" name="change_location" id="change_location">📍</button>
+        </form>
+        <form method="post" action="/user">
+            <button type="submit" name="user" id="user">👤</button>
+        </form>
+        <form method="post" action="/login">
+            <button type="submit" name="exit" id="exit">🔚</button>
+        </form>
+        <button disabled style="visibility:hidden;">&nbsp;</button> <!-- Botão falso para espaçamento -->
+    </div>
+
+    <div class="container">
+        <h1>Solicitações Recebidas</h1>
+        <ul>
+            {% for request in requests.values() %}
+            <li>
+                <div class="info-item">
+                    <b>Item:</b> <a href="{{url_for('item',id=request.item_id)}}">{{ itens[request.item_id].name|e }}</a>
+                </div>
+                <div class="info-item">
+                    <b>Nome do solicitante:</b> <a href="{{url_for('user',id=users[request.interested].id)}}">{{users[request.interested].name}}</a>
+                </div>
+                {% if request.state == 'accepted' %}
+                <div class="info-item">
+                    <b>Email do solicitante:</b> {{users[request.interested].email}}
+                </div>
+                <div class="info-item">
+                    <b>Telefone do solicitante:</b> {{users[request.interested].phone}}
+                </div>
+                {% endif %}
+                {% if request.state == 'open' %}
+                <form method="post" action="/accept_request" class="action-buttons"> 
+                    <input type="submit" name="accept" id="accept" value="Aceitar"/>
+                    <input type="submit" name="reject" id="reject" value="Recusar"/>
+                    <input type="hidden" name="id" value="{{request.item_id}}" />
+                    <input type="hidden" name="interested" value="{{request.interested}}"/>
+                </form> 
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
