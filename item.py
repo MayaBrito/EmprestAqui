@@ -1,4 +1,5 @@
 from comentario import Comentario
+import json;
 
 
 class Item:
@@ -13,6 +14,16 @@ class Item:
         self._disponivel = disponivel
         self._dono_id = dono_id
         self._comentarios = {}
+        
+    def __init__(self, id: int, nome: str, dono_id: int, preco: float = None, desc: str = None, foto: str = None, disponivel: bool = True, commentaries: list = []):
+        self._id = id
+        self._nome = nome
+        self._preco = preco
+        self._desc = desc
+        self._foto = foto
+        self._disponivel = disponivel
+        self._dono_id = dono_id
+        self._comentarios = commentaries
 
     @property
     def id(self) -> int:
@@ -53,6 +64,10 @@ class Item:
     def disponivel(self) -> bool:
         """get para a disponibilidade do item"""
         return self._disponivel
+    
+    @property
+    def get_full_text(self) -> str:
+        return self.nome + self.descricao
 
     @disponivel.setter
     def disponivel(self, valor: bool):
@@ -82,3 +97,16 @@ class Item:
             "dono_id": self._dono_id,
             "comentarios": [c.to_dict() for c in self._comentarios.values()],
         }
+        
+    @classmethod
+    def json_to_items_array(self, filepath) -> list:
+        with open(filepath, 'r') as f:
+            json_dict = json.loads(f.read())
+        items_array = []
+        
+        for key in json_dict:
+            item = json_dict[key]
+            formated_item = Item(item['id'], item['nome'], item['dono_id'], item['preco'], item['desc'], item['foto'], item['disponivel'], item['comentarios'])
+            items_array.append(formated_item)
+    
+        return items_array
