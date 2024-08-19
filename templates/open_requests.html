@@ -1,45 +1,128 @@
-<doctype html>
-    <title>Pedidos feitos abertos</title>
-      <form method="post" action="/change_location">
-        <input type="submit" name="change_location" id="change_location" value="📍"/>
-      </form>
-      <form method="post" action="/user">
-          <input type="submit" name="user" id="user" value="👤"/>
-      </form>
-      <form method="post" action="/login">
-          <input type="submit" name="exit" id="exit" value="🔚"/>
-    </form>
-    <h2>guardando aprovação</h2>
-      {% for request in requests.values() %}
-          {% if request.state is equalto 'open' %} 
-          <li>
-            <a href="{{url_for('item',id=request.item_id)}}" ><img src = {{itens[request.item_id].photo}} alt="{{itens[request.item_id].name}}"
-              width="100"
-              height="100"></a>
-          </li>
-          {% endif %}
-      {% endfor %}
-    <h1>Aprovados</h1>
-      {% for request in requests.values() %}
-          {% if request.state is equalto 'accepted' %} 
-          <li>
-            <a href="{{url_for('item',id=request.item_id)}}" ><img src = {{itens[request.item_id].photo}} alt="{{itens[request.item_id].name}}"
-              width="100"
-              height="100"></a>
-            <br>
-            Entre em contato:{{users[request.supplier].phone}}
-          </li>
-          {% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedidos Feitos Abertos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-      {% endfor %}
-    <h1>Rejeitados</h1>
-      {% for request in requests.values() %}
-          {% if request.state is equalto 'rejected' %} 
-          <li>
-            <a href="{{url_for('item',id=request.item_id)}}" ><img src = {{itens[request.item_id].photo}} alt="{{itens[request.item_id].name}}"
-              width="100"
-              height="100"></a>
-          </li>
-          {% endif %}
-      {% endfor %}
-    
+        .header {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto 0;
+            padding: 20px;
+        }
+
+        h2, h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        li {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        img {
+            border-radius: 5px;
+            width: 150px;
+            height: auto;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <form method="post" action="/change_location">
+            <button type="submit" name="change_location" id="change_location">📍</button>
+        </form>
+        <form method="post" action="/user">
+            <button type="submit" name="user" id="user">👤</button>
+        </form>
+        <form method="post" action="/login">
+            <button type="submit" name="exit" id="exit">🔚</button>
+        </form>
+        <button disabled style="visibility:hidden;">&nbsp;</button> <!-- Botão falso para espaçamento -->
+    </div>
+
+    <div class="container">
+        <h2>Aguardando Aprovação</h2>
+        <ul>
+            {% for request in requests.values() %}
+                {% if request.state == 'open' %}
+                <li>
+                    <a href="{{url_for('item',id=request.item_id)}}">
+                        <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                    </a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        <h1>Aprovados</h1>
+        <ul>
+            {% for request in requests.values() %}
+                {% if request.state == 'accepted' %}
+                <li>
+                    <a href="{{url_for('item',id=request.item_id)}}">
+                        <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                    </a>
+                    <br>
+                    Entre em contato: {{users[request.supplier].phone}}
+                    <button class="contact-button">Contactar</button>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        <h1>Rejeitados</h1>
+        <ul>
+            {% for request in requests.values() %}
+                {% if request.state == 'rejected' %}
+                <li>
+                    <a href="{{url_for('item',id=request.item_id)}}">
+                        <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                    </a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
