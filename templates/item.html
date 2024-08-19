@@ -1,28 +1,45 @@
 <!DOCTYPE html> 
 <html> 
     <head> 
-        <title>item</title> 
+        <title>Item</title> 
     </head> 
-    <body> 
-        <dd>id: {{item.id}}</dd>
-        <dd>nome: {{item.nome}}</dd>
-        <dd>descrição: {{item.descricao}}</dd>
-        <dd>foto: {{item.foto}}</dd>
-        <dd>disponibilidade: {{item.disponivel}}</dd>
-        <form method="post" action="/requisitar"> 
-            <input type="submit" name="requisitar" id="requisitar" value="requisitar"/>
+    <body>
+        <form method="post" action="/change_location">
+            <input type="submit" name="change_location" id="change_location" value="📍"/>
+          </form>
+          <form method="post" action="/user">
+              <input type="submit" name="user" id="user" value="👤"/>
+          </form>
+          <form method="post" action="/login">
+              <input type="submit" name="exit" id="exit" value="🔚"/>
+        </form>
+
+        <h2>Item</h2>
+        <img src="{{item.photo}}" height="200" width="200">
+        <form method="post" action="/item_request"> 
+            <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado"/>
             <input type="hidden" name="id" value={{item.id}} />
         </form> 
+        <!-- <dd>id: {{item.id}}</dd> -->
+        <dd>Nome: {{item.name}}</dd>
+        <dd>Descrição: {{item.desc}}</dd>
+        <dd>Disponibilidade: {{item.available}}</dd>
+        <dd>Quem está emprestando: <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
         <br>
         <br>
-        Comentatios:
+        Avaliacoes: NOTA GERAL: {{item.general_score}}
         <br>
         <br>
-        {% for comentador in comentarios.keys() %}
-            <li>{{comentador}}</li>
+        {% for commenter in comments.keys() %}
+            <li>{{users[commenter].name}}: - NOTA {{comments[commenter].score}}</li>
             <p style="text-indent:30px;">
-                {{comentarios[comentador].comentario}}
+                {{comments[commenter].comment}}
             </p>
         {% endfor %}
+        <form method="post" action="/comment"> 
+            <input type="submit" name="comment" id="comment" value="Avaliar">
+            <input type="hidden" name="id" value={{item.id}}>
+            <input type="hidden" name="type" value="item">
+        </form> 
     </body> 
 </html>

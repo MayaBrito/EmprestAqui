@@ -1,18 +1,18 @@
-from comentario import Comentario
+from comment import Comment
 from item import Item
-from pessoa import Pessoa
+from person import Person
 import csv
 
 def read_csv(file_name:str)->dict[str,str]:
-    conteudo:dict[str,str] = {}
+    content:dict[str,str] = {}
 
     with open(file_name, mode ='r')as file:
-        arquivo = csv.reader(file)
-        cabecalho = next(arquivo)
-        for coluna in cabecalho:
-            conteudo[coluna]:list = []
-        for linha in arquivo:
-            for indice,coluna in enumerate(linha):
-                conteudo[cabecalho[indice]]:str = coluna
+        file = csv.reader(file)
+        header = next(file)
+        for column in header:
+            content[column]:list = []
+        for row in file:
+            for indice,column in enumerate(row):
+                content[header[indice]]:str = column
     
-    return conteudo
+    return content

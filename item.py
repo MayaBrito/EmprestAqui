@@ -1,84 +1,81 @@
-from comentario import Comentario
+from comment import Comment
 
 
 class Item:
-    _comentarios: dict[int, Comentario] = {}
-
-    def __init__(self, id: int, nome: str, dono_id: int, preco: float = None, desc: str = None, foto: str = None, disponivel: bool = True):
+    def __init__(self, id: int, name: str, owner_id: int, desc: str = None, photo: str = None, available: bool = True):
         self._id = id
-        self._nome = nome
-        self._preco = preco
+        self._name = name
         self._desc = desc
-        self._foto = foto
-        self._disponivel = disponivel
-        self._dono_id = dono_id
-        self._comentarios = {}
+        self._photo = photo
+        self._available = available
+        self._owner_id = owner_id
+        self._comments: dict[int, Comment] = {}
 
     @property
     def id(self) -> int:
-        """get para o id do item"""
+        """get item id"""
         return self._id
 
     @property
-    def dono_id(self) -> int:
-        """get para o id do dono"""
-        return self._dono_id
+    def owner_id(self) -> int:
+        """get owner id"""
+        return self._owner_id
 
     @property
-    def nome(self) -> str:
-        """get para o nome do item"""
-        return self._nome
+    def name(self) -> str:
+        """get item name"""
+        return self._name
 
     @property
-    def preco(self) -> str:
-        """get para o preco do item"""
-        return self._preco
+    def general_score(self) -> float:
+        """get item score"""
+        return sum([c.score for c in self._comments.values()])
 
     @property
-    def descricao(self) -> str:
-        """get para a descricao do item"""
+    def desc(self) -> str:
+        """get item description"""
         return self._desc
 
     @property
-    def foto(self) -> str:
-        """get para a foto do item"""
-        return self._foto
+    def photo(self) -> str:
+        """get item photo"""
+        return self._photo
 
     @property
-    def comentarios(self) -> dict[str, Comentario]:
-        """get para os comentarios do item"""
-        return self._comentarios
+    def comments(self) -> dict[int, Comment]:
+        """get item comments"""
+        return self._comments
 
     @property
-    def disponivel(self) -> bool:
-        """get para a disponibilidade do item"""
-        return self._disponivel
+    def available(self) -> bool:
+        """get item availability"""
+        return self._available
 
-    @disponivel.setter
-    def disponivel(self, valor: bool):
-        """set para a disponibilidade do item"""
-        self._disponivel = valor
-
-    @classmethod
-    def get_nota_media(self) -> float:
-        numero_comentarios: float = float(len(self._comentarios))
-        total_notas: float = 0.0
-        for comentario in self._comentarios.values():
-            total_notas += comentario.get_nota()
-        return total_notas/numero_comentarios
+    @available.setter
+    def available(self, value: bool):
+        """set item availability"""
+        self._available = value
 
     @classmethod
-    def adiciona_comentario(self, pessoa, comentario: Comentario) -> None:
-        self._comentarios[pessoa.nome] = comentario
+    def get_avg_score(self) -> float:
+        comment_count: float = float(len(self._comments))
+        total_score: float = 0.0
+        for c in self._comments.values():
+            total_score += c.score
+        return total_score/comment_count
 
-    def to_dict(self) -> dict[any, any]:
+    @classmethod
+    def add_comment(self, p, c: Comment) -> None:
+        self._comments[p.name] = c
+
+    def to_dict(self) -> dict[str, any]:
+        """parse object to dict"""
         return {
             "id": self._id,
-            "nome": self._nome,
-            "preco": self._preco,
+            "name": self._name,
             "desc": self._desc,
-            "foto": self._foto,
-            "disponivel": self._disponivel,
-            "dono_id": self._dono_id,
-            "comentarios": [c.to_dict() for c in self._comentarios.values()],
+            "photo": self._photo,
+            "available": self._available,
+            "owner_id": self._owner_id,
+            "comments": [c.to_dict() for c in self._comments.values()],
         }

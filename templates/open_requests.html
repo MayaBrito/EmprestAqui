@@ -1,0 +1,45 @@
+<doctype html>
+    <title>Pedidos feitos abertos</title>
+      <form method="post" action="/change_location">
+        <input type="submit" name="change_location" id="change_location" value="📍"/>
+      </form>
+      <form method="post" action="/user">
+          <input type="submit" name="user" id="user" value="👤"/>
+      </form>
+      <form method="post" action="/login">
+          <input type="submit" name="exit" id="exit" value="🔚"/>
+    </form>
+    <h2>guardando aprovação</h2>
+      {% for request in requests.values() %}
+          {% if request.state is equalto 'open' %} 
+          <li>
+            <a href="{{url_for('item',id=request.item_id)}}" ><img src = {{itens[request.item_id].photo}} alt="{{itens[request.item_id].name}}"
+              width="100"
+              height="100"></a>
+          </li>
+          {% endif %}
+      {% endfor %}
+    <h1>Aprovados</h1>
+      {% for request in requests.values() %}
+          {% if request.state is equalto 'accepted' %} 
+          <li>
+            <a href="{{url_for('item',id=request.item_id)}}" ><img src = {{itens[request.item_id].photo}} alt="{{itens[request.item_id].name}}"
+              width="100"
+              height="100"></a>
+            <br>
+            Entre em contato:{{users[request.supplier].phone}}
+          </li>
+          {% endif %}
+
+      {% endfor %}
+    <h1>Rejeitados</h1>
+      {% for request in requests.values() %}
+          {% if request.state is equalto 'rejected' %} 
+          <li>
+            <a href="{{url_for('item',id=request.item_id)}}" ><img src = {{itens[request.item_id].photo}} alt="{{itens[request.item_id].name}}"
+              width="100"
+              height="100"></a>
+          </li>
+          {% endif %}
+      {% endfor %}
+    
