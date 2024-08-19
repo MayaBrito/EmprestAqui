@@ -1,37 +1,140 @@
-<doctype html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmprestaAqui</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 500px; /* Tamanho máximo do container */
+            margin-top: 50px;
+        }
+
+        h2 {
+            padding-top: 100px;
+            font-size: 46px; /* Tamanho do título */
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .search-bar {
+            width: 100%; /* Largura da barra de busca */
+            max-width: 600px; /* Ajuste o tamanho máximo da barra de busca */
+            margin: 0 auto 20px; /* Margem inferior para espaçamento */
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px; /* Padding da barra de busca */
+            border-radius: 50px;
+            border: 2px solid #ccc;
+            background-color: #ddd;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            width: 100%; /* Largura do formulário */
+            max-width: 400px; /* Ajuste o tamanho máximo do formulário */
+            margin: 0 auto; /* Centralizar o formulário */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Ajuste da margem inferior */
+        }
+
+        .form-group select {
+            width: 50%;
+            padding: 15px; /* Padding do select */
+            border-radius: 50px;
+            border: 2px solid #ccc;
+            background-color: #ddd;
+            font-size: 18px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .form-group select:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        .search-button {
+            width: 30%;
+            padding: 15px; /* Padding do botão */
+            border-radius: 50px;
+            border: none;
+            background-color: #1ECAA1;
+            color: white;
+            font-size: 18px; /* Tamanho da fonte */
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #18b48c;
+        }
+    </style>
 </head>
-
-<h2>EmprestaAqui</h2>
-
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes>
-{% for message in messages %}
-    <li>{{ message }}</li>
-{% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
-<form method="post" action="/change_location">
-    <input type="submit" name="change_location" id="change_location" value="📍"/>
-</form>
-<form method="post" action="/user">
-    <input type="submit" name="user" id="user" value="👤"/>
-</form>
-<form method="post" action="/login">
-    <input type="submit" name="exit" id="exit" value="🔚"/>
-</form>
-<!-- <li><a href="./publish_item">Publicar item</a></li>
-<li><a href="./open_received_requests">Pedidos recebidos</a></li>
-<li><a href="./open_requests">Pedidos feitos</a></li> -->
-{% from "_formhelper.html" import render_field %}
-<form method=post>
-    <dl>
-    {{ render_field(form.filter) }}
-    <p>
-    {{ render_field(form.search) }}
-    </dl>
-    <p><input type=submit value=Buscar>
-</form>
+<body>
+    <div class="header">
+        <form method="post" action="/change_location">
+            <button type="submit" name="change_location" id="change_location">📍</button>
+        </form>
+        <form method="post" action="/user">
+            <button type="submit" name="user" id="user">👤</button>
+        </form>
+        <form method="post" action="/login">
+            <button type="submit" name="exit" id="exit">🔚</button>
+        </form>
+    </div>
+    
+    <div class="container">
+        <h2>EmprestaAqui</h2>
+        
+        <!-- Formulário -->
+        <div class="form-container">
+            <form method="post">
+                <dl>
+                    <div class="search-bar">
+                        <p>{{ form.search }}</p>
+                    </div>
+                    <div class="form-group">
+                        <p>{{ form.filter }}</p>
+                    </div>
+                </dl>
+                <input type="submit" value="Buscar" class="search-button">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
