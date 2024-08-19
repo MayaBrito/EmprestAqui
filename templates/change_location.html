@@ -1,16 +1,76 @@
 <!DOCTYPE html> 
 <html> 
-    <head> 
-        <title>localização</title> 
-    </head> 
-    <h2>Localização</h2>
-    <body> 
+<head> 
+    <title>Localização</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #e0e0e0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color:  #1ECAA1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color:  #1ECAA1;
+        }
+    </style>
+</head> 
+<body> 
+    <div class="form-container">
+        <h2>Localização</h2>
         <form method="post" action="/apply_location_changes"> 
-            <label for="city">cidade</label> 
-            <input type="text" name="city" id="city"/>  
-            <br/> 
-            <br> 
+            <label for="city"></label> 
+            <input type="text" name="city" id="city" placeholder="Cidade"/>  
             <input type="submit" name="change" id="change" value="Mudar Localização">  
         </form> 
-    </body> 
+    </div>
+</body> 
 </html>
