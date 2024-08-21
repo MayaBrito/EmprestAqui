@@ -102,11 +102,12 @@ class Item:
     def json_to_items_array(self, filepath) -> list:
         with open(filepath, 'r') as f:
             json_dict = json.loads(f.read())
-        items_array = []
+        items_dict = {}
         
         for key in json_dict:
             item = json_dict[key]
             formated_item = Item(item['id'], item['nome'], item['dono_id'], item['preco'], item['desc'], item['foto'], item['disponivel'], item['comentarios'])
-            items_array.append(formated_item)
-    
-        return items_array
+            items_dict.update({item['id']: formated_item})
+
+        print(items_dict)
+        return items_dict
