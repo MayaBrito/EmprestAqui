@@ -85,7 +85,10 @@ class Item:
     @classmethod
     def adiciona_comentario(self, pessoa, comentario: Comentario) -> None:
         self._comentarios[pessoa.nome] = comentario
-
+    
+    def get_full_text(self) -> str:
+        return self._nome + ' ' + self._desc
+    
     def to_dict(self) -> dict[any, any]:
         return {
             "id": self._id,
@@ -108,6 +111,5 @@ class Item:
             item = json_dict[key]
             formated_item = Item(item['id'], item['nome'], item['dono_id'], item['preco'], item['desc'], item['foto'], item['disponivel'], item['comentarios'])
             items_dict.update({item['id']: formated_item})
-
-        print(items_dict)
+        
         return items_dict
