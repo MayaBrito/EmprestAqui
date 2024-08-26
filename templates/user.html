@@ -167,7 +167,7 @@
             <div class="general-score">NOTA GERAL: {{user.general_score}}</div>
             {% for commenter in user.received_comments.keys() %}
             <div class="review-box">
-                <strong>{{users[commenter].name}} - NOTA {{user.received_comments[commenter].score}}</strong>
+                <strong>{{users[commenter].name}} - NOTA {{"★"*user.received_comments[commenter].score}}</strong>
                 <p>{{user.received_comments[commenter].comment}}</p>
             </div>
             {% endfor %}

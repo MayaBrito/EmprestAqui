@@ -285,7 +285,7 @@ if __name__ == '__main__':
         save_item("banana prata",programmers[0],"ingual o fredie mercury","prateado",True),
         save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
     ]
-    save_comment("olha eu commentando em mim mesmo, como isso é possivel?",10,1,1,"user")
+    save_comment("olha eu commentando em mim mesmo, como isso é possivel?",6,1,1,"user")
     make_request(bananas[1],programmers[1],programmers[0])
     make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     engine = Engine(itens.values())

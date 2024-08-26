@@ -75,7 +75,9 @@ class Person:
     @property
     def general_score(self)-> str:
         """get para a nota media da pessoa"""
-        return sum([c.score for c in self._received_comments.values()])
+        total = sum([c.score for c in self._received_comments.values()])
+        nota = total/len(self._received_comments)
+        return "★"*int(nota) + "⋆"*int((2*nota)%2)
 
     # @classmethod
     # def publica_comment(self,item:Item,comment:Comment)->None:
