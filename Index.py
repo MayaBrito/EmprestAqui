@@ -1,4 +1,4 @@
-from EmprestAqui.item import Item
+from item import Item
 import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
@@ -8,21 +8,29 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.tokenize import RegexpTokenizer
 from collections import Counter
 
-from EmprestAqui.item import Item
 nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt_tab')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
+
 
 class Index():
     def __init__(self):
         self.index = {} # {"abraco": set(6,3,2)}
         self.items = {} # {4: Item}
         
-        
-    def index_document(self, item: Item):
-        for token in self.generate_tokens(Item.fulltext()):
+    def generate_term_frequencies(self, item: Item):
+        tokens = self.generate_tokens(item.get_full_text())
+        item.term_frequencies = Counter(tokens)
+
+    def index_item(self, item: Item):
+        if item.id not in self.items:
+            self.items[item.id] = item
+            self.generate_term_frequencies(item)
+            
+        for token in self.generate_tokens(item.get_full_text()):
                 if token not in self.index:
                         self.index[token] = set()
                 self.index[token].add(item.id)
@@ -31,9 +39,9 @@ class Index():
         stemmer = PorterStemmer()
         return [stemmer.stem(token) for token in tokens]
 
-    def generate_tokens_for_item(self, item_fulltext: str) -> list:
+    def generate_tokens(self, text: str) -> list:
         tokens = []
-        tokenize_setences = sent_tokenize(item_fulltext)
+        tokenize_setences = sent_tokenize(text)
         tokenizer = RegexpTokenizer(r'\w+')
         list_of_list_tokens_without_punc = []
 
@@ -57,8 +65,37 @@ class Index():
     
     def generate_index(self, file_path:str):
         list_items = Item.json_to_items_array(file_path)
-        for item in list_items:
-            self.index_document(item)
-        #TODO salvar em arquivo.
+        for key in list_items.keys():
+            self.index_item(list_items[key])
+
         
+        #TODO salvar em arquivo.
+    
+    def rank(self, entry_tokens, items):
+        results = []
+        item_ids = []
+
+        for item in items:
+            score = sum([item.term_frequency(token) for token in entry_tokens if item.term_frequency(token) is not None])
+            results.append((item.id, score))
+
+        sorted_results = sorted(results, key=lambda item: item[1], reverse=True)
+        for item_id, _ in sorted_results:
+            item_ids.append(item_id)
+        
+        return item_ids
+    
+    def _results(self, analyzed_query):
+        return [self.index.get(token) for token in analyzed_query if self.index.get(token) is not None]
+    
+    def search(self, query):
+        entry_tokens = self.generate_tokens(query)
+        results = self._results(entry_tokens)
+        if len(results) >= 1:
+                items = [self.items[item_id] for item_id in set.union(*results)]
+        else:
+                items = [] #TODO retornar itens aleatórios
+
+        return self.rank(entry_tokens, items)
+    
     

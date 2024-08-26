@@ -1,6 +1,6 @@
 from comentario import Comentario
 import json;
-
+from collections import Counter
 
 class Item:
     _comentarios: dict[int, Comentario] = {}
@@ -24,6 +24,7 @@ class Item:
         self._disponivel = disponivel
         self._dono_id = dono_id
         self._comentarios = commentaries
+        self.term_frequencies = Counter()
 
     @property
     def id(self) -> int:
@@ -65,9 +66,6 @@ class Item:
         """get para a disponibilidade do item"""
         return self._disponivel
     
-    @property
-    def get_full_text(self) -> str:
-        return self.nome + self.descricao
 
     @disponivel.setter
     def disponivel(self, valor: bool):
@@ -113,3 +111,6 @@ class Item:
             items_dict.update({item['id']: formated_item})
         
         return items_dict
+    
+    def term_frequency(self, term):
+        return self.term_frequencies.get(term)
