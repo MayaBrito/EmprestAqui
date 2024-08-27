@@ -281,11 +281,11 @@ if __name__ == '__main__':
     bananas = [
         save_item("banana maçã",programmers[0],"não é uma maçã","https://st.focusedcollection.com/11312302/i/1800/focused_150226594-stock-photo-apple-and-yellow-banana.jpg",True),
         save_item("banana nanica",programmers[0],"🤏","https://img.freepik.com/premium-photo/very-small-banana-hand_679905-1202.jpg?w=2000",True),
-        save_item("maça",programmers[0],"👩‍⚕️🏃‍♀️","🍏",False),
-        save_item("banana prata",programmers[0],"ingual o fredie mercury","prateado",True),
+        save_item("maça",programmers[0],":)","https://static.vecteezy.com/system/resources/previews/002/520/838/original/apple-logo-black-isolated-on-transparent-background-free-vector.jpg",False),
+        save_item("banana prata",programmers[0],"ingual o fredie mercury","https://thumbs.dreamstime.com/b/silver-banana-isolated-white-background-festive-summer-concept-silver-banana-isolated-white-background-festive-226246185.jpg",True),
         save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
     ]
-    save_comment("olha eu commentando em mim mesmo, como isso é possivel?",6,1,1,"user")
+    save_comment("olha eu commentando em mim mesmo, como isso é possivel?",5,1,1,"user")
     make_request(bananas[1],programmers[1],programmers[0])
     make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     engine = Engine(itens.values())
