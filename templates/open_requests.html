@@ -1,3 +1,4 @@
+{% from '_top_bar.html' import render_header%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,18 +69,7 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <form method="post" action="/change_location">
-            <button type="submit" name="change_location" id="change_location">📍</button>
-        </form>
-        <form method="post" action="/user">
-            <button type="submit" name="user" id="user">👤</button>
-        </form>
-        <form method="post" action="/login">
-            <button type="submit" name="exit" id="exit">🔚</button>
-        </form>
-        <button disabled style="visibility:hidden;">&nbsp;</button> <!-- Botão falso para espaçamento -->
-    </div>
+    {{ render_header() }}
 
     <div class="container">
         <h2>Aguardando Aprovação</h2>
