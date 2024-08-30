@@ -34,6 +34,7 @@ def save_cookies(resp,email,password):
     resp.set_cookie('password',password)
     return resp
 
+# helper function to create comments
 def save_comment(comment,score,commenter,receiver,receiver_type):
     new_comment = Comment(comment,score)
     if receiver_type == "item":
@@ -47,7 +48,6 @@ def make_request(item_id,interested_id,supplier_id,state='open'):
     users[supplier_id].received_requests[(item_id,interested_id)] = new_request
     users[interested_id].requests_made[item_id] = new_request
 
-#TODO helper function to create comments
 
 # simple user validation implement saver metods if made into a comercial product
 def check_user() ->(str,bool):
