@@ -111,13 +111,15 @@ def confirmation():
             resp = render_template("error.html",error=output) 
     return resp
 
-@app.route('/menu',methods=['GET','POST'])
-def menu():
+@app.route('/menu/<error>',methods=['GET','POST'])
+@app.route('/menu',defaults={'error': ""},methods=['GET','POST'])
+def menu(error):
+    print(error)
     search = Forms(request.form)
     if request.method == 'POST':
         return results(search,user)
     else:
-        return render_template('index.html', form=search,name=user)
+        return render_template('index.html', form=search,name=user,error=error)
 
 
 @app.route('/results')
@@ -129,7 +131,7 @@ def results(search,user):
 
     if len(results) == 0:
         #flash('sem results, tente novamente!') 
-        return redirect(url_for('menu'))
+        return redirect(url_for('menu',error="sem resultados"))
     else:
         return render_template('results.html', results=results)
 
