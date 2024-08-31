@@ -50,7 +50,7 @@ def make_request(item_id,interested_id,supplier_id,state='open'):
 
 
 # simple user validation implement saver metods if made into a comercial product
-def check_user() ->(str,bool):
+def check_user() ->tuple[str,bool]:
     email = request.cookies.get("email")
     password = request.cookies.get("password")
     err = False
