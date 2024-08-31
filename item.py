@@ -29,7 +29,14 @@ class Item:
     @property
     def general_score(self)-> str:
         """get para o preco do item"""
-        return sum([c.score for c in self._comments.values()])
+        total = sum([c.score for c in self._comments.values()])
+        ammount = len(self._comments)
+        score = 0
+        if (ammount != 0):
+            score = total/ammount
+        half_star = (2*score)%2
+        rest = 5 - (int(score+half_star))
+        return "★"*int(score) + "⋆"*int(half_star)+"☆"*int(rest)
     
     @property
     def desc(self)-> str:
