@@ -4,7 +4,7 @@ from person import Person
 from request import Request
 from utils import read_csv
 from engine_search import Engine
-from forms import Forms
+from forms import Forms, Location
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for
 
 app = Flask(__name__)
@@ -91,7 +91,8 @@ def login_confirmation():
 
 @app.route('/register',methods=['GET','POST'])
 def register():
-    return render_template('register.html')
+    location = Location(request.form)
+    return render_template('register.html',location = location)
 
 @app.route('/confirmation', methods = ['GET','POST']) 
 def confirmation(): 
@@ -100,7 +101,7 @@ def confirmation():
         password = request.form['password']
         phone = request.form['phone']
         email = request.form['email']
-        city = request.form['city']
+        city = request.form['filter']
         if email not in emailsearch:
             save_user(name,password,phone,email,city)
             resp = make_response(redirect(url_for('menu')))
@@ -116,10 +117,11 @@ def confirmation():
 def menu(error):
     print(error)
     search = Forms(request.form)
+    location = Location(request.form)
     if request.method == 'POST':
         return results(search,user)
     else:
-        return render_template('index.html', form=search,name=user,error=error)
+        return render_template('index.html', location=location,form=search,name=user,error=error)
 
 
 @app.route('/results')
@@ -244,8 +246,8 @@ def change_location():
     if err:
         return render_template('login.html')
     user = users[emailsearch[email]]
-
-    return render_template('change_location.html')
+    location = Location(request.form)
+    return render_template('change_location.html',location=location )
 
 @app.route('/apply_location_changes',methods=['GET','POST'])
 def apply_location():
@@ -254,7 +256,7 @@ def apply_location():
         return render_template('login.html')
     user = users[emailsearch[email]]
 
-    new_address = request.form["city"]
+    new_address = request.form["filter"]
     user.city = new_address
 
     return redirect(url_for("user"))
