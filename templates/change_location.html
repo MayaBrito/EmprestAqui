@@ -68,7 +68,9 @@
         <h2>Localização</h2>
         <form method="post" action="/apply_location_changes"> 
             <label for="city"></label> 
-            <input type="text" name="city" id="city" placeholder="Cidade"/>  
+            <div class="form-group">
+                <p>{{ location.filter }}</p>
+            </div>
             <input type="submit" name="change" id="change" value="Mudar Localização">  
         </form> 
     </div>
