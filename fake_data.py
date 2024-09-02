@@ -1,3 +1,4 @@
+from time import sleep
 import json
 from random import random, seed
 from typing import Callable, Generator
@@ -103,23 +104,24 @@ class DataFaker:
             for comment in self.fake_comments(fk, cfg.comments_per_person).values():
                 other_p_id = p.id
                 while other_p_id == p.id:
-                    other_p_id = math.ceil(random() * cfg.people_n)
+                    other_p_id = math.floor(random() * cfg.people_n)
 
                 p._received_comments[other_p_id] = comment
 
-        # Creating items for people
-        for p in people.values():
-            for item in self.fake_items(fk, cfg.items_per_person).values():
-                item._owner_id = p.id
-                # Creating fake comments for item
-                for c in self.fake_comments(fk, cfg.comments_per_item).values():
-                    other_p_id = p.id
-                    while other_p_id == p.id:
-                        other_p_id = math.ceil(random() * cfg.people_n)
+        # Assigning items to people
+        for item in self.fake_items().values():
+            owner_id = math.floor(random() * cfg.people_n)
+            item._owner_id = owner_id
+            # Creating fake comments for item
+            for c in self.fake_comments(fk, cfg.comments_per_item).values():
+                other_p_id = owner_id
+                while other_p_id == owner_id:
+                    other_p_id = math.floor(random() * cfg.people_n)
 
-                    item.comments[other_p_id] = c
+                item.comments[other_p_id] = c
 
-                p.items[item.id] = item
+            owner = people[owner_id]
+            owner.items[item.id] = item
 
         # Creating requests for people
         requests = self.fake_requests(fk, cfg.requests_n)
@@ -147,16 +149,13 @@ class DataFaker:
         self._comment_id_seq += 1
         return self._comment_id_seq, Comment(self._comment_id_seq, fk.text(), fk.random_int(0, 10))
 
-    def fake_items(self, fk: Faker, n: int = 1) -> dict[int, Item]:
-        new_items = self._fake_n(fk, n, self.fake_item)
-        self._items.update(new_items)
-        return new_items
-
-    def fake_item(self, fk: Faker) -> tuple[int, Item]:
-        self._item_id_seq += 1
-        name = fk.text(5)
-        desc = fk.text(200)
-        return self._item_id_seq, Item(self._item_id_seq, name, 0, desc)
+    def fake_items(self) -> dict[int, Item]:
+        with open("tools.json") as f:
+            data = json.loads(f.read())
+            for i in data:
+                self._item_id_seq += 1
+                self._items[self._item_id_seq] = Item(self._item_id_seq, i["name"], 0, i["description"])
+        return self._items
 
     def fake_requests(self, fk: Faker, n: int = 1) -> dict[int, Request]:
         new_requests = self._fake_n(fk, n, self.fake_request)
@@ -166,13 +165,13 @@ class DataFaker:
     def fake_request(self, fk: Faker) -> tuple[int, Request]:
         self._request_id_seq += 1
         state = fk.state()
-        item_id = math.ceil(random() * self._item_id_seq)
+        item_id = math.floor(random() * self._item_id_seq)
         item = self._items[item_id]
         owner = self._people[item.owner_id]
 
         interested_id = item.owner_id
         while interested_id == item.owner_id:
-            interested_id = math.ceil(random() * self._person_id_seq)
+            interested_id = math.floor(random() * self._person_id_seq)
 
         return self._request_id_seq, Request(self._request_id_seq, state, item_id, interested_id, owner.id)
 
