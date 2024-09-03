@@ -4,8 +4,9 @@ from person import Person
 from request import Request
 from utils import read_csv
 from engine_search import Engine
-from forms import Forms
+from forms import Forms, Location
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for
+import pickle as pk
 
 app = Flask(__name__)
 emailsearch = {}
@@ -34,6 +35,7 @@ def save_cookies(resp,email,password):
     resp.set_cookie('password',password)
     return resp
 
+# helper function to create comments
 def save_comment(comment,score,commenter,receiver,receiver_type):
     new_comment = Comment(comment,score)
     if receiver_type == "item":
@@ -47,10 +49,9 @@ def make_request(item_id,interested_id,supplier_id,state='open'):
     users[supplier_id].received_requests[(item_id,interested_id)] = new_request
     users[interested_id].requests_made[item_id] = new_request
 
-#TODO helper function to create comments
 
 # simple user validation implement saver metods if made into a comercial product
-def check_user() ->(str,bool):
+def check_user() ->tuple[str,bool]:
     email = request.cookies.get("email")
     password = request.cookies.get("password")
     err = False
@@ -91,7 +92,8 @@ def login_confirmation():
 
 @app.route('/register',methods=['GET','POST'])
 def register():
-    return render_template('register.html')
+    location = Location(request.form)
+    return render_template('register.html',location = location)
 
 @app.route('/confirmation', methods = ['GET','POST']) 
 def confirmation(): 
@@ -100,7 +102,7 @@ def confirmation():
         password = request.form['password']
         phone = request.form['phone']
         email = request.form['email']
-        city = request.form['city']
+        city = request.form['filter']
         if email not in emailsearch:
             save_user(name,password,phone,email,city)
             resp = make_response(redirect(url_for('menu')))
@@ -111,25 +113,28 @@ def confirmation():
             resp = render_template("error.html",error=output) 
     return resp
 
-@app.route('/menu',methods=['GET','POST'])
-def menu():
+@app.route('/menu/<error>',methods=['GET','POST'])
+@app.route('/menu',defaults={'error': ""},methods=['GET','POST'])
+def menu(error):
+    print(error)
     search = Forms(request.form)
+    location = Location(request.form)
     if request.method == 'POST':
         return results(search,user)
     else:
-        return render_template('index.html', form=search,name=user)
+        return render_template('index.html', location=location,form=search,name=user,error=error)
 
 
 @app.route('/results')
 def results(search,user):
     results = []
-    text_search = search.data['search']
-    filter = search.data['filter']
+    text_search = request.form['search']
+    filter = request.form['filter']
     results = engine.search(text_search,filter)
 
     if len(results) == 0:
         #flash('sem results, tente novamente!') 
-        return redirect(url_for('menu'))
+        return redirect(url_for('menu',error="sem resultados"))
     else:
         return render_template('results.html', results=results)
 
@@ -242,8 +247,8 @@ def change_location():
     if err:
         return render_template('login.html')
     user = users[emailsearch[email]]
-
-    return render_template('change_location.html')
+    location = Location(request.form)
+    return render_template('change_location.html',location=location )
 
 @app.route('/apply_location_changes',methods=['GET','POST'])
 def apply_location():
@@ -252,7 +257,7 @@ def apply_location():
         return render_template('login.html')
     user = users[emailsearch[email]]
 
-    new_address = request.form["city"]
+    new_address = request.form["filter"]
     user.city = new_address
 
     return redirect(url_for("user"))
@@ -273,20 +278,49 @@ def open_requests():
     user = users[emailsearch[email]]
     return render_template('open_requests.html',requests=user.requests_made,itens=itens,users=users)   
 
+@app.route('/save')
+def save():
+    with open('emailsearch.pickle', 'wb') as handle:
+        pk.dump(emailsearch, handle, protocol=pk.HIGHEST_PROTOCOL)
+    with open('users.pickle', 'wb') as handle:
+        pk.dump(users, handle, protocol=pk.HIGHEST_PROTOCOL)
+    with open('itens.pickle', 'wb') as handle:
+        pk.dump(itens, handle, protocol=pk.HIGHEST_PROTOCOL)
+    return make_response("ok")
+
+@app.route('/load')
+def load():
+    global emailsearch
+    global users
+    global itens
+    global engine
+    with open('emailsearch.pickle', 'rb') as f1:
+        emailsearch = pk.load(f1)
+    with open('users.pickle', 'rb') as f2:
+        users = pk.load(f2)
+    with open('itens.pickle', 'rb') as f3:
+        itens = pk.load(f3)
+    engine = Engine(list(itens.values()))
+    return make_response("ok")
+
+@app.route('/test')
+def test():
+    return make_response("ok")
+
 if __name__ == '__main__':
-    programmers = [
-        save_user("joão", "henrrique", "99999999","xavier@gmail.com","João Pessoa"),
-        save_user("guilherme","silva", "88888888","toledo@gmail.com","Campina Grande")
-    ]
-    bananas = [
-        save_item("banana maçã",programmers[0],"não é uma maçã","https://st.focusedcollection.com/11312302/i/1800/focused_150226594-stock-photo-apple-and-yellow-banana.jpg",True),
-        save_item("banana nanica",programmers[0],"🤏","https://img.freepik.com/premium-photo/very-small-banana-hand_679905-1202.jpg?w=2000",True),
-        save_item("maça",programmers[0],"👩‍⚕️🏃‍♀️","🍏",False),
-        save_item("banana prata",programmers[0],"ingual o fredie mercury","prateado",True),
-        save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
-    ]
-    save_comment("olha eu commentando em mim mesmo, como isso é possivel?",10,1,1,"user")
-    make_request(bananas[1],programmers[1],programmers[0])
-    make_request(bananas[4],programmers[0],programmers[1],state='accepted')
-    engine = Engine(itens.values())
-    app.run()
+    # programmers = [
+    #     save_user("joão", "henrrique", "99999999","xavier@gmail.com","João Pessoa"),
+    #     save_user("guilherme","silva", "88888888","toledo@gmail.com","Campina Grande")
+    # ]
+    # bananas = [
+    #     save_item("banana maçã",programmers[0],"não é uma maçã","https://st.focusedcollection.com/11312302/i/1800/focused_150226594-stock-photo-apple-and-yellow-banana.jpg",True),
+    #     save_item("banana nanica",programmers[0],"🤏","https://img.freepik.com/premium-photo/very-small-banana-hand_679905-1202.jpg?w=2000",True),
+    #     save_item("maça",programmers[0],":)","https://static.vecteezy.com/system/resources/previews/002/520/838/original/apple-logo-black-isolated-on-transparent-background-free-vector.jpg",False),
+    #     save_item("banana prata",programmers[0],"ingual o fredie mercury","https://thumbs.dreamstime.com/b/silver-banana-isolated-white-background-festive-summer-concept-silver-banana-isolated-white-background-festive-226246185.jpg",True),
+    #     save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
+    # ]
+    # save_comment("olha eu commentando em mim mesmo, como isso é possivel?",5,1,1,"user")
+    # make_request(bananas[1],programmers[1],programmers[0])
+    # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
+    engine = Engine()
+    app.run(host="0.0.0.0",port=8080)

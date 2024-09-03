@@ -1,3 +1,4 @@
+{% from '_top_bar.html' import render_header%}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -106,21 +107,13 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <form method="post" action="/change_location">
-            <button type="submit" name="change_location" id="change_location">📍</button>
-        </form>
-        <form method="post" action="/user">
-            <button type="submit" name="user" id="user">👤</button>
-        </form>
-        <form method="post" action="/login">
-            <button type="submit" name="exit" id="exit">🔚</button>
-        </form>
-    </div>
+    {{ render_header() }}
     
     <div class="container">
         <h2>EmprestaAqui</h2>
-        
+        {% if error != "" %}
+            {{error}}
+        {% endif %}
         <!-- Formulário -->
         <div class="form-container">
             <form method="post">
@@ -129,7 +122,7 @@
                         <p>{{ form.search }}</p>
                     </div>
                     <div class="form-group">
-                        <p>{{ form.filter }}</p>
+                        <p>{{ location.filter }}</p>
                     </div>
                 </dl>
                 <input type="submit" value="Buscar" class="search-button">

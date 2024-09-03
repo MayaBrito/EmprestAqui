@@ -1,23 +1,91 @@
 <!DOCTYPE html> 
 <html> 
-    <head> 
-        <title>Login</title> 
-    </head> 
-    <body> 
+<head> 
+    <title>Cadastrar Item</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .form-container {
+            background-color: #e0e0e0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .file-upload {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            margin: 0 auto 20px;
+            cursor: pointer;
+        }
+
+        .file-upload img {
+            width: 40px;
+            height: 40px;
+        }
+
+        input[type="submit"] {
+            background-color: #1ECAA1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1ECAA1;
+        }
+    </style>
+</head> 
+<body> 
+    <div class="form-container">
+        <h1>Cadastrar Item</h1>
         <form method="post" action="/evaluate_publication"> 
-            <label for="name">nome</label> 
-            <input type="text" name="name" id="name"/>  
-            <br/> 
-            <br> 
-            <label for="desc">desc</label> 
-            <input type="text" name="desc" id="desc"/>  
-            <br/> 
-            <br> 
-            <label for="photo">foto</label> 
-            <input type="text" name="photo" id="photo"/>  
-            <br/> 
-            <br> 
-            <input type="submit" name="submit" id="login" value="Publicar"/>  
+            <input type="text" name="name" id="name" placeholder="Nome" required/>  
+            <input type="text" name="desc" id="desc" placeholder="Descrição" required/>
+            <input type="text" name="photo" id="photo" placeholder="link da imagem" required/>  
+            <div class="file-upload">
+                <img src="https://via.placeholder.com/40" alt="Upload Icon">
+            </div>
+            <input type="submit" name="submit" id="submit" value="Cadastrar"/>  
         </form> 
-    </body> 
+    </div>
+</body> 
 </html>
