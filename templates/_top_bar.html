@@ -1,0 +1,19 @@
+{% macro render_header() -%}
+    <div class="header">
+        <form method="post" action="/login">
+            <button type="submit" name="exit" id="exit">❌</button>
+        </form>
+        <form method="post" action="/change_location">
+            <button type="submit" name="change_location" id="change_location">📍</button>
+        </form>
+        <form method="post" action="/user">
+            <button type="submit" name="user" id="user">👤</button>
+        </form>
+        <form method="post" action="/">
+            <button type="submit" name="menu" id="menu">🔙</button>
+        </form>
+        <button 
+        disabled style="visibility:hidden;">&nbsp;
+        </button> 
+    </div>
+{%- endmacro %}

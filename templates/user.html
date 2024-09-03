@@ -1,3 +1,4 @@
+{% from '_top_bar.html' import render_header%}
 <!DOCTYPE html> 
 <html> 
 <head> 
@@ -118,18 +119,7 @@
     </style>
 </head> 
 <body> 
-    <div class="header">
-        <form method="post" action="/change_location">
-            <button type="submit" name="change_location" id="change_location">📍</button>
-        </form>
-        <form method="post" action="/user">
-            <button type="submit" name="user" id="user">👤</button>
-        </form>
-        <form method="post" action="/login">
-            <button type="submit" name="exit" id="exit">🔚</button>
-        </form>
-        <button disabled style="visibility:hidden;">&nbsp;</button> <!-- Botão falso para espaçamento -->
-    </div>
+    {{ render_header() }}
 
     <div class="container">
         <h2>Meu Perfil</h2>
@@ -164,10 +154,10 @@
 
         <div class="reviews">
             <h3>Avaliações</h3>
-            <div class="general-score">NOTA GERAL: {{user.general_score}}</div>
+            <div class="general-score">NOTA MÉDIA: {{user.general_score}}</div>
             {% for commenter in user.received_comments.keys() %}
             <div class="review-box">
-                <strong>{{users[commenter].name}} - NOTA {{user.received_comments[commenter].score}}</strong>
+                <strong>{{users[commenter].name}} - {{"★"*user.received_comments[commenter].score+"☆"*(5-user.received_comments[commenter].score)}}</strong>
                 <p>{{user.received_comments[commenter].comment}}</p>
             </div>
             {% endfor %}

@@ -70,7 +70,9 @@
             <label for="phone">Telefone</label> 
             <input type="text" name="phone" id="phone"/>  
             <label for="city">Cidade</label> 
-            <input type="text" name="city" id="city"/>  
+            <div class="form-group">
+                <p>{{ location.filter }}</p>
+            </div>
             <input type="submit" name="submit" id="submit" value="Registrar"/>  
         </form>
     </div>
