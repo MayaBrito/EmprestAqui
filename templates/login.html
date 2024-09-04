@@ -1,3 +1,4 @@
+{% from '_top_bar.html' import render_header%}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,6 +15,28 @@
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
         }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Certifica-se de que o header fique acima de outros elementos */
+        }
+    
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
         .container {
             background-color: #e0e0e0;
             padding: 40px;
@@ -52,6 +75,7 @@
     </style>
 </head>
 <body>
+    {{ render_header() }}
     <div class="container">
         <h1>EmprestaAqui</h1>
         <form method="post" action="/login_confirmation">

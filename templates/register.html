@@ -1,3 +1,4 @@
+{% from '_top_bar.html' import render_header%}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,6 +22,27 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
             text-align: center;
+            margin-top: 80px; 
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000; 
+        }
+    
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
         }
         .container h1 {
             margin-bottom: 20px;
@@ -58,6 +80,7 @@
     </style>
 </head>
 <body>
+    {{ render_header() }}
     <div class="container">
         <h1>Registrar</h1>
         <form method="post" action="/confirmation">
