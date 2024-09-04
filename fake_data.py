@@ -154,7 +154,8 @@ class DataFaker:
             data = json.loads(f.read())
             for i in data:
                 self._item_id_seq += 1
-                self._items[self._item_id_seq] = Item(self._item_id_seq, i["name"], 0, i["description"])
+                self._items[self._item_id_seq] = Item(
+                    self._item_id_seq, i["name"], 0, i["description"], i["url"])
         return self._items
 
     def fake_requests(self, fk: Faker, n: int = 1) -> dict[int, Request]:

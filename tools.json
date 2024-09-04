@@ -1,882 +1,1102 @@
 [
     {
         "name": "Pistola de Cola Quente Excalibur",
-        "description": "A lendária pistola de cola quente que aplica adesivo com a mesma precisão e força da espada do Rei Arthur. Ideal para projetos reais e épicos."
+        "description": "A lend\u00e1ria pistola de cola quente que aplica adesivo com a mesma precis\u00e3o e for\u00e7a da espada do Rei Arthur. Ideal para projetos reais e \u00e9picos.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147812221.jpg"
     },
     {
         "name": "Pistola de Cola Quente Lightsaber",
-        "description": "Inspirada pelos sabres de luz, esta pistola utiliza um feixe de energia para derreter e aplicar cola quente com precisão intergaláctica, sem desperdício."
+        "description": "Inspirada pelos sabres de luz, esta pistola utiliza um feixe de energia para derreter e aplicar cola quente com precis\u00e3o intergal\u00e1ctica, sem desperd\u00edcio.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147816106.jpg"
     },
     {
         "name": "Pistola de Cola Quente Da Vinci",
-        "description": "Baseada nas invenções de Leonardo da Vinci, esta pistola combina arte e engenharia para uma aplicação de cola quente criativa e precisa, perfeita para projetos inovadores."
+        "description": "Baseada nas inven\u00e7\u00f5es de Leonardo da Vinci, esta pistola combina arte e engenharia para uma aplica\u00e7\u00e3o de cola quente criativa e precisa, perfeita para projetos inovadores.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147812220.jpg"
     },
     {
         "name": "Pistola de Cola Quente Vulcano",
-        "description": "Forjada nas chamas de um vulcão, esta pistola é resistente ao calor intenso e ideal para aplicações de cola quente em condições extremas e resistentes."
+        "description": "Forjada nas chamas de um vulc\u00e3o, esta pistola \u00e9 resistente ao calor intenso e ideal para aplica\u00e7\u00f5es de cola quente em condi\u00e7\u00f5es extremas e resistentes.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147808984.jpg"
     },
     {
         "name": "Pistola de Cola Quente Phoenix",
-        "description": "Assim como a ave lendária que renasce das cinzas, esta pistola se regenera após cada uso, mantendo uma performance excepcional e uma durabilidade incrível."
+        "description": "Assim como a ave lend\u00e1ria que renasce das cinzas, esta pistola se regenera ap\u00f3s cada uso, mantendo uma performance excepcional e uma durabilidade incr\u00edvel.",
+        "url": "https://img.freepik.com/fotos-premium/um-aviao-com-um-fundo-preto-e-um-desenho-de-um-avioes-com-uma-estrela-nele_1172671-16592.jpg"
     },
     {
         "name": "Pistola de Cola Quente Cyberpunk",
-        "description": "Equipado com tecnologia futurista, esta pistola proporciona uma aplicação rápida e precisa de cola quente, ideal para ambientes avançados e distópicos."
+        "description": "Equipado com tecnologia futurista, esta pistola proporciona uma aplica\u00e7\u00e3o r\u00e1pida e precisa de cola quente, ideal para ambientes avan\u00e7ados e dist\u00f3picos.",
+        "url": "https://img.freepik.com/fotos-premium/uma-foto-de-uma-arma-que-diz-sou-um-grande-fa_1308172-535365.jpg"
     },
     {
-        "name": "Pistola de Cola Quente Dracônica",
-        "description": "Infundida com o poder dos dragões, esta pistola aplica cola quente com a força e a precisão de uma chama dracônica, ideal para projetos poderosos."
+        "name": "Pistola de Cola Quente Drac\u00f4nica",
+        "description": "Infundida com o poder dos drag\u00f5es, esta pistola aplica cola quente com a for\u00e7a e a precis\u00e3o de uma chama drac\u00f4nica, ideal para projetos poderosos.",
+        "url": "https://img.freepik.com/psd-gratuitas/pacote-de-icones-militares_23-2151772640.jpg"
     },
     {
         "name": "Pistola de Cola Quente Olympus",
-        "description": "Criada no Monte Olimpo, esta pistola possui a força e a precisão dos deuses gregos, proporcionando uma aplicação perfeita com um toque celestial."
+        "description": "Criada no Monte Olimpo, esta pistola possui a for\u00e7a e a precis\u00e3o dos deuses gregos, proporcionando uma aplica\u00e7\u00e3o perfeita com um toque celestial.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-com-cores-diferentes_23-2147852890.jpg"
     },
     {
         "name": "Pistola de Cola Quente Atlantis",
-        "description": "Vinda da cidade perdida de Atlantis, esta pistola é resistente à água e ideal para aplicações de cola quente em ambientes úmidos ou subaquáticos."
+        "description": "Vinda da cidade perdida de Atlantis, esta pistola \u00e9 resistente \u00e0 \u00e1gua e ideal para aplica\u00e7\u00f5es de cola quente em ambientes \u00famidos ou subaqu\u00e1ticos.",
+        "url": "https://img.freepik.com/vetores-premium/cartoon-ray-gun-com-adesivo-de-bolha-de-fala-ilustracao-vetorial-plana_906149-91596.jpg"
     },
     {
         "name": "Pistola de Cola Quente Quantum",
-        "description": "Utilizando princípios da mecânica quântica, esta pistola pode aplicar cola quente em múltiplas dimensões simultaneamente, garantindo uma aderência impecável."
+        "description": "Utilizando princ\u00edpios da mec\u00e2nica qu\u00e2ntica, esta pistola pode aplicar cola quente em m\u00faltiplas dimens\u00f5es simultaneamente, garantindo uma ader\u00eancia impec\u00e1vel.",
+        "url": "https://img.freepik.com/fotos-premium/um-sinal-de-neon-que-diz-a-palavra-fogo_1219356-8895.jpg"
     },
     {
         "name": "Pistola de Cola Quente Kraken",
-        "description": "Inspirada pelo lendário monstro marinho, esta pistola tem tentáculos que alcançam todas as áreas, proporcionando uma aplicação poderosa e precisa de cola quente."
+        "description": "Inspirada pelo lend\u00e1rio monstro marinho, esta pistola tem tent\u00e1culos que alcan\u00e7am todas as \u00e1reas, proporcionando uma aplica\u00e7\u00e3o poderosa e precisa de cola quente.",
+        "url": "https://img.freepik.com/fotos-gratis/retrato-de-uma-criatura-marinha-masculina-surrealista_23-2151609086.jpg"
     },
     {
         "name": "Pistola de Cola Quente Valkyrie",
-        "description": "Com a agilidade e precisão das guerreiras de Asgard, esta pistola é ideal para aplicações detalhadas e proporciona uma cobertura eficiente e rápida."
+        "description": "Com a agilidade e precis\u00e3o das guerreiras de Asgard, esta pistola \u00e9 ideal para aplica\u00e7\u00f5es detalhadas e proporciona uma cobertura eficiente e r\u00e1pida.",
+        "url": "https://img.freepik.com/vetores-premium/colecao-gratuita-de-pistolas-de-agua-coloridas-no-festival-a-ilustracao-vetorial-do-elemento_710947-3413.jpg"
     },
     {
         "name": "Pistola de Cola Quente Neo",
-        "description": "Inspirada pelo escolhido da Matrix, esta pistola pode aplicar cola quente com uma precisão que desafia a realidade, ideal para projetos que exigem um nível de controle extremo."
+        "description": "Inspirada pelo escolhido da Matrix, esta pistola pode aplicar cola quente com uma precis\u00e3o que desafia a realidade, ideal para projetos que exigem um n\u00edvel de controle extremo.",
+        "url": "https://img.freepik.com/vetores-gratis/mao-desenhada-colecao-de-elemento-de-verao_23-2148148914.jpg"
     },
     {
         "name": "Pistola de Cola Quente Solaris",
-        "description": "Alimentada pela energia solar, esta pistola proporciona uma aplicação ecológica e eficiente de cola quente, perfeita para projetos sustentáveis e bem iluminados."
+        "description": "Alimentada pela energia solar, esta pistola proporciona uma aplica\u00e7\u00e3o ecol\u00f3gica e eficiente de cola quente, perfeita para projetos sustent\u00e1veis e bem iluminados.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147815688.jpg"
     },
     {
         "name": "Pistola de Cola Quente Ironman",
-        "description": "Desenvolvida com a tecnologia de Tony Stark, esta pistola é inteligente e se ajusta automaticamente para garantir uma aplicação precisa e rápida de cola quente com tecnologia avançada."
+        "description": "Desenvolvida com a tecnologia de Tony Stark, esta pistola \u00e9 inteligente e se ajusta automaticamente para garantir uma aplica\u00e7\u00e3o precisa e r\u00e1pida de cola quente com tecnologia avan\u00e7ada.",
+        "url": "https://img.freepik.com/vetores-premium/um-desenho-de-uma-arma-de-brinquedo-azul-e-vermelha-com-uma-alca-vermelha_1120557-60011.jpg"
     },
     {
         "name": "Pistola de Cola Quente Pandora",
-        "description": "Retirada da mítica Caixa de Pandora, esta pistola vem com poderes inesperados e oferece uma aplicação única de cola quente, perfeita para projetos com um toque de mistério."
+        "description": "Retirada da m\u00edtica Caixa de Pandora, esta pistola vem com poderes inesperados e oferece uma aplica\u00e7\u00e3o \u00fanica de cola quente, perfeita para projetos com um toque de mist\u00e9rio.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147815100.jpg"
     },
     {
         "name": "Pistola de Cola Quente Minotauro",
-        "description": "Com a força do lendário monstro mitológico, esta pistola é robusta e projetada para aplicações potentes e resistentes de cola quente, enfrentando até os materiais mais difíceis."
+        "description": "Com a for\u00e7a do lend\u00e1rio monstro mitol\u00f3gico, esta pistola \u00e9 robusta e projetada para aplica\u00e7\u00f5es potentes e resistentes de cola quente, enfrentando at\u00e9 os materiais mais dif\u00edceis.",
+        "url": "https://img.freepik.com/vetores-gratis/conjunto-de-pistolas-de-agua-de-plastico-em-estilo-simples_23-2147814876.jpg"
     },
     {
         "name": "Pistola de Cola Quente Stargate",
-        "description": "Capaz de abrir portais para outras dimensões, esta pistola proporciona uma aplicação perfeita de cola quente em qualquer superfície, em qualquer realidade ou dimensão."
+        "description": "Capaz de abrir portais para outras dimens\u00f5es, esta pistola proporciona uma aplica\u00e7\u00e3o perfeita de cola quente em qualquer superf\u00edcie, em qualquer realidade ou dimens\u00e3o.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-armas-de-agua-colorida-em-estilo-simples_23-2147809676.jpg"
     },
     {
         "name": "Pistola de Cola Quente Iron Throne",
-        "description": "Inspirada no trono de ferro, esta pistola é robusta e durável, garantindo uma aplicação digna dos grandes líderes e construções majestosas."
+        "description": "Inspirada no trono de ferro, esta pistola \u00e9 robusta e dur\u00e1vel, garantindo uma aplica\u00e7\u00e3o digna dos grandes l\u00edderes e constru\u00e7\u00f5es majestosas.",
+        "url": "https://img.freepik.com/vetores-gratis/ilustracao-em-vetor-vintage-pistola-remixada-da-arte-de-alf-bruseth_53876-151115.jpg"
     },
     {
         "name": "Pistola de Cola Quente Asgard",
-        "description": "Empunhada pelos deuses nórdicos, esta pistola combina a força e a precisão celestial para proporcionar uma aplicação perfeita de cola quente em qualquer projeto."
+        "description": "Empunhada pelos deuses n\u00f3rdicos, esta pistola combina a for\u00e7a e a precis\u00e3o celestial para proporcionar uma aplica\u00e7\u00e3o perfeita de cola quente em qualquer projeto.",
+        "url": "https://img.freepik.com/fotos-gratis/linda-apresentacao-de-nail-art_23-2149295395.jpg"
     },
     {
-        "name": "Espátula Excalibur",
-        "description": "A lendária espátula que mistura e espalha com a mesma precisão e força da espada do Rei Arthur, ideal para tarefas dignas de um reino."
+        "name": "Esp\u00e1tula Excalibur",
+        "description": "A lend\u00e1ria esp\u00e1tula que mistura e espalha com a mesma precis\u00e3o e for\u00e7a da espada do Rei Arthur, ideal para tarefas dignas de um reino.",
+        "url": "https://img.freepik.com/vetores-premium/desenho-vetorial-de-uma-arma-tradicional-de-kalimantan-indonesia_839454-65.jpg"
     },
     {
-        "name": "Espátula Lightsaber",
-        "description": "Inspirada pelos sabres de luz, esta espátula utiliza um feixe de energia para espalhar e aplicar com precisão intergaláctica, sem deixar resíduos."
+        "name": "Esp\u00e1tula Lightsaber",
+        "description": "Inspirada pelos sabres de luz, esta esp\u00e1tula utiliza um feixe de energia para espalhar e aplicar com precis\u00e3o intergal\u00e1ctica, sem deixar res\u00edduos.",
+        "url": "https://img.freepik.com/fotos-premium/uma-faca-com-a-palavra-t-escrito-nela_1308175-100802.jpg"
     },
     {
-        "name": "Espátula Da Vinci",
-        "description": "Baseada nas invenções de Leonardo da Vinci, esta espátula combina arte e engenharia para uma aplicação criativa e precisa, perfeita para projetos inovadores."
+        "name": "Esp\u00e1tula Da Vinci",
+        "description": "Baseada nas inven\u00e7\u00f5es de Leonardo da Vinci, esta esp\u00e1tula combina arte e engenharia para uma aplica\u00e7\u00e3o criativa e precisa, perfeita para projetos inovadores.",
+        "url": "https://img.freepik.com/vetores-premium/um-desenho-de-uma-pa-com-uma-alca-que-diz-pincel_1024980-115375.jpg"
     },
     {
-        "name": "Espátula Vulcano",
-        "description": "Forjada nas chamas de um vulcão, esta espátula é resistente ao calor intenso e ideal para espalhar materiais em condições extremas com eficácia."
+        "name": "Esp\u00e1tula Vulcano",
+        "description": "Forjada nas chamas de um vulc\u00e3o, esta esp\u00e1tula \u00e9 resistente ao calor intenso e ideal para espalhar materiais em condi\u00e7\u00f5es extremas com efic\u00e1cia.",
+        "url": "https://img.freepik.com/vetores-premium/uma-ilustracao-dos-desenhos-animados-de-uma-picareta-e-uma-pedra_9206-9246.jpg"
     },
     {
-        "name": "Espátula Phoenix",
-        "description": "Assim como a ave lendária que renasce das cinzas, esta espátula se regenera após cada uso, mantendo uma performance excepcional e uma durabilidade incrível."
+        "name": "Esp\u00e1tula Phoenix",
+        "description": "Assim como a ave lend\u00e1ria que renasce das cinzas, esta esp\u00e1tula se regenera ap\u00f3s cada uso, mantendo uma performance excepcional e uma durabilidade incr\u00edvel.",
+        "url": "https://img.freepik.com/vetores-gratis/silhueta-de-fenix-de-design-plano_23-2150511352.jpg"
     },
     {
-        "name": "Espátula Cyberpunk",
-        "description": "Equipado com tecnologia futurista, esta espátula proporciona uma aplicação precisa e rápida, ideal para ambientes distópicos e avançados."
+        "name": "Esp\u00e1tula Cyberpunk",
+        "description": "Equipado com tecnologia futurista, esta esp\u00e1tula proporciona uma aplica\u00e7\u00e3o precisa e r\u00e1pida, ideal para ambientes dist\u00f3picos e avan\u00e7ados.",
+        "url": "https://img.freepik.com/fotos-gratis/flecha-com-cores-de-neon-brilhantes_23-2151205035.jpg"
     },
     {
-        "name": "Espátula Dracônica",
-        "description": "Infundida com o poder dos dragões, esta espátula pode espalhar até os materiais mais resistentes com a força e a precisão de uma chama dracônica."
+        "name": "Esp\u00e1tula Drac\u00f4nica",
+        "description": "Infundida com o poder dos drag\u00f5es, esta esp\u00e1tula pode espalhar at\u00e9 os materiais mais resistentes com a for\u00e7a e a precis\u00e3o de uma chama drac\u00f4nica.",
+        "url": "https://img.freepik.com/vetores-gratis/conceito-de-punhal-medieval-vintage_225004-1514.jpg"
     },
     {
-        "name": "Espátula Olympus",
-        "description": "Criada no Monte Olimpo, esta espátula possui a força e a precisão dos deuses gregos, proporcionando uma aplicação perfeita com um toque celestial."
+        "name": "Esp\u00e1tula Olympus",
+        "description": "Criada no Monte Olimpo, esta esp\u00e1tula possui a for\u00e7a e a precis\u00e3o dos deuses gregos, proporcionando uma aplica\u00e7\u00e3o perfeita com um toque celestial.",
+        "url": "https://img.freepik.com/fotos-premium/vassoura-de-cabeca-desmontavel-em-fundo-castanho-escuro-ia-generativa_1264082-78021.jpg"
     },
     {
-        "name": "Espátula Atlantis",
-        "description": "Vinda da cidade perdida de Atlantis, esta espátula é resistente à água e ideal para aplicações em ambientes úmidos ou subaquáticos."
+        "name": "Esp\u00e1tula Atlantis",
+        "description": "Vinda da cidade perdida de Atlantis, esta esp\u00e1tula \u00e9 resistente \u00e0 \u00e1gua e ideal para aplica\u00e7\u00f5es em ambientes \u00famidos ou subaqu\u00e1ticos.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-elementos-de-videogame_23-2150256875.jpg"
     },
     {
-        "name": "Espátula Quantum",
-        "description": "Utilizando princípios da mecânica quântica, esta espátula pode espalhar materiais em múltiplas dimensões simultaneamente, garantindo uma aplicação impecável."
+        "name": "Esp\u00e1tula Quantum",
+        "description": "Utilizando princ\u00edpios da mec\u00e2nica qu\u00e2ntica, esta esp\u00e1tula pode espalhar materiais em m\u00faltiplas dimens\u00f5es simultaneamente, garantindo uma aplica\u00e7\u00e3o impec\u00e1vel.",
+        "url": "https://img.freepik.com/fotos-gratis/bola-de-plasma-no-escuro_23-2150572269.jpg"
     },
     {
-        "name": "Espátula Kraken",
-        "description": "Inspirada pelo lendário monstro marinho, esta espátula tem tentáculos que se estendem para alcançar qualquer superfície, proporcionando uma aplicação poderosa e precisa."
+        "name": "Esp\u00e1tula Kraken",
+        "description": "Inspirada pelo lend\u00e1rio monstro marinho, esta esp\u00e1tula tem tent\u00e1culos que se estendem para alcan\u00e7ar qualquer superf\u00edcie, proporcionando uma aplica\u00e7\u00e3o poderosa e precisa.",
+        "url": "https://img.freepik.com/fotos-gratis/retrato-de-uma-criatura-marinha-surrealista_23-2151625951.jpg"
     },
     {
-        "name": "Espátula Valkyrie",
-        "description": "Com a agilidade e precisão das guerreiras de Asgard, esta espátula é ideal para aplicações detalhadas e proporciona uma cobertura eficiente e rápida."
+        "name": "Esp\u00e1tula Valkyrie",
+        "description": "Com a agilidade e precis\u00e3o das guerreiras de Asgard, esta esp\u00e1tula \u00e9 ideal para aplica\u00e7\u00f5es detalhadas e proporciona uma cobertura eficiente e r\u00e1pida.",
+        "url": "https://img.freepik.com/fotos-gratis/tiro-vertical-de-uma-espada-na-praia_181624-30732.jpg"
     },
     {
-        "name": "Espátula Neo",
-        "description": "Inspirada pelo escolhido da Matrix, esta espátula pode aplicar com uma precisão que desafia a realidade, ideal para projetos que exigem um nível de controle extremo."
+        "name": "Esp\u00e1tula Neo",
+        "description": "Inspirada pelo escolhido da Matrix, esta esp\u00e1tula pode aplicar com uma precis\u00e3o que desafia a realidade, ideal para projetos que exigem um n\u00edvel de controle extremo.",
+        "url": "https://img.freepik.com/vetores-gratis/ferramentas-de-cozinha-de-metal-com-plastico-colorido-conjunto-realista-com-concha-espatula-skimmer-cozinhar-garfo-transparente_1284-27882.jpg"
     },
     {
-        "name": "Espátula Solaris",
-        "description": "Alimentada pela energia solar, esta espátula proporciona uma aplicação ecológica e eficiente, perfeita para projetos sustentáveis e bem iluminados."
+        "name": "Esp\u00e1tula Solaris",
+        "description": "Alimentada pela energia solar, esta esp\u00e1tula proporciona uma aplica\u00e7\u00e3o ecol\u00f3gica e eficiente, perfeita para projetos sustent\u00e1veis e bem iluminados.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-do-sol-ardente-3d_23-2150938049.jpg"
     },
     {
-        "name": "Espátula Ironman",
-        "description": "Desenvolvida com a tecnologia de Tony Stark, esta espátula é inteligente e se ajusta automaticamente para garantir uma aplicação precisa e rápida com tecnologia avançada."
+        "name": "Esp\u00e1tula Ironman",
+        "description": "Desenvolvida com a tecnologia de Tony Stark, esta esp\u00e1tula \u00e9 inteligente e se ajusta automaticamente para garantir uma aplica\u00e7\u00e3o precisa e r\u00e1pida com tecnologia avan\u00e7ada.",
+        "url": "https://img.freepik.com/psd-gratuitas/pinceis-de-nariz-de-agulha-isolados-em-fundo-transparente_191095-24182.jpg"
     },
     {
-        "name": "Espátula Pandora",
-        "description": "Retirada da mítica Caixa de Pandora, esta espátula vem com poderes inesperados e oferece uma aplicação única, perfeita para projetos com um toque de mistério."
+        "name": "Esp\u00e1tula Pandora",
+        "description": "Retirada da m\u00edtica Caixa de Pandora, esta esp\u00e1tula vem com poderes inesperados e oferece uma aplica\u00e7\u00e3o \u00fanica, perfeita para projetos com um toque de mist\u00e9rio.",
+        "url": "https://img.freepik.com/fotos-premium/a-pa-de-trincheira-dos-soldados-da-primeira-guerra-mundial-com-punho-de-madeira_1079150-141154.jpg"
     },
     {
-        "name": "Espátula Minotauro",
-        "description": "Com a força do lendário monstro mitológico, esta espátula é robusta e projetada para aplicações potentes e resistentes, enfrentando até os materiais mais difíceis."
+        "name": "Esp\u00e1tula Minotauro",
+        "description": "Com a for\u00e7a do lend\u00e1rio monstro mitol\u00f3gico, esta esp\u00e1tula \u00e9 robusta e projetada para aplica\u00e7\u00f5es potentes e resistentes, enfrentando at\u00e9 os materiais mais dif\u00edceis.",
+        "url": "https://img.freepik.com/vetores-gratis/mao-desenhada-ninja-colecao-de-elementos-do-guerreiro_23-2147872828.jpg"
     },
     {
-        "name": "Espátula Stargate",
-        "description": "Capaz de abrir portais para outras dimensões, esta espátula proporciona uma aplicação perfeita em qualquer superfície, em qualquer realidade ou dimensão."
+        "name": "Esp\u00e1tula Stargate",
+        "description": "Capaz de abrir portais para outras dimens\u00f5es, esta esp\u00e1tula proporciona uma aplica\u00e7\u00e3o perfeita em qualquer superf\u00edcie, em qualquer realidade ou dimens\u00e3o.",
+        "url": "https://img.freepik.com/vetores-gratis/tema-de-astronomia-com-grande-telescopio_1308-105894.jpg"
     },
     {
-        "name": "Espátula Iron Throne",
-        "description": "Inspirada no trono de ferro, esta espátula é robusta e durável, garantindo uma aplicação digna dos grandes líderes e construções majestosas."
+        "name": "Esp\u00e1tula Iron Throne",
+        "description": "Inspirada no trono de ferro, esta esp\u00e1tula \u00e9 robusta e dur\u00e1vel, garantindo uma aplica\u00e7\u00e3o digna dos grandes l\u00edderes e constru\u00e7\u00f5es majestosas.",
+        "url": "https://img.freepik.com/vetores-gratis/acessorios-medievais-com-estilo-realista_23-2147690107.jpg"
     },
     {
-        "name": "Espátula Asgard",
-        "description": "Empunhada pelos deuses nórdicos, esta espátula combina a força e a precisão celestial para proporcionar uma aplicação perfeita em qualquer projeto."
+        "name": "Esp\u00e1tula Asgard",
+        "description": "Empunhada pelos deuses n\u00f3rdicos, esta esp\u00e1tula combina a for\u00e7a e a precis\u00e3o celestial para proporcionar uma aplica\u00e7\u00e3o perfeita em qualquer projeto.",
+        "url": "https://img.freepik.com/vetores-gratis/conceito-de-punhal-medieval-vintage_225004-1514.jpg"
     },
     {
         "name": "Broca Excalibur",
-        "description": "A lendária broca que perfura qualquer material com a precisão e a força da espada do Rei Arthur. Ideal para construções reais e desafios épicos."
+        "description": "A lend\u00e1ria broca que perfura qualquer material com a precis\u00e3o e a for\u00e7a da espada do Rei Arthur. Ideal para constru\u00e7\u00f5es reais e desafios \u00e9picos.",
+        "url": "https://img.freepik.com/psd-gratuitas/gancho-isolado-com-tracado-de-recorte_7939-4352.jpg"
     },
     {
         "name": "Broca Lightsaber",
-        "description": "Inspirada pelos sabres de luz, esta broca utiliza um feixe de energia para perfurar com precisão intergaláctica, ideal para trabalhos avançados e limpos."
+        "description": "Inspirada pelos sabres de luz, esta broca utiliza um feixe de energia para perfurar com precis\u00e3o intergal\u00e1ctica, ideal para trabalhos avan\u00e7ados e limpos.",
+        "url": "https://img.freepik.com/fotos-gratis/fundo-horizontal-abstrato-do-laser-optico_23-2149116252.jpg"
     },
     {
         "name": "Broca Da Vinci",
-        "description": "Baseada nos inventos de Leonardo da Vinci, esta broca combina arte e engenharia para perfurações precisas e criativas, perfeita para projetos inovadores."
+        "description": "Baseada nos inventos de Leonardo da Vinci, esta broca combina arte e engenharia para perfura\u00e7\u00f5es precisas e criativas, perfeita para projetos inovadores.",
+        "url": "https://img.freepik.com/vetores-gratis/ilustracao-em-vetor-vintage-adze-remixada-da-arte-de-ray-price_53876-115490.jpg"
     },
     {
         "name": "Broca Vulcano",
-        "description": "Forjada nas chamas de um vulcão, esta broca é resistente ao calor extremo e capaz de perfurar materiais duros e resistentes com facilidade."
+        "description": "Forjada nas chamas de um vulc\u00e3o, esta broca \u00e9 resistente ao calor extremo e capaz de perfurar materiais duros e resistentes com facilidade.",
+        "url": "https://img.freepik.com/fotos-gratis/paisagem-de-erupcao-vulcanica_23-2150724763.jpg"
     },
     {
         "name": "Broca Phoenix",
-        "description": "Assim como a ave lendária que renasce das cinzas, esta broca se regenera após cada uso, mantendo uma performance excepcional e uma durabilidade incrível."
+        "description": "Assim como a ave lend\u00e1ria que renasce das cinzas, esta broca se regenera ap\u00f3s cada uso, mantendo uma performance excepcional e uma durabilidade incr\u00edvel.",
+        "url": "https://img.freepik.com/vetores-gratis/silhueta-de-fenix-desenhada-de-mao_23-2150421416.jpg"
     },
     {
         "name": "Broca Cyberpunk",
-        "description": "Equipado com tecnologia futurista, esta broca proporciona perfurações precisas e rápidas, ideal para projetos em um ambiente distópico e avançado."
+        "description": "Equipado com tecnologia futurista, esta broca proporciona perfura\u00e7\u00f5es precisas e r\u00e1pidas, ideal para projetos em um ambiente dist\u00f3pico e avan\u00e7ado.",
+        "url": "https://img.freepik.com/fotos-gratis/ilustracao-de-um-menino-cyberpunk_23-2151728202.jpg"
     },
     {
-        "name": "Broca Dracônica",
-        "description": "Infundida com o poder dos dragões, esta broca pode perfurar até os materiais mais resistentes com a força e a precisão de uma chama dracônica."
+        "name": "Broca Drac\u00f4nica",
+        "description": "Infundida com o poder dos drag\u00f5es, esta broca pode perfurar at\u00e9 os materiais mais resistentes com a for\u00e7a e a precis\u00e3o de uma chama drac\u00f4nica.",
+        "url": "https://img.freepik.com/fotos-gratis/olho-de-dragao-fantastico-de-perto_23-2151445843.jpg"
     },
     {
         "name": "Broca Olympus",
-        "description": "Criada no Monte Olimpo, esta broca possui a força e a precisão dos deuses gregos, proporcionando perfurações perfeitas com um toque celestial."
+        "description": "Criada no Monte Olimpo, esta broca possui a for\u00e7a e a precis\u00e3o dos deuses gregos, proporcionando perfura\u00e7\u00f5es perfeitas com um toque celestial.",
+        "url": "https://img.freepik.com/psd-gratuitas/parafuso-isolado-em-fundo-transparente_191095-29146.jpg"
     },
     {
         "name": "Broca Atlantis",
-        "description": "Vinda da cidade perdida de Atlantis, esta broca é resistente à água e ideal para perfurações em ambientes úmidos ou subaquáticos."
+        "description": "Vinda da cidade perdida de Atlantis, esta broca \u00e9 resistente \u00e0 \u00e1gua e ideal para perfura\u00e7\u00f5es em ambientes \u00famidos ou subaqu\u00e1ticos.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-de-ancora-com-peixe_23-2147710163.jpg"
     },
     {
         "name": "Broca Quantum",
-        "description": "Utilizando princípios da mecânica quântica, esta broca pode perfurar em múltiplas dimensões simultaneamente, garantindo perfurações excepcionais."
+        "description": "Utilizando princ\u00edpios da mec\u00e2nica qu\u00e2ntica, esta broca pode perfurar em m\u00faltiplas dimens\u00f5es simultaneamente, garantindo perfura\u00e7\u00f5es excepcionais.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-geometrico-circular-abstrato-padrao-de-movimento-centrado-dinamico-starburst_1142-14580.jpg"
     },
     {
         "name": "Broca Kraken",
-        "description": "Inspirada pelo lendário monstro marinho, esta broca tem tentáculos que se estendem para alcançar qualquer material, proporcionando perfurações poderosas e precisas."
+        "description": "Inspirada pelo lend\u00e1rio monstro marinho, esta broca tem tent\u00e1culos que se estendem para alcan\u00e7ar qualquer material, proporcionando perfura\u00e7\u00f5es poderosas e precisas.",
+        "url": "https://img.freepik.com/fotos-premium/o-polvo-e-cozido-numa-panela_1048944-28336804.jpg"
     },
     {
         "name": "Broca Valkyrie",
-        "description": "Com a agilidade e precisão das guerreiras de Asgard, esta broca é ideal para trabalhos detalhados e proporciona perfurações eficazes e rápidas."
+        "description": "Com a agilidade e precis\u00e3o das guerreiras de Asgard, esta broca \u00e9 ideal para trabalhos detalhados e proporciona perfura\u00e7\u00f5es eficazes e r\u00e1pidas.",
+        "url": "https://img.freepik.com/psd-premium/elegante-arpao-de-ponta-turquesa-incrustado-com-prata-e-capa-png-ativo-do-jogo-em-fundo-limpo_1142283-298692.jpg"
     },
     {
         "name": "Broca Neo",
-        "description": "Inspirada pelo escolhido da Matrix, esta broca pode perfurar com uma precisão que desafia a realidade, ideal para trabalhos que exigem um nível de controle extremo."
+        "description": "Inspirada pelo escolhido da Matrix, esta broca pode perfurar com uma precis\u00e3o que desafia a realidade, ideal para trabalhos que exigem um n\u00edvel de controle extremo.",
+        "url": "https://img.freepik.com/fotos-gratis/mulher-jovem-preparando-se-para-barbear-o-corpo_23-2150162727.jpg"
     },
     {
         "name": "Broca Solaris",
-        "description": "Alimentada pela energia solar, esta broca proporciona perfurações ecológicas e eficientes, perfeita para projetos sustentáveis e bem iluminados."
+        "description": "Alimentada pela energia solar, esta broca proporciona perfura\u00e7\u00f5es ecol\u00f3gicas e eficientes, perfeita para projetos sustent\u00e1veis e bem iluminados.",
+        "url": "https://img.freepik.com/fotos-gratis/engenheiros-ambientais-trabalhando-juntos_23-2149352243.jpg"
     },
     {
         "name": "Broca Ironman",
-        "description": "Desenvolvida com a tecnologia de Tony Stark, esta broca é inteligente e se ajusta automaticamente para garantir perfurações precisas e rápidas com tecnologia avançada."
+        "description": "Desenvolvida com a tecnologia de Tony Stark, esta broca \u00e9 inteligente e se ajusta automaticamente para garantir perfura\u00e7\u00f5es precisas e r\u00e1pidas com tecnologia avan\u00e7ada.",
+        "url": "https://img.freepik.com/fotos-gratis/trabalhador-da-construcao-civil-usando-martelo-no-local-de-trabalho_23-2150530702.jpg"
     },
     {
         "name": "Broca Pandora",
-        "description": "Retirada da mítica Caixa de Pandora, esta broca vem com poderes inesperados e oferece perfurações únicas, perfeitas para projetos com um toque de mistério."
+        "description": "Retirada da m\u00edtica Caixa de Pandora, esta broca vem com poderes inesperados e oferece perfura\u00e7\u00f5es \u00fanicas, perfeitas para projetos com um toque de mist\u00e9rio.",
+        "url": "https://img.freepik.com/psd-gratuitas/parafuso-isolado-em-fundo-transparente_191095-29146.jpg"
     },
     {
         "name": "Broca Minotauro",
-        "description": "Com a força do lendário monstro mitológico, esta broca é robusta e projetada para perfurações potentes e resistentes, enfrentando até os materiais mais difíceis."
+        "description": "Com a for\u00e7a do lend\u00e1rio monstro mitol\u00f3gico, esta broca \u00e9 robusta e projetada para perfura\u00e7\u00f5es potentes e resistentes, enfrentando at\u00e9 os materiais mais dif\u00edceis.",
+        "url": "https://img.freepik.com/fotos-premium/um-martelo-com-uma-alca-de-madeira-e-um-fundo-preto_1064589-176444.jpg"
     },
     {
         "name": "Broca Stargate",
-        "description": "Capaz de abrir portais para outras dimensões, esta broca proporciona perfurações perfeitas em qualquer superfície, em qualquer realidade ou dimensão."
+        "description": "Capaz de abrir portais para outras dimens\u00f5es, esta broca proporciona perfura\u00e7\u00f5es perfeitas em qualquer superf\u00edcie, em qualquer realidade ou dimens\u00e3o.",
+        "url": "https://img.freepik.com/fotos-gratis/composicao-de-papeis-de-parede-astrais-com-asteroides_23-2149687890.jpg"
     },
     {
         "name": "Broca Iron Throne",
-        "description": "Inspirada no trono de ferro, esta broca é robusta e durável, garantindo perfurações dignas dos grandes líderes e construções majestosas."
+        "description": "Inspirada no trono de ferro, esta broca \u00e9 robusta e dur\u00e1vel, garantindo perfura\u00e7\u00f5es dignas dos grandes l\u00edderes e constru\u00e7\u00f5es majestosas.",
+        "url": "https://img.freepik.com/fotos-premium/close-up-de-metal-com-espinhos-em-uma-jaqueta-de-couro_1048944-24891930.jpg"
     },
     {
         "name": "Broca Asgard",
-        "description": "Empunhada pelos deuses nórdicos, esta broca combina a força e a precisão celestial para proporcionar perfurações perfeitas em qualquer projeto."
+        "description": "Empunhada pelos deuses n\u00f3rdicos, esta broca combina a for\u00e7a e a precis\u00e3o celestial para proporcionar perfura\u00e7\u00f5es perfeitas em qualquer projeto.",
+        "url": "https://img.freepik.com/fotos-premium/maceira-de-espinhos-medieval-com-eixo-de-ferro_1079150-140688.jpg"
     },
     {
         "name": "Lixadeira Excalibur",
-        "description": "Com a força da lendária espada do Rei Arthur, esta lixadeira proporciona um acabamento suave e perfeito, como se cada superfície tivesse sido tocada pela magia real."
+        "description": "Com a for\u00e7a da lend\u00e1ria espada do Rei Arthur, esta lixadeira proporciona um acabamento suave e perfeito, como se cada superf\u00edcie tivesse sido tocada pela magia real.",
+        "url": "https://img.freepik.com/vetores-premium/desenho-de-ilustracao-vetorial-da-silhueta-da-maquina-de-lixadura_701806-8858.jpg"
     },
     {
         "name": "Lixadeira Lightsaber",
-        "description": "Inspirada pelos sabres de luz, esta lixadeira utiliza um feixe de energia para polir superfícies com precisão intergaláctica, deixando um acabamento impecável."
+        "description": "Inspirada pelos sabres de luz, esta lixadeira utiliza um feixe de energia para polir superf\u00edcies com precis\u00e3o intergal\u00e1ctica, deixando um acabamento impec\u00e1vel.",
+        "url": "https://img.freepik.com/fotos-premium/uma-arma-com-um-flash-que-esta-sendo-usado-para-controlar-um-incendio_134345-2288.jpg"
     },
     {
         "name": "Lixadeira Da Vinci",
-        "description": "Baseada nas invenções de Leonardo da Vinci, esta lixadeira combina arte e ciência para um acabamento refinado e inovador, ideal para trabalhos detalhados."
+        "description": "Baseada nas inven\u00e7\u00f5es de Leonardo da Vinci, esta lixadeira combina arte e ci\u00eancia para um acabamento refinado e inovador, ideal para trabalhos detalhados.",
+        "url": "https://img.freepik.com/vetores-premium/ilustracao-grafica-vetorial-de-polidor-de-piso-formato-de-arquivo-de-origem-eps-design-de-icone-de-escala-sem-perdas_327903-2221639.jpg"
     },
     {
         "name": "Lixadeira Vulcano",
-        "description": "Forjada no calor de um vulcão, esta lixadeira é resistente a temperaturas extremas e proporciona um acabamento suave, mesmo em condições adversas."
+        "description": "Forjada no calor de um vulc\u00e3o, esta lixadeira \u00e9 resistente a temperaturas extremas e proporciona um acabamento suave, mesmo em condi\u00e7\u00f5es adversas.",
+        "url": "https://img.freepik.com/vetores-premium/colecao-de-icones-isometricos-de-ferramentas-manuais-eletricas-defina-as-principais-ferramentas-para-madeira-metal-acrilico_249848-215.jpg"
     },
     {
         "name": "Lixadeira Phoenix",
-        "description": "Assim como a lendária ave que renasce das cinzas, esta lixadeira se regenera após cada uso, mantendo um desempenho excepcional e um acabamento perfeito."
+        "description": "Assim como a lend\u00e1ria ave que renasce das cinzas, esta lixadeira se regenera ap\u00f3s cada uso, mantendo um desempenho excepcional e um acabamento perfeito.",
+        "url": "https://img.freepik.com/vetores-gratis/conceito-de-phoenix-mao-desenhada_23-2148496088.jpg"
     },
     {
         "name": "Lixadeira Cyberpunk",
-        "description": "Equipado com tecnologia futurista, esta lixadeira proporciona um acabamento suave com eficiência de alta tecnologia, ideal para ambientes distópicos e modernos."
+        "description": "Equipado com tecnologia futurista, esta lixadeira proporciona um acabamento suave com efici\u00eancia de alta tecnologia, ideal para ambientes dist\u00f3picos e modernos.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-da-poderosa-arma-3d_23-2150888737.jpg"
     },
     {
-        "name": "Lixadeira Dracônica",
-        "description": "Infundida com o poder dos dragões, esta lixadeira tem a capacidade de suavizar até as superfícies mais ásperas com a força e a precisão de uma chama dracônica."
+        "name": "Lixadeira Drac\u00f4nica",
+        "description": "Infundida com o poder dos drag\u00f5es, esta lixadeira tem a capacidade de suavizar at\u00e9 as superf\u00edcies mais \u00e1speras com a for\u00e7a e a precis\u00e3o de uma chama drac\u00f4nica.",
+        "url": "https://img.freepik.com/fotos-premium/motosserra-isolada-contra-um-fundo-branco-obra-de-arte-baseada-em-vetores-ia-generativa_1219132-18608.jpg"
     },
     {
         "name": "Lixadeira Olympus",
-        "description": "Criada no Monte Olimpo, esta lixadeira tem a força e a precisão dos deuses gregos, garantindo um acabamento perfeito com um toque celestial."
+        "description": "Criada no Monte Olimpo, esta lixadeira tem a for\u00e7a e a precis\u00e3o dos deuses gregos, garantindo um acabamento perfeito com um toque celestial.",
+        "url": "https://img.freepik.com/psd-premium/png-de-ferro-a-vapor-em-fundo-transparente-isolado_1257099-3021.jpg"
     },
     {
         "name": "Lixadeira Atlantis",
-        "description": "Vinda da cidade perdida de Atlantis, esta lixadeira é resistente à água e ideal para trabalhos subaquáticos, oferecendo um acabamento suave em ambientes úmidos."
+        "description": "Vinda da cidade perdida de Atlantis, esta lixadeira \u00e9 resistente \u00e0 \u00e1gua e ideal para trabalhos subaqu\u00e1ticos, oferecendo um acabamento suave em ambientes \u00famidos.",
+        "url": "https://img.freepik.com/fotos-gratis/aspirador-retro_23-2150711806.jpg"
     },
     {
         "name": "Lixadeira Quantum",
-        "description": "Utilizando princípios da mecânica quântica, esta lixadeira pode suavizar superfícies em múltiplas dimensões simultaneamente, garantindo um acabamento impecável."
+        "description": "Utilizando princ\u00edpios da mec\u00e2nica qu\u00e2ntica, esta lixadeira pode suavizar superf\u00edcies em m\u00faltiplas dimens\u00f5es simultaneamente, garantindo um acabamento impec\u00e1vel.",
+        "url": "https://img.freepik.com/fotos-premium/uma-foto-de-um-aspirador-de-mao_1320456-15863.jpg"
     },
     {
         "name": "Lixadeira Kraken",
-        "description": "Inspirada pelo lendário monstro marinho, esta lixadeira tem tentáculos que alcançam todas as áreas e proporciona um acabamento perfeito com sua força colossal."
+        "description": "Inspirada pelo lend\u00e1rio monstro marinho, esta lixadeira tem tent\u00e1culos que alcan\u00e7am todas as \u00e1reas e proporciona um acabamento perfeito com sua for\u00e7a colossal.",
+        "url": "https://img.freepik.com/vetores-premium/um-desenho-preto-e-branco-de-uma-torradeira-com-um-rosto-nele_481747-76289.jpg"
     },
     {
         "name": "Lixadeira Valkyrie",
-        "description": "Com a precisão e agilidade das guerreiras de Asgard, esta lixadeira é ideal para trabalhos detalhados e proporciona um acabamento suave e eficiente."
+        "description": "Com a precis\u00e3o e agilidade das guerreiras de Asgard, esta lixadeira \u00e9 ideal para trabalhos detalhados e proporciona um acabamento suave e eficiente.",
+        "url": "https://img.freepik.com/vetores-premium/desenho-de-ilustracao-vetorial-da-silhueta-da-maquina-de-lixadura_701806-8873.jpg"
     },
     {
         "name": "Lixadeira Neo",
-        "description": "Inspirada pelo escolhido da Matrix, esta lixadeira pode manipular e suavizar superfícies em um nível que desafia a realidade, garantindo um acabamento excepcional."
+        "description": "Inspirada pelo escolhido da Matrix, esta lixadeira pode manipular e suavizar superf\u00edcies em um n\u00edvel que desafia a realidade, garantindo um acabamento excepcional.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-de-roupas-retro-de-ferro-em-tons-de-casca-de-noz_23-2151208141.jpg"
     },
     {
         "name": "Lixadeira Solaris",
-        "description": "Alimentada pela energia solar, esta lixadeira proporciona um acabamento suave e ecológico, ideal para projetos sustentáveis e bem iluminados."
+        "description": "Alimentada pela energia solar, esta lixadeira proporciona um acabamento suave e ecol\u00f3gico, ideal para projetos sustent\u00e1veis e bem iluminados.",
+        "url": "https://img.freepik.com/fotos-premium/robo-automatizado-de-limpeza-de-paineis-solares-que-promove-energia-renovavel-retratado-em-uma-imagem-3d_117038-72951.jpg"
     },
     {
         "name": "Lixadeira Ironman",
-        "description": "Desenvolvida com a tecnologia de Tony Stark, esta lixadeira é equipada com inteligência artificial para ajustar automaticamente a intensidade e o acabamento."
+        "description": "Desenvolvida com a tecnologia de Tony Stark, esta lixadeira \u00e9 equipada com intelig\u00eancia artificial para ajustar automaticamente a intensidade e o acabamento.",
+        "url": "https://img.freepik.com/fotos-gratis/homem-trabalhando-em-um-armazem-de-placas-de-mdf_23-2149384840.jpg"
     },
     {
         "name": "Lixadeira Pandora",
-        "description": "Retirada da mítica Caixa de Pandora, esta lixadeira vem com poderes inesperados e oferece um acabamento único, perfeito para projetos com um toque de mistério."
+        "description": "Retirada da m\u00edtica Caixa de Pandora, esta lixadeira vem com poderes inesperados e oferece um acabamento \u00fanico, perfeito para projetos com um toque de mist\u00e9rio.",
+        "url": "https://img.freepik.com/vetores-premium/uma-colecao-de-diferentes-tipos-de-maquinas-de-costura_1161162-597092.jpg"
     },
     {
         "name": "Lixadeira Minotauro",
-        "description": "Com a força do lendário monstro mitológico, esta lixadeira é robusta e projetada para suavizar até as superfícies mais difíceis com potência e resistência."
+        "description": "Com a for\u00e7a do lend\u00e1rio monstro mitol\u00f3gico, esta lixadeira \u00e9 robusta e projetada para suavizar at\u00e9 as superf\u00edcies mais dif\u00edceis com pot\u00eancia e resist\u00eancia.",
+        "url": "https://img.freepik.com/fotos-gratis/mulher-de-vista-lateral-restaurando-moveis-de-madeira_23-2150232643.jpg"
     },
     {
         "name": "Lixadeira Stargate",
-        "description": "Capaz de abrir portais para outras dimensões, esta lixadeira proporciona um acabamento perfeito em qualquer superfície, em qualquer realidade ou dimensão."
+        "description": "Capaz de abrir portais para outras dimens\u00f5es, esta lixadeira proporciona um acabamento perfeito em qualquer superf\u00edcie, em qualquer realidade ou dimens\u00e3o.",
+        "url": "https://img.freepik.com/fotos-gratis/limpagem-artesanal-de-objetos-de-madeira-em-lixadeira-de-disco-em-loja-de-montagem_482257-86526.jpg"
     },
     {
         "name": "Lixadeira Iron Throne",
-        "description": "Inspirada no trono de ferro, esta lixadeira é robusta e durável, garantindo um acabamento digno dos grandes líderes e construções majestosas."
+        "description": "Inspirada no trono de ferro, esta lixadeira \u00e9 robusta e dur\u00e1vel, garantindo um acabamento digno dos grandes l\u00edderes e constru\u00e7\u00f5es majestosas.",
+        "url": "https://img.freepik.com/vetores-premium/desenho-de-ilustracao-vetorial-da-silhueta-da-maquina-de-lixadura_701806-8857.jpg"
     },
     {
         "name": "Lixadeira Asgard",
-        "description": "Empunhada pelos deuses nórdicos, esta lixadeira combina a força e a precisão celestial para proporcionar um acabamento perfeito em qualquer projeto."
+        "description": "Empunhada pelos deuses n\u00f3rdicos, esta lixadeira combina a for\u00e7a e a precis\u00e3o celestial para proporcionar um acabamento perfeito em qualquer projeto.",
+        "url": "https://img.freepik.com/fotos-gratis/jovem-trabalhando-em-uma-oficina-de-gravura-em-madeira_23-2149185415.jpg"
     },
     {
         "name": "Esquadro Excalibur",
-        "description": "O esquadro lendário que garante cortes perfeitos com a precisão da espada do Rei Arthur. Ideal para construções dignas de um reino."
+        "description": "O esquadro lend\u00e1rio que garante cortes perfeitos com a precis\u00e3o da espada do Rei Arthur. Ideal para constru\u00e7\u00f5es dignas de um reino.",
+        "url": "https://img.freepik.com/vetores-gratis/cantos-dourados_23-2147514797.jpg"
     },
     {
         "name": "Esquadro Lightsaber",
-        "description": "Inspirado pelos sabres de luz, este esquadro emite uma linha de energia que permite medições e cortes com uma precisão intergaláctica."
+        "description": "Inspirado pelos sabres de luz, este esquadro emite uma linha de energia que permite medi\u00e7\u00f5es e cortes com uma precis\u00e3o intergal\u00e1ctica.",
+        "url": "https://img.freepik.com/fotos-premium/fundo-preto-feito-em-movimento-grafico-por-computador-linhas-de-neon-vermelhas-verdes-e-azuis-que-comecam-a-queimar_1096515-32328.jpg"
     },
     {
         "name": "Esquadro Da Vinci",
-        "description": "Baseado nos desenhos do gênio renascentista, este esquadro combina arte e engenharia para fornecer ângulos perfeitos com um toque de inovação."
+        "description": "Baseado nos desenhos do g\u00eanio renascentista, este esquadro combina arte e engenharia para fornecer \u00e2ngulos perfeitos com um toque de inova\u00e7\u00e3o.",
+        "url": "https://img.freepik.com/psd-premium/quadrado-realista-moldura-dourada_1089142-31355.jpg"
     },
     {
         "name": "Esquadro Vulcano",
-        "description": "Forjado nas chamas do vulcão, este esquadro resiste ao calor intenso e mantém a precisão em condições extremas, ideal para trabalhos em ambientes quentes."
+        "description": "Forjado nas chamas do vulc\u00e3o, este esquadro resiste ao calor intenso e mant\u00e9m a precis\u00e3o em condi\u00e7\u00f5es extremas, ideal para trabalhos em ambientes quentes.",
+        "url": "https://img.freepik.com/vetores-gratis/banner-em-branco-no-fundo-da-cena-pre-historica_1308-53821.jpg"
     },
     {
         "name": "Esquadro Phoenix",
-        "description": "Assim como a ave lendária, este esquadro se regenera após cada uso, sempre mantendo seus ângulos perfeitos e sua estrutura impecável."
+        "description": "Assim como a ave lend\u00e1ria, este esquadro se regenera ap\u00f3s cada uso, sempre mantendo seus \u00e2ngulos perfeitos e sua estrutura impec\u00e1vel.",
+        "url": "https://img.freepik.com/vetores-gratis/passaro-vintage-e-moldura-de-luz-solar-remix-de-obras-de-arte-de-theo-van-hoytema_53876-112004.jpg"
     },
     {
         "name": "Esquadro Cyberpunk",
-        "description": "Uma ferramenta do futuro que utiliza tecnologia de ponta para garantir medições exatas e ajustar qualquer projeto em um mundo futurista e distópico."
+        "description": "Uma ferramenta do futuro que utiliza tecnologia de ponta para garantir medi\u00e7\u00f5es exatas e ajustar qualquer projeto em um mundo futurista e dist\u00f3pico.",
+        "url": "https://img.freepik.com/psd-premium/quadro-de-grade-metalica-cercado-por-fios-industriais-png-design-de-fundo-criativo_1142283-187559.jpg"
     },
     {
-        "name": "Esquadro Dracônico",
-        "description": "Infundido com o poder dos dragões, este esquadro possui uma precisão cortante que faz com que qualquer construção pareça mágica e perfeita."
+        "name": "Esquadro Drac\u00f4nico",
+        "description": "Infundido com o poder dos drag\u00f5es, este esquadro possui uma precis\u00e3o cortante que faz com que qualquer constru\u00e7\u00e3o pare\u00e7a m\u00e1gica e perfeita.",
+        "url": "https://img.freepik.com/vetores-gratis/quadro-floral-e-geometrico-do-monograma-no-fundo-cinzento-escuro-elemento-de-design-do-monograma_1217-1168.jpg"
     },
     {
         "name": "Esquadro Olympus",
-        "description": "Criado no Monte Olimpo, este esquadro possui a força e a sabedoria dos deuses gregos, proporcionando medições exatas e um toque celestial."
+        "description": "Criado no Monte Olimpo, este esquadro possui a for\u00e7a e a sabedoria dos deuses gregos, proporcionando medi\u00e7\u00f5es exatas e um toque celestial.",
+        "url": "https://img.freepik.com/fotos-premium/quadro-de-prata-neoclassico-com-padrao-de-chave-grega-incrustado-com-pedras-preciosas-de-topazio-azul-atemporal-e-classico_655090-3465140.jpg"
     },
     {
         "name": "Esquadro Atlantis",
-        "description": "Este esquadro tem origem na cidade perdida de Atlantis e é resistente à água e ao tempo, ideal para ambientes subaquáticos e construções marítimas."
+        "description": "Este esquadro tem origem na cidade perdida de Atlantis e \u00e9 resistente \u00e0 \u00e1gua e ao tempo, ideal para ambientes subaqu\u00e1ticos e constru\u00e7\u00f5es mar\u00edtimas.",
+        "url": "https://img.freepik.com/vetores-gratis/design-de-moldura-art-deco-gradiente_23-2150514697.jpg"
     },
     {
         "name": "Esquadro Quantum",
-        "description": "Utilizando princípios de mecânica quântica, este esquadro é capaz de fornecer medições precisas em múltiplas dimensões e realidades."
+        "description": "Utilizando princ\u00edpios de mec\u00e2nica qu\u00e2ntica, este esquadro \u00e9 capaz de fornecer medi\u00e7\u00f5es precisas em m\u00faltiplas dimens\u00f5es e realidades.",
+        "url": "https://img.freepik.com/psd-premium/vazios-de-neon-cintilantes-dentro-de-uma-silhueta-de-forma-tridecagonal-png-y2k-neon-space-designs_1142283-290945.jpg"
     },
     {
         "name": "Esquadro Kraken",
-        "description": "Inspirado pelo monstro marinho mítico, este esquadro é robusto e resistente, com tentáculos que garantem estabilidade e precisão em qualquer superfície."
+        "description": "Inspirado pelo monstro marinho m\u00edtico, este esquadro \u00e9 robusto e resistente, com tent\u00e1culos que garantem estabilidade e precis\u00e3o em qualquer superf\u00edcie.",
+        "url": "https://img.freepik.com/vetores-gratis/moldura-descolada-desenhada-a-mao_23-2149095584.jpg"
     },
     {
         "name": "Esquadro Valkyrie",
-        "description": "Com a agilidade e a precisão das guerreiras de Asgard, este esquadro é leve e ideal para trabalhos que exigem precisão e rapidez."
+        "description": "Com a agilidade e a precis\u00e3o das guerreiras de Asgard, este esquadro \u00e9 leve e ideal para trabalhos que exigem precis\u00e3o e rapidez.",
+        "url": "https://img.freepik.com/vetores-gratis/esbocado-elementos-de-design-nativas_23-2147522097.jpg"
     },
     {
         "name": "Esquadro Neo",
-        "description": "Inspirado pelo escolhido da Matrix, este esquadro pode manipular ângulos e dimensões para criar construções que desafiam a realidade."
+        "description": "Inspirado pelo escolhido da Matrix, este esquadro pode manipular \u00e2ngulos e dimens\u00f5es para criar constru\u00e7\u00f5es que desafiam a realidade.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-moldura-de-neon-de-varias-formas_23-2149092241.jpg"
     },
     {
         "name": "Esquadro Solaris",
-        "description": "Carregado pela energia solar, este esquadro proporciona medições exatas e é ecológico, ideal para projetos sustentáveis e iluminados."
+        "description": "Carregado pela energia solar, este esquadro proporciona medi\u00e7\u00f5es exatas e \u00e9 ecol\u00f3gico, ideal para projetos sustent\u00e1veis e iluminados.",
+        "url": "https://img.freepik.com/vetores-premium/tela-brilhante-nos-fios-cruzados_116953-1043.jpg"
     },
     {
         "name": "Esquadro Ironman",
-        "description": "Desenvolvido com a tecnologia de Tony Stark, este esquadro é inteligente e se ajusta automaticamente para garantir ângulos perfeitos com tecnologia avançada."
+        "description": "Desenvolvido com a tecnologia de Tony Stark, este esquadro \u00e9 inteligente e se ajusta automaticamente para garantir \u00e2ngulos perfeitos com tecnologia avan\u00e7ada.",
+        "url": "https://img.freepik.com/vetores-premium/um-cartaz-para-o-jogo-que-e-para-o-titulo-do-livro_1217673-26874.jpg"
     },
     {
         "name": "Esquadro Pandora",
-        "description": "Encontrado na mítica Caixa de Pandora, este esquadro vem com poderes inesperados e é ideal para projetos que exigem um toque de mistério."
+        "description": "Encontrado na m\u00edtica Caixa de Pandora, este esquadro vem com poderes inesperados e \u00e9 ideal para projetos que exigem um toque de mist\u00e9rio.",
+        "url": "https://img.freepik.com/fotos-premium/um-quadrado-com-um-desenho-vermelho-e-dourado_1217673-33761.jpg"
     },
     {
         "name": "Esquadro Minotauro",
-        "description": "Com a força e o poder do lendário monstro, este esquadro é robusto e projetado para enfrentar os desafios mais difíceis em construções complexas."
+        "description": "Com a for\u00e7a e o poder do lend\u00e1rio monstro, este esquadro \u00e9 robusto e projetado para enfrentar os desafios mais dif\u00edceis em constru\u00e7\u00f5es complexas.",
+        "url": "https://img.freepik.com/vetores-gratis/conjunto-de-elementos-do-viking_1284-47809.jpg"
     },
     {
         "name": "Esquadro Stargate",
-        "description": "Capaz de abrir portais para outras dimensões, este esquadro é perfeito para projetos que exigem medições precisas e ajustes interdimensionais."
+        "description": "Capaz de abrir portais para outras dimens\u00f5es, este esquadro \u00e9 perfeito para projetos que exigem medi\u00e7\u00f5es precisas e ajustes interdimensionais.",
+        "url": "https://img.freepik.com/fotos-premium/um-quadro-branco-com-um-quadrado-que-diz-retangulo_737852-67457.jpg"
     },
     {
         "name": "Esquadro Iron Throne",
-        "description": "Inspirado no trono de ferro, este esquadro é robusto e durável, garantindo ângulos perfeitos para construções dignas dos grandes líderes de Westeros."
+        "description": "Inspirado no trono de ferro, este esquadro \u00e9 robusto e dur\u00e1vel, garantindo \u00e2ngulos perfeitos para constru\u00e7\u00f5es dignas dos grandes l\u00edderes de Westeros.",
+        "url": "https://img.freepik.com/fotos-premium/quadro-de-aco-gotico-preto-com-arcos-pontiagudos-decorados-com-pedras-preciosas-de-onix-em-um-drama-de-padrao-de-cruz_655090-3464824.jpg"
     },
     {
         "name": "Esquadro Asgard",
-        "description": "Empunhado pelos deuses nórdicos, este esquadro é perfeito para trabalhos que exigem precisão divina e força celestial em qualquer construção."
+        "description": "Empunhado pelos deuses n\u00f3rdicos, este esquadro \u00e9 perfeito para trabalhos que exigem precis\u00e3o divina e for\u00e7a celestial em qualquer constru\u00e7\u00e3o.",
+        "url": "https://img.freepik.com/vetores-gratis/plano-de-fundo-art-deco-de-design-plano-com-detalhes-dourados_23-2149170928.jpg"
     },
     {
         "name": "Trena Infinita",
-        "description": "Uma trena que, aparentemente, não tem fim. Ideal para medições de longas distâncias sem interrupções."
+        "description": "Uma trena que, aparentemente, n\u00e3o tem fim. Ideal para medi\u00e7\u00f5es de longas dist\u00e2ncias sem interrup\u00e7\u00f5es.",
+        "url": "https://img.freepik.com/vetores-premium/vector-escalador-definido-fundo-branco-isolado-de-alta-qualidade_873925-1458270.jpg"
     },
     {
         "name": "Trena Luz de Orion",
-        "description": "Esta trena projeta um feixe de luz para marcar a distância medida, facilitando medições precisas em qualquer ambiente."
+        "description": "Esta trena projeta um feixe de luz para marcar a dist\u00e2ncia medida, facilitando medi\u00e7\u00f5es precisas em qualquer ambiente.",
+        "url": "https://img.freepik.com/fotos-gratis/cidade-futurista-com-mobilidade-de-alta-tecnologia-para-o-bem-estar-social_23-2151065329.jpg"
     },
     {
         "name": "Trena Veloz",
-        "description": "Retrátil super-rápida que recolhe a fita em um piscar de olhos, economizando tempo em projetos intensivos."
+        "description": "Retr\u00e1til super-r\u00e1pida que recolhe a fita em um piscar de olhos, economizando tempo em projetos intensivos.",
+        "url": "https://img.freepik.com/fotos-premium/um-comboio-branco-com-uma-faixa-vermelha-na-frente_1296313-1238.jpg"
     },
     {
         "name": "Trena Nano",
-        "description": "Com tamanho compacto, é perfeita para carregar no bolso e realizar medições em espaços pequenos e difíceis de acessar."
+        "description": "Com tamanho compacto, \u00e9 perfeita para carregar no bolso e realizar medi\u00e7\u00f5es em espa\u00e7os pequenos e dif\u00edceis de acessar.",
+        "url": "https://img.freepik.com/fotos-premium/um-tubo-de-vidro-cheio-de-bolas-coloridas_1375-35647.jpg"
     },
     {
         "name": "Trena Titan",
-        "description": "Feita de materiais super-resistentes, esta trena é praticamente indestrutível e perfeita para ambientes extremos."
+        "description": "Feita de materiais super-resistentes, esta trena \u00e9 praticamente indestrut\u00edvel e perfeita para ambientes extremos.",
+        "url": "https://img.freepik.com/vetores-gratis/trens-colecao-silhueta_23-2147505881.jpg"
     },
     {
         "name": "Trena Digital Pro",
-        "description": "Equipada com uma tela digital que exibe medições precisas e permite a conversão instantânea de unidades."
+        "description": "Equipada com uma tela digital que exibe medi\u00e7\u00f5es precisas e permite a convers\u00e3o instant\u00e2nea de unidades.",
+        "url": "https://img.freepik.com/fotos-premium/mulher-ajustando-a-exibicao-da-esteira_1030899-10831.jpg"
     },
     {
         "name": "Trena EcoGreen",
-        "description": "Fabricada com materiais reciclados e ecológicos, ideal para quem se preocupa com o meio ambiente."
+        "description": "Fabricada com materiais reciclados e ecol\u00f3gicos, ideal para quem se preocupa com o meio ambiente.",
+        "url": "https://img.freepik.com/fotos-gratis/viagens-urbanas-futuristas-de-alta-tecnologia-para-as-pessoas_23-2151160520.jpg"
     },
     {
         "name": "Trena Phantom",
-        "description": "Sua fita é translúcida, tornando-se quase invisível à medida que é estendida, perfeita para medições discretas."
+        "description": "Sua fita \u00e9 transl\u00facida, tornando-se quase invis\u00edvel \u00e0 medida que \u00e9 estendida, perfeita para medi\u00e7\u00f5es discretas.",
+        "url": "https://img.freepik.com/fotos-premium/um-esqueleto-esta-num-comboio-que-esta-numa-via_885831-14405.jpg"
     },
     {
         "name": "Trena Galactic",
-        "description": "Projetada para medição de grandes áreas, com uma fita extensível de até 100 metros, usada até mesmo em missões espaciais."
+        "description": "Projetada para medi\u00e7\u00e3o de grandes \u00e1reas, com uma fita extens\u00edvel de at\u00e9 100 metros, usada at\u00e9 mesmo em miss\u00f5es espaciais.",
+        "url": "https://img.freepik.com/fotos-gratis/desenho-de-colagem-de-ceu-retro_23-2151017899.jpg"
     },
     {
         "name": "Trena Diamante",
-        "description": "Fita revestida com microcristais de diamante, garantindo durabilidade extrema e resistência ao desgaste."
+        "description": "Fita revestida com microcristais de diamante, garantindo durabilidade extrema e resist\u00eancia ao desgaste.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-superior-sobre-os-oculos-na-mesa-abstrata_23-2149974249.jpg"
     },
     {
         "name": "Trena Solar",
-        "description": "Equipada com painéis solares que alimentam suas funções eletrônicas, incluindo iluminação LED para medições em locais escuros."
+        "description": "Equipada com pain\u00e9is solares que alimentam suas fun\u00e7\u00f5es eletr\u00f4nicas, incluindo ilumina\u00e7\u00e3o LED para medi\u00e7\u00f5es em locais escuros.",
+        "url": "https://img.freepik.com/psd-gratuitas/placas-de-energia-solar-em-base-de-aluminio-com-concreto-3d-renderizacao-realista_625553-161.jpg"
     },
     {
         "name": "Trena Flex",
-        "description": "Fita super flexível que se adapta a qualquer superfície, facilitando medições em objetos curvos ou irregulares."
+        "description": "Fita super flex\u00edvel que se adapta a qualquer superf\u00edcie, facilitando medi\u00e7\u00f5es em objetos curvos ou irregulares.",
+        "url": "https://img.freepik.com/fotos-gratis/jovem-treinando-na-academia_23-2147915493.jpg"
     },
     {
         "name": "Trena Vortex",
-        "description": "Possui uma tecnologia que mantém a fita reta e firme em qualquer condição, evitando torções e dobras."
+        "description": "Possui uma tecnologia que mant\u00e9m a fita reta e firme em qualquer condi\u00e7\u00e3o, evitando tor\u00e7\u00f5es e dobras.",
+        "url": "https://img.freepik.com/fotos-gratis/colagem-de-conceito-de-trem-de-loop_23-2150040489.jpg"
     },
     {
-        "name": "Trena Nômade",
-        "description": "Compacta e leve, ideal para profissionais que estão sempre em movimento e precisam de uma ferramenta confiável e portátil."
+        "name": "Trena N\u00f4made",
+        "description": "Compacta e leve, ideal para profissionais que est\u00e3o sempre em movimento e precisam de uma ferramenta confi\u00e1vel e port\u00e1til.",
+        "url": "https://img.freepik.com/fotos-gratis/diapositivos-descansando-depois-de-patinar_23-2147665417.jpg"
     },
     {
         "name": "Trena Aqua",
-        "description": "Projetada para medições subaquáticas, com uma fita resistente à água salgada e ao cloro."
+        "description": "Projetada para medi\u00e7\u00f5es subaqu\u00e1ticas, com uma fita resistente \u00e0 \u00e1gua salgada e ao cloro.",
+        "url": "https://img.freepik.com/vetores-gratis/conceito-de-ferias-de-fim-de-semana-de-parque-aquatico-4-composicoes-de-quadrinhos-com-amigos-da-familia-desfrutando-de-atracoes-de-agua-ilustracao-vetorial-isolada_1284-68021.jpg"
     },
     {
         "name": "Trena Fogo",
-        "description": "Resistente a altas temperaturas, é a escolha ideal para medições em ambientes quentes e industriais."
+        "description": "Resistente a altas temperaturas, \u00e9 a escolha ideal para medi\u00e7\u00f5es em ambientes quentes e industriais.",
+        "url": "https://img.freepik.com/vetores-gratis/sortido-colorido-brinquedo-trens_23-2147620869.jpg"
     },
     {
         "name": "Trena 360",
-        "description": "Possui um mecanismo giratório que permite medições em qualquer ângulo, com precisão absoluta."
+        "description": "Possui um mecanismo girat\u00f3rio que permite medi\u00e7\u00f5es em qualquer \u00e2ngulo, com precis\u00e3o absoluta.",
+        "url": "https://img.freepik.com/vetores-gratis/icones-isometricos-definidos-com-pessoas-em-oculos-de-realidade-virtual-jogando-esportes-assistindo-filmes-isolados-ilustracao-vetorial-3d_1284-70833.jpg"
     },
     {
         "name": "Trena Quantum",
-        "description": "Utiliza tecnologia quântica para medições instantâneas e ultracuradas, sem a necessidade de estender a fita."
+        "description": "Utiliza tecnologia qu\u00e2ntica para medi\u00e7\u00f5es instant\u00e2neas e ultracuradas, sem a necessidade de estender a fita.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-futurista-abstrato-holograma-brilhante_23-2148189331.jpg"
     },
     {
         "name": "Trena LaserBeam",
-        "description": "Combina uma trena tradicional com medição a laser, ideal para medições rápidas e de longa distância."
+        "description": "Combina uma trena tradicional com medi\u00e7\u00e3o a laser, ideal para medi\u00e7\u00f5es r\u00e1pidas e de longa dist\u00e2ncia.",
+        "url": "https://img.freepik.com/fotos-premium/um-robo-com-uma-luz-rosa-que-diz-a-palavra-do-lado_71956-47591.jpg"
     },
     {
         "name": "Trena Shadow",
-        "description": "Projeta uma sombra da fita para facilitar a visualização da medição em qualquer condição de luz."
+        "description": "Projeta uma sombra da fita para facilitar a visualiza\u00e7\u00e3o da medi\u00e7\u00e3o em qualquer condi\u00e7\u00e3o de luz.",
+        "url": "https://img.freepik.com/vetores-gratis/jogo-trem-silhuetas_23-2147625355.jpg"
     },
     {
         "name": "Serra Excalibur",
-        "description": "Empunhada pelo Rei Arthur, esta serra lendária é capaz de cortar até as rochas mais duras com a elegância de uma espada real."
+        "description": "Empunhada pelo Rei Arthur, esta serra lend\u00e1ria \u00e9 capaz de cortar at\u00e9 as rochas mais duras com a eleg\u00e2ncia de uma espada real.",
+        "url": "https://img.freepik.com/fotos-premium/vista-panoramica-de-arvores-no-campo-contra-montanhas_1048944-8581015.jpg"
     },
     {
         "name": "Serra Lightsaber",
-        "description": "Inspirada nos sabres de luz Jedi, esta serra corta qualquer material com um feixe de energia pura, sem deixar rastros de serragem."
+        "description": "Inspirada nos sabres de luz Jedi, esta serra corta qualquer material com um feixe de energia pura, sem deixar rastros de serragem.",
+        "url": "https://img.freepik.com/fotos-gratis/close-na-caneta-neon_23-2150835668.jpg"
     },
     {
         "name": "Serra Fenrir",
-        "description": "Com a força do lobo mítico nórdico, esta serra é capaz de dilacerar qualquer obstáculo em seu caminho, desde madeira até aço."
+        "description": "Com a for\u00e7a do lobo m\u00edtico n\u00f3rdico, esta serra \u00e9 capaz de dilacerar qualquer obst\u00e1culo em seu caminho, desde madeira at\u00e9 a\u00e7o.",
+        "url": "https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-carpinteiro-gradiente_23-2150670332.jpg"
     },
     {
         "name": "Serra Nyan Cat",
-        "description": "Com um rastro de arco-íris, esta serra corta com precisão colorida e musical, transformando a construção em uma experiência divertida."
+        "description": "Com um rastro de arco-\u00edris, esta serra corta com precis\u00e3o colorida e musical, transformando a constru\u00e7\u00e3o em uma experi\u00eancia divertida.",
+        "url": "https://img.freepik.com/fotos-gratis/gato-em-frente-ao-empire-state-building_23-2150897675.jpg"
     },
     {
-        "name": "Serra Leviatã",
-        "description": "Vinda das profundezas do oceano, esta serra tem a força do lendário monstro marinho, capaz de cortar as madeiras mais resistentes."
+        "name": "Serra Leviat\u00e3",
+        "description": "Vinda das profundezas do oceano, esta serra tem a for\u00e7a do lend\u00e1rio monstro marinho, capaz de cortar as madeiras mais resistentes.",
+        "url": "https://img.freepik.com/fotos-gratis/montanha-com-pedras-e-campos-brancos_23-2148509237.jpg"
     },
     {
         "name": "Serra CyberBlade",
-        "description": "Uma serra futurista que utiliza tecnologia cibernética para cortar com precisão milimétrica, perfeita para qualquer trabalho em um mundo high-tech."
+        "description": "Uma serra futurista que utiliza tecnologia cibern\u00e9tica para cortar com precis\u00e3o milim\u00e9trica, perfeita para qualquer trabalho em um mundo high-tech.",
+        "url": "https://img.freepik.com/fotos-gratis/guitarra-eletrica-com-luz-de-neon_23-2151376105.jpg"
     },
     {
         "name": "Serra Ragnarok",
-        "description": "Esta serra carrega consigo o poder do apocalipse nórdico, cortando tudo em seu caminho e preparando o terreno para a nova era."
+        "description": "Esta serra carrega consigo o poder do apocalipse n\u00f3rdico, cortando tudo em seu caminho e preparando o terreno para a nova era.",
+        "url": "https://img.freepik.com/fotos-gratis/paisagem-de-rochas-cobertas-de-vegetacao-e-neve-sob-um-ceu-nublado-na-islandia_181624-14683.jpg"
     },
     {
         "name": "Serra Olympus",
-        "description": "Forjada no Monte Olimpo, esta serra tem a força dos deuses gregos, cortando os materiais mais resistentes com facilidade divina."
+        "description": "Forjada no Monte Olimpo, esta serra tem a for\u00e7a dos deuses gregos, cortando os materiais mais resistentes com facilidade divina.",
+        "url": "https://img.freepik.com/fotos-premium/vista-panoramica-das-montanhas-contra-o-ceu_1048944-30311242.jpg"
     },
     {
         "name": "Serra Da Vinci",
-        "description": "Inspirada pelas invenções do gênio Leonardo da Vinci, esta serra combina arte e ciência para cortes precisos e inovadores."
+        "description": "Inspirada pelas inven\u00e7\u00f5es do g\u00eanio Leonardo da Vinci, esta serra combina arte e ci\u00eancia para cortes precisos e inovadores.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-aerea-da-montanha-no-norte-da-italia_181624-1899.jpg"
     },
     {
         "name": "Serra Dragonfire",
-        "description": "Infundida com o fogo de dragões, esta serra corta com a intensidade de uma chama viva, derretendo o metal como se fosse manteiga."
+        "description": "Infundida com o fogo de drag\u00f5es, esta serra corta com a intensidade de uma chama viva, derretendo o metal como se fosse manteiga.",
+        "url": "https://img.freepik.com/fotos-gratis/incendios-florestais-devastando-a-natureza_23-2150789317.jpg"
     },
     {
         "name": "Serra Pandora",
-        "description": "Descoberta na mítica Caixa de Pandora, esta serra carrega consigo poderes desconhecidos, capaz de cortar qualquer material... por um preço."
+        "description": "Descoberta na m\u00edtica Caixa de Pandora, esta serra carrega consigo poderes desconhecidos, capaz de cortar qualquer material... por um pre\u00e7o.",
+        "url": "https://img.freepik.com/fotos-gratis/rochas-e-montanhas-cobertas-de-florestas-sob-um-ceu-nublado-e-luz-solar_181624-6445.jpg"
     },
     {
         "name": "Serra Quantum",
-        "description": "Usando a mecânica quântica, esta serra é capaz de cortar em múltiplas dimensões ao mesmo tempo, facilitando qualquer trabalho complexo."
+        "description": "Usando a mec\u00e2nica qu\u00e2ntica, esta serra \u00e9 capaz de cortar em m\u00faltiplas dimens\u00f5es ao mesmo tempo, facilitando qualquer trabalho complexo.",
+        "url": "https://img.freepik.com/vetores-gratis/paisagem-de-montanha-em-design-detalhado-de-estrutura-de-arame_1048-12141.jpg"
     },
     {
         "name": "Serra Asgard",
-        "description": "Diretamente da terra dos deuses nórdicos, esta serra possui o poder do trovão de Thor, cortando com força incomparável."
+        "description": "Diretamente da terra dos deuses n\u00f3rdicos, esta serra possui o poder do trov\u00e3o de Thor, cortando com for\u00e7a incompar\u00e1vel.",
+        "url": "https://img.freepik.com/fotos-gratis/mulher-de-alto-angulo-no-topo-da-pratica-de-montanha_23-2148343527.jpg"
     },
     {
         "name": "Serra Stargate",
-        "description": "Capaz de abrir portais através de materiais, esta serra utiliza tecnologia de viagem espacial para cortes instantâneos e precisos."
+        "description": "Capaz de abrir portais atrav\u00e9s de materiais, esta serra utiliza tecnologia de viagem espacial para cortes instant\u00e2neos e precisos.",
+        "url": "https://img.freepik.com/fotos-premium/foto-renderizada-em-3d-de-uma-majestosa-nave-espacial-a-aterrar-num-planeta-distante_1198274-34189.jpg"
     },
     {
         "name": "Serra Exterminador",
-        "description": "Inspirada pelo futuro pós-apocalíptico, esta serra é resistente e incansável, pronta para enfrentar qualquer material com força robótica."
+        "description": "Inspirada pelo futuro p\u00f3s-apocal\u00edptico, esta serra \u00e9 resistente e incans\u00e1vel, pronta para enfrentar qualquer material com for\u00e7a rob\u00f3tica.",
+        "url": "https://img.freepik.com/vetores-premium/introducao-de-personagens-de-desenhos-animados-design-vetorial_961875-481133.jpg"
     },
     {
         "name": "Serra Solaris",
-        "description": "Alimentada pela energia do sol, esta serra é ecológica e poderosa, perfeita para cortes longos e sustentáveis em qualquer ambiente."
+        "description": "Alimentada pela energia do sol, esta serra \u00e9 ecol\u00f3gica e poderosa, perfeita para cortes longos e sustent\u00e1veis em qualquer ambiente.",
+        "url": "https://img.freepik.com/fotos-premium/conceito-de-paineis-fotovoltaicos-para-a-producao-de-eletricidade-a-partir-de-fontes-renovaveis_951586-87799.jpg"
     },
     {
         "name": "Serra Minotauro",
-        "description": "Com a força bruta de um touro mitológico, esta serra é ideal para trabalhos que exigem poder e resistência, como labirintos de madeira."
+        "description": "Com a for\u00e7a bruta de um touro mitol\u00f3gico, esta serra \u00e9 ideal para trabalhos que exigem poder e resist\u00eancia, como labirintos de madeira.",
+        "url": "https://img.freepik.com/fotos-premium/o-planalto-de-ustyurt-distrito-de-boszhir-o-fundo-de-um-oceano-seco-tethys-restos-rochosos-cazaquistao_190950-78.jpg"
     },
     {
         "name": "Serra Ironman",
-        "description": "Equipada com a tecnologia Stark, esta serra é inteligente e versátil, adaptando-se a qualquer material com ajustes automáticos."
+        "description": "Equipada com a tecnologia Stark, esta serra \u00e9 inteligente e vers\u00e1til, adaptando-se a qualquer material com ajustes autom\u00e1ticos.",
+        "url": "https://img.freepik.com/fotos-premium/montanha-do-escalavrado-vista-da-montanha-dedo-de-deus_17661-713.jpg"
     },
     {
         "name": "Serra Valkyrie",
-        "description": "Empunhada pelas guerreiras de Asgard, esta serra é leve e ágil, cortando com a precisão de uma lança celestial."
+        "description": "Empunhada pelas guerreiras de Asgard, esta serra \u00e9 leve e \u00e1gil, cortando com a precis\u00e3o de uma lan\u00e7a celestial.",
+        "url": "https://img.freepik.com/fotos-gratis/bela-paisagem-natural-de-montanha_23-2149155603.jpg"
     },
     {
         "name": "Serra Poseidon",
-        "description": "Forjada nas profundezas do mar, esta serra é resistente à água e perfeita para cortar materiais submersos ou úmidos com facilidade."
+        "description": "Forjada nas profundezas do mar, esta serra \u00e9 resistente \u00e0 \u00e1gua e perfeita para cortar materiais submersos ou \u00famidos com facilidade.",
+        "url": "https://img.freepik.com/fotos-gratis/bela-foto-de-formacoes-rochosas-altas-cobertas-de-grama-na-noruega_181624-8468.jpg"
     },
     {
-        "name": "Alicate Mão de Ferro",
-        "description": "Este alicate é conhecido por sua força bruta, capaz de cortar até os metais mais duros com facilidade."
+        "name": "Alicate M\u00e3o de Ferro",
+        "description": "Este alicate \u00e9 conhecido por sua for\u00e7a bruta, capaz de cortar at\u00e9 os metais mais duros com facilidade.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-do-martelo-de-aco-para-obras-com-pregos_23-2150576418.jpg"
     },
     {
-        "name": "Alicate Pinça de Titânio",
-        "description": "Feito de titânio ultraleve, este alicate oferece precisão cirúrgica para os trabalhos mais delicados."
+        "name": "Alicate Pin\u00e7a de Tit\u00e2nio",
+        "description": "Feito de tit\u00e2nio ultraleve, este alicate oferece precis\u00e3o cir\u00fargica para os trabalhos mais delicados.",
+        "url": "https://img.freepik.com/fotos-premium/plier-em-fundo-branco_1102161-19314.jpg"
     },
     {
         "name": "Alicate Nevoeiro",
-        "description": "Envolto em um revestimento antiderrapante, garante um manuseio firme mesmo em ambientes úmidos ou escorregadios."
+        "description": "Envolto em um revestimento antiderrapante, garante um manuseio firme mesmo em ambientes \u00famidos ou escorregadios.",
+        "url": "https://img.freepik.com/fotos-premium/eletricista-caucasiano-movendo-elementos-do-sistema-eletrico-em-um-local_1426-22537.jpg"
     },
     {
-        "name": "Alicate Fúria",
-        "description": "Proporciona uma força de corte excepcional, ideal para trabalhos que exigem potência e velocidade."
+        "name": "Alicate F\u00faria",
+        "description": "Proporciona uma for\u00e7a de corte excepcional, ideal para trabalhos que exigem pot\u00eancia e velocidade.",
+        "url": "https://img.freepik.com/fotos-gratis/conceito-de-carpintaria-com-alicate-e-fita-metrica_23-2147773328.jpg"
     },
     {
-        "name": "Alicate Cirúrgico",
-        "description": "Projetado para trabalhos minuciosos, oferece máxima precisão e controle em tarefas detalhadas."
+        "name": "Alicate Cir\u00fargico",
+        "description": "Projetado para trabalhos minuciosos, oferece m\u00e1xima precis\u00e3o e controle em tarefas detalhadas.",
+        "url": "https://img.freepik.com/fotos-gratis/close-up-com-utensilios-de-dentista-limpos_23-2149206213.jpg"
     },
     {
         "name": "Alicate Megatron",
-        "description": "Potente e robusto, inspirado em forças mecânicas superiores, perfeito para tarefas pesadas e industriais."
+        "description": "Potente e robusto, inspirado em for\u00e7as mec\u00e2nicas superiores, perfeito para tarefas pesadas e industriais.",
+        "url": "https://img.freepik.com/vetores-gratis/grafico-de-ferramentas-de-reparo-de-construcao_24877-52530.jpg"
     },
     {
         "name": "Alicate Cortante de Fogo",
-        "description": "Equipa-se com um aquecedor interno para cortar facilmente materiais endurecidos e resistentes ao calor."
+        "description": "Equipa-se com um aquecedor interno para cortar facilmente materiais endurecidos e resistentes ao calor.",
+        "url": "https://img.freepik.com/fotos-premium/cortador-de-cabos-isolado-em-fundo-branco_972075-15646.jpg"
     },
     {
         "name": "Alicate Eclipse",
-        "description": "Projetado para trabalhos noturnos, com iluminação embutida que facilita o trabalho em locais escuros."
+        "description": "Projetado para trabalhos noturnos, com ilumina\u00e7\u00e3o embutida que facilita o trabalho em locais escuros.",
+        "url": "https://img.freepik.com/psd-gratuitas/chaves-metalicas-realistas-renderizadas-em-3d-para-manutencao-automotiva-com-fundo-transparente_363450-6499.jpg"
     },
     {
-        "name": "Alicate Punho de Aço",
-        "description": "Com uma aderência reforçada, este alicate garante máxima força sem sacrificar o conforto do operador."
+        "name": "Alicate Punho de A\u00e7o",
+        "description": "Com uma ader\u00eancia refor\u00e7ada, este alicate garante m\u00e1xima for\u00e7a sem sacrificar o conforto do operador.",
+        "url": "https://img.freepik.com/fotos-premium/vista-de-martelo-de-aco-para-trabalho-de-construcao-com-uma-luva_1124848-119958.jpg"
     },
     {
         "name": "Alicate Vortex",
-        "description": "Com um design ergonômico que maximiza a força de torção, facilita a remoção de parafusos e pinos emperrados."
+        "description": "Com um design ergon\u00f4mico que maximiza a for\u00e7a de tor\u00e7\u00e3o, facilita a remo\u00e7\u00e3o de parafusos e pinos emperrados.",
+        "url": "https://img.freepik.com/psd-gratuitas/gancho-isolado-com-tracado-de-recorte_7939-4352.jpg"
     },
     {
-        "name": "Alicate Zênite",
-        "description": "Possui uma articulação dupla que aumenta a força de corte sem esforço adicional."
+        "name": "Alicate Z\u00eanite",
+        "description": "Possui uma articula\u00e7\u00e3o dupla que aumenta a for\u00e7a de corte sem esfor\u00e7o adicional.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-superior-das-ferramentas-na-superficie-de-madeira-para-o-dia-de-pai_23-2147625636.jpg"
     },
     {
         "name": "Alicate CarbonX",
-        "description": "Feito de fibra de carbono, combina leveza e durabilidade, perfeito para uso prolongado sem fadiga."
+        "description": "Feito de fibra de carbono, combina leveza e durabilidade, perfeito para uso prolongado sem fadiga.",
+        "url": "https://img.freepik.com/fotos-premium/uma-chave-vermelha-e-prateada-com-a-palavra-cotacao_1293314-1195.jpg"
     },
     {
-        "name": "Alicate Invisível",
-        "description": "Com um design minimalista e discreto, este alicate é praticamente imperceptível no ambiente de trabalho."
+        "name": "Alicate Invis\u00edvel",
+        "description": "Com um design minimalista e discreto, este alicate \u00e9 praticamente impercept\u00edvel no ambiente de trabalho.",
+        "url": "https://img.freepik.com/fotos-gratis/elaboracao-de-elementos-em-mesa-de-madeira_23-2148742317.jpg"
     },
     {
-        "name": "Alicate Arco-Íris",
-        "description": "Revestido com uma camada multicor, além de funcional, traz estilo e identificação fácil em qualquer caixa de ferramentas."
+        "name": "Alicate Arco-\u00cdris",
+        "description": "Revestido com uma camada multicor, al\u00e9m de funcional, traz estilo e identifica\u00e7\u00e3o f\u00e1cil em qualquer caixa de ferramentas.",
+        "url": "https://img.freepik.com/vetores-gratis/conjunto-de-arco-iris-colorido_23-2147811255.jpg"
     },
     {
         "name": "Alicate Alfa",
-        "description": "Considerado o líder dos alicates, combina múltiplas funcionalidades em uma ferramenta só."
+        "description": "Considerado o l\u00edder dos alicates, combina m\u00faltiplas funcionalidades em uma ferramenta s\u00f3.",
+        "url": "https://img.freepik.com/fotos-gratis/chave-e-martelo_1048-2479.jpg"
     },
     {
         "name": "Alicate Fantasma",
-        "description": "Extremamente silencioso, perfeito para operações onde o mínimo de ruído é necessário."
+        "description": "Extremamente silencioso, perfeito para opera\u00e7\u00f5es onde o m\u00ednimo de ru\u00eddo \u00e9 necess\u00e1rio.",
+        "url": "https://img.freepik.com/fotos-gratis/pincas-de-ferramentas-uteis_1308-41463.jpg"
     },
     {
         "name": "Alicate Titan",
-        "description": "Forjado para suportar as condições mais extremas, seja em temperaturas baixíssimas ou altíssimas."
+        "description": "Forjado para suportar as condi\u00e7\u00f5es mais extremas, seja em temperaturas baix\u00edssimas ou alt\u00edssimas.",
+        "url": "https://img.freepik.com/fotos-gratis/conjunto-de-chaves-de-close-up_23-2148557979.jpg"
     },
     {
-        "name": "Alicate Mãos de Vento",
-        "description": "Leve e ágil, permite movimentos rápidos e precisos, ideal para trabalhos que exigem velocidade."
+        "name": "Alicate M\u00e3os de Vento",
+        "description": "Leve e \u00e1gil, permite movimentos r\u00e1pidos e precisos, ideal para trabalhos que exigem velocidade.",
+        "url": "https://img.freepik.com/fotos-gratis/close-no-brinquedo-do-cachorro_23-2150959989.jpg"
     },
     {
-        "name": "Alicate Canhão",
-        "description": "Equipado com uma mola de alta tensão, aplica pressão constante para cortes precisos e potentes."
+        "name": "Alicate Canh\u00e3o",
+        "description": "Equipado com uma mola de alta tens\u00e3o, aplica press\u00e3o constante para cortes precisos e potentes.",
+        "url": "https://img.freepik.com/psd-gratuitas/gancho-isolado-com-tracado-de-recorte_7939-4352.jpg"
     },
     {
-        "name": "Alicate Aquário",
-        "description": "Especialmente projetado para trabalhos submersos, resistente à água salgada e à corrosão."
+        "name": "Alicate Aqu\u00e1rio",
+        "description": "Especialmente projetado para trabalhos submersos, resistente \u00e0 \u00e1gua salgada e \u00e0 corros\u00e3o.",
+        "url": "https://img.freepik.com/fotos-gratis/caixa-de-ferramentas-de-pesca-no-chao_23-2148204129.jpg"
     },
     {
         "name": "Chave de Fenda Excalibur",
-        "description": "Uma chave de fenda lendária, capaz de desatar os parafusos mais teimosos com a força de um rei."
+        "description": "Uma chave de fenda lend\u00e1ria, capaz de desatar os parafusos mais teimosos com a for\u00e7a de um rei.",
+        "url": "https://img.freepik.com/vetores-gratis/coleta-de-equipamentos-de-construcao_23-2148177907.jpg"
     },
     {
         "name": "Chave de Fenda Photon",
-        "description": "Emite uma luz brilhante ao girar, facilitando o trabalho em áreas escuras e de difícil acesso."
+        "description": "Emite uma luz brilhante ao girar, facilitando o trabalho em \u00e1reas escuras e de dif\u00edcil acesso.",
+        "url": "https://img.freepik.com/fotos-premium/um-close-up-de-uma-fileira-de-chaveiros-com-alcas-amarelas_36682-365157.jpg"
     },
     {
         "name": "Chave de Fenda Espiral Infinita",
-        "description": "Sua ponta em espiral gira infinitamente, ajustando parafusos com precisão milimétrica."
+        "description": "Sua ponta em espiral gira infinitamente, ajustando parafusos com precis\u00e3o milim\u00e9trica.",
+        "url": "https://img.freepik.com/psd-premium/icone-3d-da-brisa-do-vento_158757-7021.jpg"
     },
     {
-        "name": "Chave de Fenda Relâmpago",
-        "description": "Consegue apertar parafusos na velocidade de um raio, ideal para trabalhos rápidos e eficientes."
+        "name": "Chave de Fenda Rel\u00e2mpago",
+        "description": "Consegue apertar parafusos na velocidade de um raio, ideal para trabalhos r\u00e1pidos e eficientes.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-equipamentos-de-construcao-plana_23-2148174948.jpg"
     },
     {
-        "name": "Chave de Fenda Titã",
-        "description": "Forjada com materiais super-resistentes, pode apertar ou soltar parafusos em superfícies extremamente duras."
+        "name": "Chave de Fenda Tit\u00e3",
+        "description": "Forjada com materiais super-resistentes, pode apertar ou soltar parafusos em superf\u00edcies extremamente duras.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-do-martelo-de-aco-para-obras-com-pregos_23-2150576423.jpg"
     },
     {
-        "name": "Chave de Fenda Caleidoscópio",
-        "description": "Muda de cor conforme o ângulo de uso, tornando cada giro uma explosão de cores."
+        "name": "Chave de Fenda Caleidosc\u00f3pio",
+        "description": "Muda de cor conforme o \u00e2ngulo de uso, tornando cada giro uma explos\u00e3o de cores.",
+        "url": "https://img.freepik.com/vetores-gratis/projeto-do-fundo-do-fractal_1164-468.jpg"
     },
     {
         "name": "Chave de Fenda Turbo",
-        "description": "Com um motor embutido, esta chave de fenda gira a ponta automaticamente, proporcionando potência extra."
+        "description": "Com um motor embutido, esta chave de fenda gira a ponta automaticamente, proporcionando pot\u00eancia extra.",
+        "url": "https://img.freepik.com/fotos-gratis/ferramentas-de-alto-angulo-para-mecanico_23-2148557978.jpg"
     },
     {
         "name": "Chave de Fenda Geomante",
-        "description": "Detecta automaticamente o tamanho do parafuso e ajusta sua ponta para o encaixe perfeito."
+        "description": "Detecta automaticamente o tamanho do parafuso e ajusta sua ponta para o encaixe perfeito.",
+        "url": "https://img.freepik.com/fotos-gratis/maos-de-joalheiro-fazendo-joias_23-2150931434.jpg"
     },
     {
-        "name": "Chave de Fenda Camaleão",
-        "description": "Sua ponta se adapta a qualquer tipo de parafuso, ajustando-se automaticamente ao formato necessário."
+        "name": "Chave de Fenda Camale\u00e3o",
+        "description": "Sua ponta se adapta a qualquer tipo de parafuso, ajustando-se automaticamente ao formato necess\u00e1rio.",
+        "url": "https://img.freepik.com/fotos-gratis/rhacophorus-prominanus-ou-a-perereca-malayan-em-folhas-verdes_488145-537.jpg"
     },
     {
         "name": "Chave de Fenda Cronos",
-        "description": "Possui a habilidade de acelerar o tempo enquanto é usada, tornando qualquer tarefa mais rápida."
+        "description": "Possui a habilidade de acelerar o tempo enquanto \u00e9 usada, tornando qualquer tarefa mais r\u00e1pida.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-de-madeira-com-ferramentas_23-2147616854.jpg"
     },
     {
         "name": "Chave de Fenda Gravidade Zero",
-        "description": "Permite trabalhar em qualquer ângulo e até no espaço, com controle absoluto de movimentos."
+        "description": "Permite trabalhar em qualquer \u00e2ngulo e at\u00e9 no espa\u00e7o, com controle absoluto de movimentos.",
+        "url": "https://img.freepik.com/fotos-premium/mao-isolada-segurando-um-alicate-em-fundo-branco_579764-2080.jpg"
     },
     {
         "name": "Chave de Fenda Mutante",
-        "description": "Capaz de alterar sua forma entre chave de fenda e chave Phillips conforme necessário."
+        "description": "Capaz de alterar sua forma entre chave de fenda e chave Phillips conforme necess\u00e1rio.",
+        "url": "https://img.freepik.com/fotos-premium/ilustracao-de-chave-de-aquarela-generative-ai_931571-12506.jpg"
     },
     {
-        "name": "Chave de Fenda Mão de Ferro",
-        "description": "Aumenta a força do usuário ao girar, permitindo que até os parafusos mais presos sejam soltos facilmente."
+        "name": "Chave de Fenda M\u00e3o de Ferro",
+        "description": "Aumenta a for\u00e7a do usu\u00e1rio ao girar, permitindo que at\u00e9 os parafusos mais presos sejam soltos facilmente.",
+        "url": "https://img.freepik.com/fotos-premium/uma-pessoa-esta-segurando-uma-chave-inglesa-que-diz-a-palavra-sobre-ela_976492-103502.jpg"
     },
     {
         "name": "Chave de Fenda Fantasma",
-        "description": "Invisível ao olho nu, esta chave de fenda é perfeita para trabalhos discretos ou de espionagem."
+        "description": "Invis\u00edvel ao olho nu, esta chave de fenda \u00e9 perfeita para trabalhos discretos ou de espionagem.",
+        "url": "https://img.freepik.com/fotos-premium/chave-quebrada-isolada-em-fundo-preto_275805-190.jpg"
     },
     {
-        "name": "Chave de Fenda Vulcão",
-        "description": "Aquece levemente ao ser usada, soltando parafusos presos pela ferrugem com facilidade."
+        "name": "Chave de Fenda Vulc\u00e3o",
+        "description": "Aquece levemente ao ser usada, soltando parafusos presos pela ferrugem com facilidade.",
+        "url": "https://img.freepik.com/fotos-premium/ferramentas-de-jardinagem_1083750-340.jpg"
     },
     {
-        "name": "Chave de Fenda Mestre dos Vórtices",
-        "description": "Cria pequenos vórtices de ar ao redor do parafuso, facilitando seu aperto ou remoção."
+        "name": "Chave de Fenda Mestre dos V\u00f3rtices",
+        "description": "Cria pequenos v\u00f3rtices de ar ao redor do parafuso, facilitando seu aperto ou remo\u00e7\u00e3o.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-do-martelo-de-aco-para-obras-com-pregos_23-2150576423.jpg"
     },
     {
-        "name": "Chave de Fenda Fênix",
-        "description": "Quando quebrada, renasce das cinzas, sempre pronta para mais uma missão."
+        "name": "Chave de Fenda F\u00eanix",
+        "description": "Quando quebrada, renasce das cinzas, sempre pronta para mais uma miss\u00e3o.",
+        "url": "https://img.freepik.com/vetores-gratis/marca-de-verificacao-de-incendio-vermelha_78370-7460.jpg"
     },
     {
         "name": "Chave de Fenda Submarina",
-        "description": "Totalmente à prova d'água, ideal para trabalhos em ambientes submersos ou extremamente úmidos."
+        "description": "Totalmente \u00e0 prova d'\u00e1gua, ideal para trabalhos em ambientes submersos ou extremamente \u00famidos.",
+        "url": "https://img.freepik.com/fotos-gratis/chave-de-metal-colocada-em-uma-superficie-branca-e-transparente_181624-24864.jpg"
     },
     {
         "name": "Chave de Fenda do Caos",
-        "description": "Imprevisível, esta chave de fenda pode girar para qualquer lado, exigindo habilidade e sorte do usuário."
+        "description": "Imprevis\u00edvel, esta chave de fenda pode girar para qualquer lado, exigindo habilidade e sorte do usu\u00e1rio.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-do-martelo-de-aco-para-obras-com-pregos_23-2150576417.jpg"
     },
     {
         "name": "Chave de Fenda Aurora Boreal",
-        "description": "Gira com suavidade, criando um efeito de luzes dançantes como uma aurora boreal ao ser usada."
+        "description": "Gira com suavidade, criando um efeito de luzes dan\u00e7antes como uma aurora boreal ao ser usada.",
+        "url": "https://img.freepik.com/fotos-gratis/paisagem-minimalista-de-cima_23-2151599966.jpg"
     },
     {
         "name": "Martelo Thorin Escudo de Carvalho",
-        "description": "Martelo forjado nas profundezas da Montanha Solitária, usado por Thorin em batalhas épicas contra os orcs."
+        "description": "Martelo forjado nas profundezas da Montanha Solit\u00e1ria, usado por Thorin em batalhas \u00e9picas contra os orcs.",
+        "url": "https://img.freepik.com/vetores-gratis/ilustracao-em-vetor-vintage-adze-remixada-da-arte-de-ray-price_53876-115490.jpg"
     },
     {
-        "name": "Martelo Estrela da Manhã",
-        "description": "Um martelo que brilha como o sol nascente, conhecido por esmagar as trevas e trazer luz onde há desespero."
+        "name": "Martelo Estrela da Manh\u00e3",
+        "description": "Um martelo que brilha como o sol nascente, conhecido por esmagar as trevas e trazer luz onde h\u00e1 desespero.",
+        "url": "https://img.freepik.com/fotos-premium/esta-bela-ilustracao-e-ilustrada-para-o-feliz-dia-do-trabalho_1119325-125379.jpg"
     },
     {
         "name": "Martelo Da Vinci",
-        "description": "Martelo criado por Leonardo Da Vinci, projetado com engrenagens complexas para proporcionar golpes precisos e artísticos."
+        "description": "Martelo criado por Leonardo Da Vinci, projetado com engrenagens complexas para proporcionar golpes precisos e art\u00edsticos.",
+        "url": "https://img.freepik.com/fotos-gratis/martelos-de-construcao-de-vista-superior-natureza-morta_23-2150563140.jpg"
     },
     {
-        "name": "Martelo de Mercúrio",
-        "description": "Este martelo ultraleve permite movimentos rápidos e ágeis, ideal para os mensageiros dos deuses."
+        "name": "Martelo de Merc\u00fario",
+        "description": "Este martelo ultraleve permite movimentos r\u00e1pidos e \u00e1geis, ideal para os mensageiros dos deuses.",
+        "url": "https://img.freepik.com/fotos-gratis/cozinha-frente-utensilio-ninguem-equipamento_1303-373.jpg"
     },
     {
-        "name": "Martelo Trovão de Júpiter",
-        "description": "Forjado no Monte Olimpo, este martelo invoca trovões a cada impacto, trazendo o poder dos deuses à batalha."
+        "name": "Martelo Trov\u00e3o de J\u00fapiter",
+        "description": "Forjado no Monte Olimpo, este martelo invoca trov\u00f5es a cada impacto, trazendo o poder dos deuses \u00e0 batalha.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-de-torneira-de-fantasia-com-agua-corrente-e-paisagem-surrealista-para-a-conscientizacao-do-dia-mundial-da-agua_23-2151181948.jpg"
     },
     {
-        "name": "Martelo Relíquia dos Antigos",
-        "description": "Um martelo ancestral, passado de geração em geração, cada golpe carrega o peso da história."
+        "name": "Martelo Rel\u00edquia dos Antigos",
+        "description": "Um martelo ancestral, passado de gera\u00e7\u00e3o em gera\u00e7\u00e3o, cada golpe carrega o peso da hist\u00f3ria.",
+        "url": "https://img.freepik.com/fotos-premium/gavel_93675-43555.jpg"
     },
     {
         "name": "Martelo das Sombras",
-        "description": "Um martelo silencioso que desliza nas trevas, perfeito para aqueles que preferem agir sem serem vistos."
+        "description": "Um martelo silencioso que desliza nas trevas, perfeito para aqueles que preferem agir sem serem vistos.",
+        "url": "https://img.freepik.com/fotos-premium/3-d-render-de-podio-vazio-e-fita-vermelha_449849-56825.jpg"
     },
     {
-        "name": "Martelo Coração de Fogo",
-        "description": "Um martelo aquecido pela chama eterna, capaz de derreter o aço com um único golpe."
+        "name": "Martelo Cora\u00e7\u00e3o de Fogo",
+        "description": "Um martelo aquecido pela chama eterna, capaz de derreter o a\u00e7o com um \u00fanico golpe.",
+        "url": "https://img.freepik.com/vetores-gratis/design-de-fundo-do-coracao_1176-182.jpg"
     },
     {
         "name": "Martelo Escudo de Ares",
-        "description": "Este martelo é também um escudo, usado pelos guerreiros mais bravos para atacar e se defender simultaneamente."
+        "description": "Este martelo \u00e9 tamb\u00e9m um escudo, usado pelos guerreiros mais bravos para atacar e se defender simultaneamente.",
+        "url": "https://img.freepik.com/vetores-gratis/elementos-guerreiros-medievais_23-2147699056.jpg"
     },
     {
         "name": "Martelo Terraquius",
-        "description": "Um martelo que ressoa com o poder da Terra, capaz de causar tremores devastadores."
+        "description": "Um martelo que ressoa com o poder da Terra, capaz de causar tremores devastadores.",
+        "url": "https://img.freepik.com/vetores-gratis/colecao-de-equipamentos-de-construcao-plana_23-2148171519.jpg"
     },
     {
         "name": "Martelo Celestial",
-        "description": "Um martelo feito da essência das estrelas, brilhando com uma luz intensa que cega os inimigos."
+        "description": "Um martelo feito da ess\u00eancia das estrelas, brilhando com uma luz intensa que cega os inimigos.",
+        "url": "https://img.freepik.com/vetores-gratis/ilustracao-em-vetor-vintage-adze-remixada-da-arte-de-ray-price_53876-115490.jpg"
     },
     {
         "name": "Martelo Espelho do Caos",
-        "description": "Este martelo reflete o caos de seus oponentes, virando suas próprias forças contra eles."
+        "description": "Este martelo reflete o caos de seus oponentes, virando suas pr\u00f3prias for\u00e7as contra eles.",
+        "url": "https://img.freepik.com/fotos-premium/um-martelo-esta-em-cima-de-uma-pilha-de-vidro-quebrado_1375-67995.jpg"
     },
     {
-        "name": "Martelo das Marés",
-        "description": "Um martelo que controla o poder dos oceanos, cada golpe é como uma onda gigante prestes a esmagar tudo em seu caminho."
+        "name": "Martelo das Mar\u00e9s",
+        "description": "Um martelo que controla o poder dos oceanos, cada golpe \u00e9 como uma onda gigante prestes a esmagar tudo em seu caminho.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-ancora-criativo_23-2147704304.jpg"
     },
     {
         "name": "Martelo Vento do Norte",
-        "description": "Leve e rápido, este martelo é empurrado pelos ventos do norte, trazendo a força de tempestades invernais."
+        "description": "Leve e r\u00e1pido, este martelo \u00e9 empurrado pelos ventos do norte, trazendo a for\u00e7a de tempestades invernais.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-desenhado-mao-da-bussola-do-mapa_23-2147743695.jpg"
     },
     {
-        "name": "Martelo Luz de Lúmen",
-        "description": "Um martelo que emite uma luz pura, dissipando as trevas e purificando tudo o que toca."
+        "name": "Martelo Luz de L\u00famen",
+        "description": "Um martelo que emite uma luz pura, dissipando as trevas e purificando tudo o que toca.",
+        "url": "https://img.freepik.com/fotos-premium/machado-de-madeira-vintage-em-fundo-escuro-ilustracao-vetorial-em-estilo-retro_678474-2366.jpg"
     },
     {
         "name": "Martelo Pedra da Lua",
-        "description": "Forjado a partir de fragmentos de meteoritos, este martelo tem o poder misterioso da lua."
+        "description": "Forjado a partir de fragmentos de meteoritos, este martelo tem o poder misterioso da lua.",
+        "url": "https://img.freepik.com/psd-premium/clube-encantado-de-granito-com-uma-cabeca-que-e-pesada-e-png-asset-de-jogo-em-fundo-limpo_1142283-299102.jpg"
     },
     {
-        "name": "Martelo Vingador de Ártemis",
-        "description": "Um martelo criado para caçar aqueles que desrespeitam os deuses, sua precisão é lendária."
+        "name": "Martelo Vingador de \u00c1rtemis",
+        "description": "Um martelo criado para ca\u00e7ar aqueles que desrespeitam os deuses, sua precis\u00e3o \u00e9 lend\u00e1ria.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-com-elementos-de-defesa-de-direitos_23-2147806188.jpg"
     },
     {
-        "name": "Martelo do Rei Anão",
-        "description": "Usado pelo rei dos anões, este martelo é uma mistura de beleza e brutalidade, cravejado de joias e incrivelmente pesado."
+        "name": "Martelo do Rei An\u00e3o",
+        "description": "Usado pelo rei dos an\u00f5es, este martelo \u00e9 uma mistura de beleza e brutalidade, cravejado de joias e incrivelmente pesado.",
+        "url": "https://img.freepik.com/fotos-gratis/martelos-de-construcao-ainda-vida_23-2150563178.jpg"
     },
     {
-        "name": "Martelo Força de Gaia",
-        "description": "Cada golpe deste martelo faz brotar vida ao seu redor, mas também pode destruir montanhas se necessário."
+        "name": "Martelo For\u00e7a de Gaia",
+        "description": "Cada golpe deste martelo faz brotar vida ao seu redor, mas tamb\u00e9m pode destruir montanhas se necess\u00e1rio.",
+        "url": "https://img.freepik.com/fotos-premium/um-martelo-colocado-em-uma-superficie-de-madeira-com-uma-alca-de-madeira_1293314-1116.jpg"
     },
     {
-        "name": "Martelo Guardião do Tempo",
-        "description": "Este martelo controla o fluxo do tempo, permitindo que seu portador avance ou retroceda no tempo com um único golpe."
+        "name": "Martelo Guardi\u00e3o do Tempo",
+        "description": "Este martelo controla o fluxo do tempo, permitindo que seu portador avance ou retroceda no tempo com um \u00fanico golpe.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-de-ferro-antigo_23-2150315202.jpg"
     },
     {
         "name": "Furadeira Thor Hammer",
-        "description": "Furadeira inspirada no lendário martelo Mjolnir de Thor, ideal para trabalhos que exigem força e precisão divinas."
+        "description": "Furadeira inspirada no lend\u00e1rio martelo Mjolnir de Thor, ideal para trabalhos que exigem for\u00e7a e precis\u00e3o divinas.",
+        "url": "https://img.freepik.com/fotos-gratis/perfurador-colocado-na-mesa-de-madeira_23-2148180595.jpg"
     },
     {
         "name": "Furadeira Sonic Speed",
-        "description": "Uma furadeira tão rápida quanto o próprio Sonic, perfeita para quem precisa furar com agilidade supersônica."
+        "description": "Uma furadeira t\u00e3o r\u00e1pida quanto o pr\u00f3prio Sonic, perfeita para quem precisa furar com agilidade supers\u00f4nica.",
+        "url": "https://img.freepik.com/fotos-premium/chave-de-fenda-vermelha-em-uma-mesa-de-madeira-fechada_390319-1998.jpg"
     },
     {
         "name": "Furadeira Excalibur",
-        "description": "Furadeira lendária como a espada do Rei Arthur, capaz de atravessar qualquer material com a elegância de um cavaleiro."
+        "description": "Furadeira lend\u00e1ria como a espada do Rei Arthur, capaz de atravessar qualquer material com a eleg\u00e2ncia de um cavaleiro.",
+        "url": "https://img.freepik.com/fotos-premium/chave-ao-lado-de-uma-tocha-de-soldagem_944420-73403.jpg"
     },
     {
         "name": "Furadeira Stark Industries",
-        "description": "Desenvolvida pela Stark Industries, essa furadeira combina alta tecnologia e design futurista para os maiores desafios."
+        "description": "Desenvolvida pela Stark Industries, essa furadeira combina alta tecnologia e design futurista para os maiores desafios.",
+        "url": "https://img.freepik.com/fotos-gratis/close-up-de-tigela-e-cachimbo-de-carvao-de-cachimbo-de-agua_140725-634.jpg"
     },
     {
         "name": "Furadeira Millennium Falcon",
-        "description": "Inspirada na nave mais veloz da galáxia, essa furadeira oferece desempenho excepcional para projetos intergalácticos."
+        "description": "Inspirada na nave mais veloz da gal\u00e1xia, essa furadeira oferece desempenho excepcional para projetos intergal\u00e1cticos.",
+        "url": "https://img.freepik.com/fotos-premium/uma-ferramenta-de-madeira-com-uma-alca-de-madeira-e-uma-chave-de-fenda_955028-12840.jpg"
     },
     {
         "name": "Furadeira King Kong",
-        "description": "Poderosa como o rei da selva, essa furadeira é ideal para os trabalhos mais pesados e difíceis de domar."
+        "description": "Poderosa como o rei da selva, essa furadeira \u00e9 ideal para os trabalhos mais pesados e dif\u00edceis de domar.",
+        "url": "https://img.freepik.com/fotos-gratis/ferramentas-de-madeira-de-vista-frontal_23-2148643217.jpg"
     },
     {
         "name": "Furadeira Speed Racer",
-        "description": "Com a rapidez e precisão de um carro de corrida, essa furadeira é feita para quem quer resultados rápidos e precisos."
+        "description": "Com a rapidez e precis\u00e3o de um carro de corrida, essa furadeira \u00e9 feita para quem quer resultados r\u00e1pidos e precisos.",
+        "url": "https://img.freepik.com/vetores-gratis/design-retro-de-elementos-de-motocross_23-2148649925.jpg"
     },
     {
         "name": "Furadeira Hulk Smash",
-        "description": "Com a força esmagadora do Hulk, essa furadeira não teme nenhum material, seja qual for a dureza."
+        "description": "Com a for\u00e7a esmagadora do Hulk, essa furadeira n\u00e3o teme nenhum material, seja qual for a dureza.",
+        "url": "https://img.freepik.com/fotos-gratis/vista-3d-da-arma-poderosa_23-2150888663.jpg"
     },
     {
         "name": "Furadeira TARDIS",
-        "description": "Assim como a TARDIS do Doctor Who, essa furadeira parece pequena, mas sua potência é imensa e surpreendente."
+        "description": "Assim como a TARDIS do Doctor Who, essa furadeira parece pequena, mas sua pot\u00eancia \u00e9 imensa e surpreendente.",
+        "url": "https://img.freepik.com/fotos-premium/uma-ferramenta-de-madeira-com-uma-alca-de-madeira-e-uma-chave-de-fenda_955028-12840.jpg"
     },
     {
         "name": "Furadeira Iron Man",
-        "description": "Inspirada no traje do Homem de Ferro, essa furadeira é uma combinação de resistência e tecnologia de ponta."
+        "description": "Inspirada no traje do Homem de Ferro, essa furadeira \u00e9 uma combina\u00e7\u00e3o de resist\u00eancia e tecnologia de ponta.",
+        "url": "https://img.freepik.com/psd-premium/uma-foto-de-serra-eletrica-reciproca-isolada_955584-30948.jpg"
     },
     {
         "name": "Furadeira Black Panther",
-        "description": "Elegante e poderosa como o Pantera Negra, essa furadeira é perfeita para quem busca precisão e estilo em cada perfuração."
+        "description": "Elegante e poderosa como o Pantera Negra, essa furadeira \u00e9 perfeita para quem busca precis\u00e3o e estilo em cada perfura\u00e7\u00e3o.",
+        "url": "https://img.freepik.com/fotos-gratis/chave-inglesa-exibindo-delicadeza-ao-apoiar-um-ovo_181624-42833.jpg"
     },
     {
         "name": "Furadeira Godzilla Force",
-        "description": "Com a força de um monstro gigante, essa furadeira domina qualquer terreno, seja concreto, madeira ou metal."
+        "description": "Com a for\u00e7a de um monstro gigante, essa furadeira domina qualquer terreno, seja concreto, madeira ou metal.",
+        "url": "https://img.freepik.com/psd-premium/ilustracao-de-motosserra-construcao_1279565-7390.jpg"
     },
     {
         "name": "Furadeira Jedi Master",
-        "description": "Canalize a força dos Jedi em seus projetos com essa furadeira que combina precisão e controle impecáveis."
+        "description": "Canalize a for\u00e7a dos Jedi em seus projetos com essa furadeira que combina precis\u00e3o e controle impec\u00e1veis.",
+        "url": "https://img.freepik.com/vetores-premium/ilustracao-grafica-vetorial-de-ferramenta-formato-de-arquivo-de-origem-eps-desenho-de-icone-de-escala-sem-perdas_916211-503063.jpg"
     },
     {
         "name": "Furadeira Ghostbusters",
-        "description": "Ideal para capturar até os furos mais teimosos, essa furadeira é o equipamento que você chama quando tem problemas!"
+        "description": "Ideal para capturar at\u00e9 os furos mais teimosos, essa furadeira \u00e9 o equipamento que voc\u00ea chama quando tem problemas!",
+        "url": "https://img.freepik.com/fotos-gratis/vista-frontal-jovem-macho-segurando-tesouras-de-podar-em-fundo-branco-planta-flor-trabalho-emocoes-arvore-grama-solo-trabalho-jardineiro_140725-158241.jpg"
     },
     {
         "name": "Furadeira Indiana Jones",
-        "description": "Para as aventuras mais perigosas e os materiais mais resistentes, essa furadeira é a companheira certa de qualquer explorador."
+        "description": "Para as aventuras mais perigosas e os materiais mais resistentes, essa furadeira \u00e9 a companheira certa de qualquer explorador.",
+        "url": "https://img.freepik.com/fotos-gratis/viking-forja-armas-e-espadas-na-ferraria-um-homem-com-roupas-de-guerreiro-esta-na-ferraria_471681-4.jpg"
     },
     {
         "name": "Furadeira Neo Matrix",
-        "description": "Enxergue a Matrix com essa furadeira, que perfura a realidade com a precisão de um Mestre de kung fu digital."
+        "description": "Enxergue a Matrix com essa furadeira, que perfura a realidade com a precis\u00e3o de um Mestre de kung fu digital.",
+        "url": "https://img.freepik.com/vetores-premium/ilustracao-grafica-vetorial-de-ferramenta-formato-de-arquivo-de-origem-eps-desenho-de-icone-de-escala-sem-perdas_916211-507965.jpg"
     },
     {
         "name": "Furadeira Kraken Power",
-        "description": "Liberte o poder do lendário Kraken em seus projetos, com uma furadeira que agarra e destrói qualquer superfície."
+        "description": "Liberte o poder do lend\u00e1rio Kraken em seus projetos, com uma furadeira que agarra e destr\u00f3i qualquer superf\u00edcie.",
+        "url": "https://img.freepik.com/vetores-premium/ilustracao-grafica-vetorial-de-ferramenta-formato-de-arquivo-de-origem-eps-desenho-de-icone-de-escala-sem-perdas_916211-503849.jpg"
     },
     {
         "name": "Furadeira Captain America",
-        "description": "Com a durabilidade do escudo do Capitão América, essa furadeira está pronta para enfrentar qualquer batalha no trabalho."
+        "description": "Com a durabilidade do escudo do Capit\u00e3o Am\u00e9rica, essa furadeira est\u00e1 pronta para enfrentar qualquer batalha no trabalho.",
+        "url": "https://img.freepik.com/vetores-gratis/fundo-do-dia-do-trabalho-em-estilo-simples_23-2148223856.jpg"
     },
     {
         "name": "Furadeira Mad Max",
-        "description": "Resistente ao caos, essa furadeira é ideal para cenários pós-apocalípticos onde só os mais fortes sobrevivem."
+        "description": "Resistente ao caos, essa furadeira \u00e9 ideal para cen\u00e1rios p\u00f3s-apocal\u00edpticos onde s\u00f3 os mais fortes sobrevivem.",
+        "url": "https://img.freepik.com/fotos-gratis/mecanico-com-plano_1368-4136.jpg"
     },
     {
         "name": "Furadeira Sherlock Holmes",
-        "description": "Resolva os mistérios das perfurações mais complexas com a precisão e a astúcia de Sherlock Holmes."
+        "description": "Resolva os mist\u00e9rios das perfura\u00e7\u00f5es mais complexas com a precis\u00e3o e a ast\u00facia de Sherlock Holmes.",
+        "url": "https://img.freepik.com/vetores-premium/fundo-profissional-de-design-de-negocios-ilustracao-vetorial-banner-cartao-de-escritorio-dia-de-conceito_1013341-249130.jpg"
     }
 ]
