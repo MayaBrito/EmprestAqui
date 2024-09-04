@@ -1,3 +1,4 @@
+import json
 from comment import Comment
 from item import Item
 from person import Person
@@ -294,12 +295,40 @@ def load():
     global users
     global itens
     global engine
-    with open('emailsearch.pickle', 'rb') as f1:
-        emailsearch = pk.load(f1)
-    with open('users.pickle', 'rb') as f2:
-        users = pk.load(f2)
-    with open('itens.pickle', 'rb') as f3:
-        itens = pk.load(f3)
+
+    with open('people.json') as f:
+        data = json.loads(f.read())
+        users = {
+            int(user_dict['id']): Person(
+                int(user_dict['id']),
+                user_dict['name'],
+                user_dict['password'],
+                user_dict['phone'],
+                user_dict['email'],
+                user_dict['city'],
+            )
+            for user_dict in data.values()
+        }
+    with open('items.json') as f:
+        data = json.loads(f.read())
+        itens = {
+            item_dict['id']: Item(
+                item_dict['id'],
+                item_dict['name'],
+                item_dict['owner_id'],
+                item_dict['desc'],
+                item_dict['photo'],
+                item_dict['available'],
+            )
+            for item_dict in data.values()
+        }
+
+    # with open('emailsearch.pickle', 'rb') as f1:
+    #     emailsearch = pk.load(f1)
+    # with open('users.pickle', 'rb') as f2:
+    #     users = pk.load(f2)
+    # with open('itens.pickle', 'rb') as f3:
+    #     itens = pk.load(f3)
     engine = Engine(list(itens.values()))
     return make_response("ok")
 
