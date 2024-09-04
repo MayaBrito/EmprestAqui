@@ -23,7 +23,7 @@ def save_item(name,owner_id,desc,photo,available) -> int:
     return item_id
 
 # helper fuction for saving user
-def save_user(name,password,phone,email,city,resp=None) -> int:
+def save_user(name,password,phone,email,city) -> int:
     user_id = len(users)
     new_user = Person(user_id,name,password,phone,email,city)
     users[user_id] = new_user
@@ -38,10 +38,13 @@ def save_cookies(resp,email,password):
 
 # helper function to create comments
 def save_comment(comment,score,commenter,receiver,receiver_type):
-    new_comment = Comment(comment,score)
     if receiver_type == "item":
+        comment_id = len(itens[receiver].comments)
+        new_comment = Comment(comment_id,comment,score)
         itens[receiver].comments[commenter] = new_comment
     if receiver_type == "user":
+        comment_id = len(users[receiver].received_comments)
+        new_comment = Comment(comment_id,comment,score)
         users[receiver].received_comments[commenter] = new_comment
 
 # helper function for creating a request object and applyting it to users
@@ -229,16 +232,18 @@ def evaluate_publication():
 @app.route('/user',methods=['GET','POST'])
 def user():
     email, err = check_user()
-    if err:
-        return render_template('login.html')
-    user = users[emailsearch[email]]
+    if err: 
+        if'id' not in request.args:
+            return render_template('login.html')
+    else:
+        user = users[emailsearch[email]]
     if 'id' in request.args:
         requested_user_id = int(request.args['id'])
     else:
         requested_user_id = user.id
     requested_user = users[requested_user_id]
     active_user = False
-    if (requested_user_id == user.id):
+    if (not err and requested_user_id == user.id):
         active_user=True
     return render_template('user.html',user=requested_user,active_user=active_user,users=users)
 
@@ -336,6 +341,35 @@ def load():
 def test():
     return make_response("ok")
 
+def load_data():
+    people_json, item_json, comment_json, request_json = read_csv()
+    for person in people_json:
+        name = people_json[person]["name"]
+        password = people_json[person]["password"]
+        phone = people_json[person]["phone"]
+        email = people_json[person]["email"]
+        city = people_json[person]["city"]
+        user_id = save_user(name,password,phone,email,city)
+        for i,review in enumerate(people_json[person]["comments_received"]):
+            comment = review["comment"]
+            score = min(review["score"],5)
+            receiver = user_id
+            save_comment(comment,score,i,receiver,"user")
+
+    for item in item_json:
+        name = item_json[item]["name"]
+        owner_id = item_json[item]["owner_id"]
+        desc = item_json[item]["desc"]
+        photo = item_json[item]["photo"]
+        available = item_json[item]["available"]
+        item_id = save_item(name,owner_id,desc,photo,available)
+        for index,review in enumerate(item_json[item]["comments"]):
+            comment = review["comment"]
+            score = min(review["score"],5)
+            receiver = item_id
+            save_comment(comment,score,index,receiver,"item")
+    
+
 if __name__ == '__main__':
     # programmers = [
     #     save_user("joão", "henrrique", "99999999","xavier@gmail.com","João Pessoa"),
@@ -351,5 +385,6 @@ if __name__ == '__main__':
     # save_comment("olha eu commentando em mim mesmo, como isso é possivel?",5,1,1,"user")
     # make_request(bananas[1],programmers[1],programmers[0])
     # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
-    engine = Engine()
-    app.run(host="0.0.0.0",port=8080)
+    load_data()
+    engine = Engine(itens.values())
+    app.run(host="0.0.0.0",port=80)

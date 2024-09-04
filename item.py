@@ -35,6 +35,7 @@ class Item:
         if (ammount != 0):
             score = total/ammount
         half_star = (2*score)%2
+        score = int(score)
         rest = 5 - (int(score+half_star))
         return "★"*int(score) + "⋆"*int(half_star)+"☆"*int(rest)
 

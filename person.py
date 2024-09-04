@@ -12,7 +12,7 @@ class Person:
         self._email = email
         self._city = city
         self._received_comments: dict[int, Comment] = {}
-        self._items: dict[int, Item] = {}
+        self._itens: dict[int, Item] = {}
         self._requests_made: dict[int, Request] = {}
         # item_id, interested_id
         self._requests_received: dict[(int, int), Request] = {}
@@ -33,9 +33,9 @@ class Person:
         return self._received_comments
 
     @property
-    def items(self) -> dict[int, str]:
+    def itens(self) -> dict[int, str]:
         """get items"""
-        return self._items
+        return self._itens
 
     @property
     def password(self) -> str:
@@ -81,6 +81,7 @@ class Person:
         if (ammount != 0):
             score = total/ammount
         half_star = (2*score)%2
+        score = int(score)
         rest = 5 - (int(score+half_star))
         return "★"*int(score) + "⋆"*int(half_star)+"☆"*int(rest)
 

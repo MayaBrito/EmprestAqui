@@ -2,17 +2,16 @@ from comment import Comment
 from item import Item
 from person import Person
 import csv
+import json
 
-def read_csv(file_name:str)->dict[str,str]:
-    content:dict[str,str] = {}
-
-    with open(file_name, mode ='r')as file:
-        file = csv.reader(file)
-        header = next(file)
-        for column in header:
-            content[column]:list = []
-        for row in file:
-            for indice,column in enumerate(row):
-                content[header[indice]]:str = column
-    
-    return content
+def read_csv():
+# Open and read the JSON file
+    with open('people.json', 'r') as p:
+        people_json = json.load(p)
+    with open('items.json','r') as i:
+        item_json = json.load(i)
+    with open('comments.json', 'r') as c:
+        comment_json = json.load(c)
+    with open('requests.json', 'r') as r:
+        request_json = json.load(r)
+    return people_json, item_json, comment_json, request_json

@@ -6,7 +6,7 @@ class Request:
         self._interested_id = interested_id
         self._supplier_id = supplier_id
 
-    @property
+    @property # accepted, open, rejected
     def state(self) -> str:
         """get state"""
         return self._state
