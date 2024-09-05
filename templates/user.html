@@ -122,7 +122,11 @@
     {{ render_header() }}
 
     <div class="container">
-        <h2>Meu Perfil</h2>
+        {% if active_user %}
+        <h2>Meu perfil</h2>
+        {% else %}
+        <h2>Perfil</h2>
+        {% endif %}
         <div class="profile-info">
             <b>Nome:</b> {{user.name}}<br>
             <b>Cidade:</b> {{user.city}}
