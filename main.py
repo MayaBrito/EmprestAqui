@@ -350,11 +350,12 @@ def load_data():
         email = people_json[person]["email"]
         city = people_json[person]["city"]
         user_id = save_user(name,password,phone,email,city)
-        for i,review in enumerate(people_json[person]["comments_received"]):
+        for review in people_json[person]["comments_received"]:
             comment = review["comment"]
             score = min(review["score"],5)
             receiver = user_id
-            save_comment(comment,score,i,receiver,"user")
+            sender_id = review["id"]
+            save_comment(comment,score,sender_id,receiver,"user")
 
     for item in item_json:
         name = item_json[item]["name"]
@@ -363,11 +364,12 @@ def load_data():
         photo = item_json[item]["photo"]
         available = item_json[item]["available"]
         item_id = save_item(name,owner_id,desc,photo,available)
-        for index,review in enumerate(item_json[item]["comments"]):
+        for review in item_json[item]["comments"]:
             comment = review["comment"]
             score = min(review["score"],5)
+            sender_id = review["id"]
             receiver = item_id
-            save_comment(comment,score,index,receiver,"item")
+            save_comment(comment,score,sender_id,receiver,"item")
     
 
 if __name__ == '__main__':

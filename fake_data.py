@@ -105,7 +105,7 @@ class DataFaker:
                 other_p_id = p.id
                 while other_p_id == p.id:
                     other_p_id = math.floor(random() * cfg.people_n)
-
+                comment._id = other_p_id
                 p._received_comments[other_p_id] = comment
 
         # Assigning items to people
@@ -117,11 +117,11 @@ class DataFaker:
                 other_p_id = owner_id
                 while other_p_id == owner_id:
                     other_p_id = math.floor(random() * cfg.people_n)
-
+                c._id = other_p_id
                 item.comments[other_p_id] = c
 
             owner = people[owner_id]
-            owner.items[item.id] = item
+            owner.itens[item.id] = item
 
         # Creating requests for people
         requests = self.fake_requests(fk, cfg.requests_n)

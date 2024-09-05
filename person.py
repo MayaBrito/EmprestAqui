@@ -111,5 +111,5 @@ class Person:
             "requests_made": [x.to_dict() for x in self._requests_made.values()],
             "requests_received": [x.to_dict() for x in self._requests_received.values()],
             "comments_received": [x.to_dict() for x in self._received_comments.values()],
-            "items": [x.to_dict() for x in self._items.values()],
+            "itens": [x.to_dict() for x in self._itens.values()],
         }
