@@ -34,16 +34,37 @@
             cursor: pointer;
         }
 
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Certifica-se de que o header fique acima de outros elementos */
+        }
+    
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
         .container {
             text-align: center;
             width: 100%;
-            max-width: 500px; /* Tamanho máximo do container */
+            max-width: 500px; 
             margin-top: 50px;
         }
 
         h2 {
             padding-top: 100px;
-            font-size: 46px; /* Tamanho do título */
+            font-size: 46px; 
             margin-bottom: 20px;
             color: #000;
         }

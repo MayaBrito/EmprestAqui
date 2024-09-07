@@ -72,7 +72,7 @@
     {{ render_header() }}
 
     <div class="container">
-        <h2>Aguardando Aprovação</h2>
+        <h1>Aguardando Aprovação</h1>
         <ul>
             {% for request in requests.values() %}
                 {% if request.state == 'open' %}
