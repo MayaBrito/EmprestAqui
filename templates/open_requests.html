@@ -94,8 +94,13 @@
                         <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
                     </a>
                     <br>
-                    Entre em contato: {{users[request.supplier].phone}}
-                    <button class="contact-button">Contactar</button>
+                    Entre em contato por:
+                    <details>
+                        <summary>Contactar</summary>
+                        <li> Telefone: {{users[request.supplier_id].phone}}</li>
+                        <li> Email: {{users[request.supplier_id].email}}</li>
+                    </details>
+                    <!-- <button class="contact-button">Contactar</button> -->
                 </li>
                 {% endif %}
             {% endfor %}

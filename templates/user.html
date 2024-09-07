@@ -150,7 +150,7 @@
             {% for item in user.itens.values() %}
             <div>
                 <a href="{{url_for('item',id=item.id)}}" >
-                    <img src="{{item.photo}}" alt="{{item.name}}">
+                    <img src="{{item.photo}}" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
                 </a>
             </div>
             {% endfor %}

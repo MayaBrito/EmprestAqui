@@ -49,8 +49,8 @@ def save_comment(comment,score,commenter,receiver,receiver_type):
 
 # helper function for creating a request object and applyting it to users
 def make_request(item_id,interested_id,supplier_id,state='open'):
-    new_request = Request('open',item_id,interested_id,supplier_id)
-    users[supplier_id].received_requests[(item_id,interested_id)] = new_request
+    new_request = Request(None,'open',item_id,interested_id,supplier_id)
+    users[supplier_id].requests_received[(item_id,interested_id)] = new_request
     users[interested_id].requests_made[item_id] = new_request
 
 
@@ -62,6 +62,13 @@ def check_user() ->tuple[str,bool]:
     if not validate_password(email,password):
         err = True
     return email, err
+
+def verify_information(attributes:list):
+    verified = True
+    for attribute in attributes:
+        if len(attribute) == 0:
+            verified = False
+    return verified
 
 # simple password checking implement at least hashing if made into a comercial product
 def validate_password(email,password) ->bool:
@@ -107,6 +114,11 @@ def confirmation():
         phone = request.form['phone']
         email = request.form['email']
         city = request.form['filter']
+        verified = verify_information([name,password,phone,email,city])
+        if not verified:
+            output = "Existem campos não preenchidos" 
+            resp = render_template("error.html",error=output)
+            return resp
         if email not in emailsearch:
             save_user(name,password,phone,email,city)
             resp = make_response(redirect(url_for('menu')))
@@ -121,7 +133,7 @@ def confirmation():
 @app.route('/menu',defaults={'error': ""},methods=['GET','POST'])
 def menu(error):
     print(error)
-    search = Forms(request.form)
+    search = Forms(request.form)    
     location = Location(request.form)
     if request.method == 'POST':
         return results(search,user)
@@ -151,7 +163,11 @@ def item():
         return resp
     else:
         item = itens[item_id]
-        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users)
+        email, err = check_user()
+        not_owner = True 
+        if not err:
+            not_owner = not users[emailsearch[email]].id == item.owner_id
+        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users,not_owner=not_owner)
 
 @app.route('/comment',methods=['GET','POST'])
 def comment():
@@ -173,6 +189,11 @@ def apply_comment():
     instance_type = request.form["type"]
     new_score = int(request.form["score"])
     new_comment = request.form["comment"]
+    verified = verify_information([new_score])
+    if not verified:
+        output = "Existem campos não preenchidos" 
+        resp = render_template("error.html",error=output)
+        return resp
     save_comment(new_comment,new_score,user.id,instance_id,instance_type)
     if instance_type == "item":
         return redirect(url_for("item",id=instance_id))
@@ -187,9 +208,7 @@ def item_request():
     item_id = int(request.form["id"])
     user = users[emailsearch[email]]
     seller = users[itens[item_id].owner_id]
-    new_request = Request("open",item_id,user.id,seller.id)
-    user.requests_made[item_id] = new_request
-    seller.received_requests[(item_id,user.id)] = new_request
+    make_request(item_id,user.id,seller.id)
     return redirect(url_for("open_requests"))
 
 @app.route('/accept_request',methods=['GET','POST'])
@@ -201,9 +220,10 @@ def accept_request():
     user = users[emailsearch[email]]
     interested = int(request.form["interested"])
     if "accept" in request.form:
-        user.received_requests[(item_id,interested)].state = 'accepted'
+        user.requests_received[(item_id,interested)].state = 'accepted'
+        itens[item_id].available = False
     else:
-        user.received_requests[(item_id,interested)].state = 'rejected'
+        user.requests_received[(item_id,interested)].state = 'rejected'
     return redirect(url_for("open_received_requests"))
 
 @app.route('/publish_item',methods=['GET','POST'])
@@ -223,6 +243,11 @@ def evaluate_publication():
     photo = request.form['photo']
     item_id = len(itens)
     user = users[emailsearch[email]]
+    verified = verify_information([name,desc,photo])
+    if not verified:
+        output = "Existem campos não preenchidos" 
+        resp = render_template("error.html",error=output)
+        return resp
     new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo)
     user.itens[item_id] = new_item
     itens[item_id] = new_item
@@ -262,8 +287,15 @@ def apply_location():
     if err:
         return render_template('login.html')
     user = users[emailsearch[email]]
-
+    
     new_address = request.form["filter"]
+
+    verified = verify_information([new_address])
+    if not verified:
+        output = "Existem campos não preenchidos" 
+        resp = render_template("error.html",error=output)
+        return resp
+
     user.city = new_address
 
     return redirect(url_for("user"))
@@ -274,7 +306,7 @@ def open_received_requests():
     if err:
         return render_template('login.html')
     user = users[emailsearch[email]]
-    return render_template('open_received_requests.html',requests=user.received_requests,itens=itens,users=users)
+    return render_template('open_received_requests.html',requests=user.requests_received,itens=itens,users=users)
 
 @app.route('/open_requests',methods=['GET','POST'])
 def open_requests():
@@ -356,6 +388,15 @@ def load_data():
             receiver = user_id
             sender_id = review["id"]
             save_comment(comment,score,sender_id,receiver,"user")
+            
+    for person in people_json:
+        for request in people_json[person]["requests_received"]:
+            state = request["state"]
+            item_id = request["item_id"]
+            interested_id = request["interested_id"]
+            supplier_id  = request["supplier_id"]
+            make_request(item_id,interested_id,supplier_id)
+            
 
     for item in item_json:
         name = item_json[item]["name"]

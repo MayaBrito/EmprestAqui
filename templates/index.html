@@ -140,7 +140,7 @@
             <form method="post">
                 <dl>
                     <div class="search-bar">
-                        <p>{{ form.search }}</p>
+                        <p>{{ form.search(required='required') }}</p>
                     </div>
                     <div class="form-group">
                         <p>{{ location.filter }}</p>

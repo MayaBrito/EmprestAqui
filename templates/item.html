@@ -126,11 +126,13 @@
 
     <div class="container">
         <h2>Item</h2>
-        <img src="{{item.photo}}" class="item-image" alt="{{item.name}}">
+        <img src="{{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+        {% if item.available and not_owner %}
         <form method="post" action="/item_request"> 
             <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
             <input type="hidden" name="id" value="{{item.id}}" />
-        </form> 
+        </form>
+        {% endif %}
 
         <div class="details">
             <dd><strong>Nome:</strong> {{item.name}}</dd>
@@ -149,12 +151,13 @@
             </div>
             {% endfor %}
         </div>
-
+        {% if not_owner %}
         <form method="post" action="/comment"> 
             <input type="submit" name="comment" id="comment" value="Avaliar" class="btn-evaluate">
             <input type="hidden" name="id" value="{{item.id}}">
             <input type="hidden" name="type" value="item">
         </form> 
+        {% endif %}
     </div>
 
 </body> 

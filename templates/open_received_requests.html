@@ -108,30 +108,32 @@
         <h1>Solicitações Recebidas</h1>
         <ul>
             {% for request in requests.values() %}
-            <li>
-                <div class="info-item">
-                    <b>Item:</b> <a href="{{url_for('item',id=request.item_id)}}">{{ itens[request.item_id].name|e }}</a>
-                </div>
-                <div class="info-item">
-                    <b>Nome do solicitante:</b> <a href="{{url_for('user',id=users[request.interested].id)}}">{{users[request.interested].name}}</a>
-                </div>
-                {% if request.state == 'accepted' %}
-                <div class="info-item">
-                    <b>Email do solicitante:</b> {{users[request.interested].email}}
-                </div>
-                <div class="info-item">
-                    <b>Telefone do solicitante:</b> {{users[request.interested].phone}}
-                </div>
+                {% if request.state != 'rejected' %}
+                    <li>
+                        <div class="info-item">
+                            <b>Item:</b> <a href="{{url_for('item',id=request.item_id)}}">{{ itens[request.item_id].name|e }}</a>
+                        </div>
+                        <div class="info-item">
+                            <b>Nome do solicitante:</b> <a href="{{url_for('user',id=users[request.interested_id].id)}}">{{users[request.interested_id].name}}</a>
+                        </div>
+                        {% if request.state == 'accepted' %}
+                        <div class="info-item">
+                            <b>Email do solicitante:</b> {{users[request.interested_id].email}}
+                        </div>
+                        <div class="info-item">
+                            <b>Telefone do solicitante:</b> {{users[request.interested_id].phone}}
+                        </div>
+                        {% endif %}
+                        {% if request.state == 'open' %}
+                        <form method="post" action="/accept_request" class="action-buttons"> 
+                            <input type="submit" name="accept" id="accept" value="Aceitar"/>
+                            <input type="submit" name="reject" id="reject" value="Recusar"/>
+                            <input type="hidden" name="id" value="{{request.item_id}}" />
+                            <input type="hidden" name="interested" value="{{request.interested_id}}"/>
+                        </form> 
+                        {% endif %}
+                    </li>
                 {% endif %}
-                {% if request.state == 'open' %}
-                <form method="post" action="/accept_request" class="action-buttons"> 
-                    <input type="submit" name="accept" id="accept" value="Aceitar"/>
-                    <input type="submit" name="reject" id="reject" value="Recusar"/>
-                    <input type="hidden" name="id" value="{{request.item_id}}" />
-                    <input type="hidden" name="interested" value="{{request.interested}}"/>
-                </form> 
-                {% endif %}
-            </li>
             {% endfor %}
         </ul>
     </div>

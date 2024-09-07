@@ -1,6 +1,6 @@
 class Request:
-    def __init__(self, id: int, state: str, item_id: int, interested_id: int, supplier_id: int):
-        self._id = id
+    def __init__(self, request_id: int|None, state: str, item_id: int, interested_id: int, supplier_id: int):
+        self._id = request_id
         self._state = state
         self._item_id = item_id
         self._interested_id = interested_id
