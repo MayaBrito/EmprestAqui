@@ -4,16 +4,26 @@ from collections import Counter
 from comment import Comment
 
 class Item:
-    def __init__(self, id: int, name: str, owner_id: int, desc: str = None, photo: str = None, available: bool = True):
-        self._id = id
+    def __init__(
+            self,
+            item_id: int,
+            name: str,
+            owner_id: int,
+            desc: str = None,
+            photo: str = None,
+            available: bool = True,
+            comments:dict[int, Comment]|None = None):
+        self._id = item_id
         self._name = name
         self._desc = desc
         self.term_frequencies = Counter()
         self._photo = photo
         self._available = available
         self._owner_id = owner_id
-        self._comments: dict[int, Comment] = {}
-
+        self._comments: dict[int, Comment] = comments
+        if comments == None:
+            self._comments: dict[int, Comment] = {}
+    
     @property
     def id(self) -> int:
         """get item id"""
@@ -75,7 +85,6 @@ class Item:
             total_score += c.score
         return total_score/comment_count
 
-    @classmethod
     def get_full_text(self) -> str:
         return self._name + ' ' + self._desc
     
@@ -83,7 +92,6 @@ class Item:
     def add_comment(self, p, c: Comment) -> None:
         self._comments[p.name] = c
     
-    @classmethod
     def to_dict(self) -> dict[str, any]:
         """parse object to dict"""
         return {
@@ -95,8 +103,8 @@ class Item:
             "owner_id": self._owner_id,
             "comments": [c.to_dict() for c in self._comments.values()],
         }
-        
-    @classmethod
+
+    @classmethod    
     def json_to_items_array(self, filepath) -> list:
         with open(filepath, 'r') as f:
             json_dict = json.loads(f.read())
@@ -104,7 +112,7 @@ class Item:
         
         for key in json_dict:
             item = json_dict[key]
-            formated_item = Item(item['id'], item['nome'], item['dono_id'], item['preco'], item['desc'], item['foto'], item['disponivel'], item['comentarios'])
+            formated_item = Item(item['id'], item['name'], item['owner_id'], item['desc'], item['photo'], item['available'], item['comments'])
             items_dict.update({item['id']: formated_item})
         
         return items_dict

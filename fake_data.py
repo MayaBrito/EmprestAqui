@@ -192,7 +192,7 @@ class DataFaker:
 
 
 if __name__ == "__main__":
-    fk = Faker()
+    fk = Faker("pt_BR")
     dfk = DataFaker()
     cfg = DataFakerConfig()
     Faker.seed(42)  # Seed for faker

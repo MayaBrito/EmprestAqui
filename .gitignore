@@ -1,3 +1,7 @@
 shell.nix
 __pycache__/
 .venv
+items.json
+people.json
+requests.json
+comments.json

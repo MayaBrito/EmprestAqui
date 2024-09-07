@@ -4,7 +4,7 @@ from item import Item
 from person import Person
 from request import Request
 from utils import read_csv
-from engine_search import Engine
+from Search_Engine import SearchEngine
 from forms import Forms, Location
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for
 import pickle as pk
@@ -134,7 +134,7 @@ def results(search,user):
     results = []
     text_search = request.form['search']
     filter = request.form['filter']
-    results = engine.search(text_search,filter)
+    results = engine.search(text_search)
 
     if len(results) == 0:
         #flash('sem results, tente novamente!') 
@@ -226,7 +226,7 @@ def evaluate_publication():
     new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo)
     user.itens[item_id] = new_item
     itens[item_id] = new_item
-    engine.adicionar_item(new_item)
+    engine.index_item(new_item)
     return make_response(redirect(url_for('menu'))) 
 
 @app.route('/user',methods=['GET','POST'])
@@ -388,5 +388,6 @@ if __name__ == '__main__':
     # make_request(bananas[1],programmers[1],programmers[0])
     # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     load_data()
-    engine = Engine(itens.values())
-    app.run(host="0.0.0.0",port=80)
+    engine = SearchEngine(itens.values())
+    #app.run(host="0.0.0.0",port=80)
+    app.run()

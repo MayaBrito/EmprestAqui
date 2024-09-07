@@ -63,10 +63,9 @@ class Index():
             tokens.append(token)
         return tokens
     
-    def generate_index(self, file_path:str):
-        list_items = Item.json_to_items_array(file_path)
-        for key in list_items.keys():
-            self.index_item(list_items[key])
+    def generate_index(self, items:list[Item]):
+        for item in items:
+            self.index_item(item)
 
         
         #TODO salvar em arquivo.
@@ -77,12 +76,11 @@ class Index():
 
         for item in items:
             score = sum([item.term_frequency(token) for token in entry_tokens if item.term_frequency(token) is not None])
-            results.append((item.id, score))
+            results.append((item, score))
 
         sorted_results = sorted(results, key=lambda item: item[1], reverse=True)
         for item_id, _ in sorted_results:
             item_ids.append(item_id)
-        
         return item_ids
     
     def _results(self, analyzed_query):
