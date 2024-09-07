@@ -1,11 +1,14 @@
-from comment import Comment
 
+import json;
+from collections import Counter
+from comment import Comment
 
 class Item:
     def __init__(self, id: int, name: str, owner_id: int, desc: str = None, photo: str = None, available: bool = True):
         self._id = id
         self._name = name
         self._desc = desc
+        self.term_frequencies = Counter()
         self._photo = photo
         self._available = available
         self._owner_id = owner_id
@@ -73,9 +76,14 @@ class Item:
         return total_score/comment_count
 
     @classmethod
+    def get_full_text(self) -> str:
+        return self._name + ' ' + self._desc
+    
+    @classmethod
     def add_comment(self, p, c: Comment) -> None:
         self._comments[p.name] = c
-
+    
+    @classmethod
     def to_dict(self) -> dict[str, any]:
         """parse object to dict"""
         return {
@@ -87,3 +95,19 @@ class Item:
             "owner_id": self._owner_id,
             "comments": [c.to_dict() for c in self._comments.values()],
         }
+        
+    @classmethod
+    def json_to_items_array(self, filepath) -> list:
+        with open(filepath, 'r') as f:
+            json_dict = json.loads(f.read())
+        items_dict = {}
+        
+        for key in json_dict:
+            item = json_dict[key]
+            formated_item = Item(item['id'], item['nome'], item['dono_id'], item['preco'], item['desc'], item['foto'], item['disponivel'], item['comentarios'])
+            items_dict.update({item['id']: formated_item})
+        
+        return items_dict
+    
+    def term_frequency(self, term):
+        return self.term_frequencies.get(term)
