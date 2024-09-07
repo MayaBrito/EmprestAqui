@@ -1,27 +1,80 @@
-<!DOCTYPE html> 
-<html> 
-    <head> 
-        <title>Registrar</title> 
-    </head> 
-    <body> 
-        <form method="post" action="/confirmacao"> 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmprestaAqui - Registrar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+        .container {
+            background-color: #e0e0e0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-align: left;
+        }
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #00bfa5;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #008f7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar</h1>
+        <form method="post" action="/confirmation">
+            <label for="email">Email</label> 
+            <input type="text" name="email" id="email"/>  
             <label for="username">Apelido</label> 
             <input type="text" name="username" id="username"/>  
-            <br/> 
-            <br> 
-            <label for="description">Descrição</label> 
-            <input type="text" name="description" id="description"/>  
-            <br/> 
-            <br> 
-            <label for="contato">contato</label> 
-            <input type="text" name="contato" id="contato"/>  
-            <br/> 
-            <br> 
-            <label for="password">senha</label> 
+            <label for="password">Senha</label> 
             <input type="password" name="password" id="password"/>  
-            <br/> 
-            <br> 
-            <input type="submit" name="submit" id="submit" value="Login"/>  
-        </form> 
-    </body> 
+            <label for="phone">Telefone</label> 
+            <input type="text" name="phone" id="phone"/>  
+            <label for="city">Cidade</label> 
+            <div class="form-group">
+                <p>{{ location.filter }}</p>
+            </div>
+            <input type="submit" name="submit" id="submit" value="Registrar"/>  
+        </form>
+    </div>
+</body> 
 </html>

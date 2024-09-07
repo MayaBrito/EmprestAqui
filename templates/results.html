@@ -1,8 +1,74 @@
-<doctype html>
-<title>resultados</title>
-<h1>Members</h1>
-<ul>
-{% for post in results %}
-  <li><a href="./{{url_for('item',id=post.id)}}" >{{ post.nome|e }}</a></li>
-{% endfor %}
-</ul>
+{% from '_top_bar.html' import render_header%}
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Resultados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            margin-left: 20px;
+            margin-top: 80px; /* Adicionado para dar espaço após o header fixo */
+            color: #333;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header button {
+          padding-right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 20px;
+            margin-top: 20px; /* Espaço adicional para compensar o header fixo */
+        }
+
+        .results li {
+            list-style: none;
+        }
+
+        .results img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    {{ render_header() }}
+
+    <h2>Resultados</h2>
+
+    <ul class="results">
+        {% for post in results %}
+        <li>
+            <a href="{{url_for('item', id=post.id)}}">
+                <img src="{{post.photo}}" alt="{{post.name}}">
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
