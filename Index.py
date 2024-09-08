@@ -86,14 +86,18 @@ class Index():
     def _results(self, analyzed_query):
         return [self.index.get(token) for token in analyzed_query if self.index.get(token) is not None]
     
-    def search(self, query):
+    def search(self, query, filter):
         entry_tokens = self.generate_tokens(query)
         results = self._results(entry_tokens)
         if len(results) >= 1:
                 items = [self.items[item_id] for item_id in set.union(*results)]
         else:
-                items = [] #TODO retornar itens aleatórios
+                items = []
 
-        return self.rank(entry_tokens, items)
-    
-    
+        query_result_items = self.rank(entry_tokens, items)
+        
+        if filter:
+            filtered_items = [sorted(query_result_items, key=lambda item: item.get_avg_score(), reverse=True)]
+            return filtered_items
+        else:
+            return query_result_items

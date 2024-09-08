@@ -79,9 +79,9 @@ class Item:
 
     @classmethod
     def get_avg_score(self) -> float:
-        comment_count: float = float(len(self._comments))
+        comment_count: float = float(len(self.comments))
         total_score: float = 0.0
-        for c in self._comments.values():
+        for c in self.comments.values():
             total_score += c.score
         return total_score/comment_count
 
