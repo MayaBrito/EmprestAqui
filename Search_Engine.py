@@ -14,7 +14,7 @@ class SearchEngine():
 		self.index.index_item(item)
 	
 
-	def search(self, query: str, filter=True) -> list:
+	def search(self, query: str, filter=False) -> list:
 		return self.index.search(query, filter)
 	
 	

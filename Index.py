@@ -95,9 +95,8 @@ class Index():
                 items = []
 
         query_result_items = self.rank(entry_tokens, items)
-        
         if filter:
-            filtered_items = [sorted(query_result_items, key=lambda item: item.get_avg_score(), reverse=True)]
+            filtered_items = sorted(query_result_items, key=lambda item: item.get_avg_score(), reverse=True)
             return filtered_items
         else:
             return query_result_items
