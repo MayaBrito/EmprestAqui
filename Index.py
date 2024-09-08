@@ -80,7 +80,7 @@ class Index():
     def _results(self, analyzed_query):
         return [self.index.get(token) for token in analyzed_query if self.index.get(token) is not None]
     
-    def search(self, query, filter):
+    def search(self, query, filter, disponibilidade):
         entry_tokens = self.generate_tokens(query)
         results = self._results(entry_tokens)
         if len(results) >= 1:
@@ -89,6 +89,8 @@ class Index():
                 items = []
 
         query_result_items = self.rank(entry_tokens, items)
+        if disponibilidade:
+            query_result_items = [item for item in query_result_items if item.available]
         if filter:
             filtered_items = sorted(query_result_items, key=lambda item: item.get_avg_score(), reverse=True)
             return filtered_items
