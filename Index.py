@@ -1,20 +1,13 @@
 from item import Item
 import nltk
 from nltk.corpus import stopwords
-from nltk.corpus import wordnet
-from nltk.probability import FreqDist
-from nltk.stem import PorterStemmer, SnowballStemmer, WordNetLemmatizer
-from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tokenize import sent_tokenize
 from nltk.tokenize import RegexpTokenizer
 from collections import Counter
+from nltk.stem import RSLPStemmer
 
-nltk.download('averaged_perceptron_tagger')
-nltk.download('punkt_tab')
-nltk.download('punkt')
 nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-
+nltk.download('rslp')
 
 class Index():
     def __init__(self):
@@ -34,9 +27,10 @@ class Index():
                 if token not in self.index:
                         self.index[token] = set()
                 self.index[token].add(item.id)
-
-    def stemme_words(self,tokens):
-        stemmer = PorterStemmer()
+    
+    
+    def stem_words_pt(self,tokens):
+        stemmer = RSLPStemmer()
         return [stemmer.stem(token) for token in tokens]
 
     def generate_tokens(self, text: str) -> list:
@@ -57,7 +51,7 @@ class Index():
         #Removendo Stop Words
         tokens_without_stop_words = [word for word in tokens_with_stop_words if len(stop_words.intersection({word})) == 0 ]
         #Aplicando Stemmer
-        stemmed_words = self.stemme_words(tokens_without_stop_words)
+        stemmed_words = self.stem_words_pt(tokens_without_stop_words)
 
         for token in stemmed_words:
             tokens.append(token)
