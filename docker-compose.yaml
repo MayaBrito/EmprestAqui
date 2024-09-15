@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  site:
+    container_name: emprestaqui
+    restart: unless-stopped
+    build:
+      context: /app
+    ports:
+      - 80:80
