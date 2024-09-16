@@ -5,6 +5,6 @@ services:
     container_name: emprestaqui
     restart: unless-stopped
     build:
-      context: /app
+      context: .
     ports:
       - 80:80
