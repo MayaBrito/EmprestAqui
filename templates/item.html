@@ -126,7 +126,7 @@
 
     <div class="container">
         <h2>Item</h2>
-        <img src="{{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+        <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
         {% if item.available and not_owner %}
         <form method="post" action="/item_request"> 
             <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>

@@ -1,4 +1,5 @@
 import json
+import os
 from comment import Comment
 from item import Item
 from person import Person
@@ -6,8 +7,10 @@ from request import Request
 from utils import read_csv
 from Search_Engine import SearchEngine
 from forms import Forms, Location
-from flask import Flask, flash, render_template, request, redirect, make_response,url_for
+from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file
 import pickle as pk
+
+PHOTOS_DIR = "photos"
 
 app = Flask(__name__)
 emailsearch = {}
@@ -240,19 +243,28 @@ def evaluate_publication():
         return render_template('login.html')
     name = request.form['name']
     desc = request.form['desc']
-    photo = request.form['photo']
+    photo = request.files['photo']
     item_id = len(itens)
+    photo_name = str(item_id)+".jpg"
+    photo.save(os.path.join(PHOTOS_DIR,photo_name))
     user = users[emailsearch[email]]
-    verified = verify_information([name,desc,photo])
+    verified = verify_information([name,desc,photo_name])
     if not verified:
         output = "Existem campos não preenchidos" 
         resp = render_template("error.html",error=output)
         return resp
-    new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo)
+    new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo_name)
     user.itens[item_id] = new_item
     itens[item_id] = new_item
     engine.index_item(new_item)
     return make_response(redirect(url_for('menu'))) 
+
+@app.route('/image',methods=['GET'])
+def image():
+    photo_id = request.args['id']
+    if os.path.exists(os.path.join(PHOTOS_DIR,photo_id)):
+        return send_file(os.path.join(PHOTOS_DIR,photo_id))
+    return send_file(os.path.join(PHOTOS_DIR,"null.png"))
 
 @app.route('/user',methods=['GET','POST'])
 def user():
@@ -429,6 +441,8 @@ if __name__ == '__main__':
     # make_request(bananas[1],programmers[1],programmers[0])
     # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     #load_data()
+    if not os.path.exists(PHOTOS_DIR):
+        os.mkdir(PHOTOS_DIR)
     engine = SearchEngine(itens.values())
-    app.run(host="0.0.0.0",port=80)
-    #app.run()
+    #app.run(host="0.0.0.0",port=80)
+    app.run()
