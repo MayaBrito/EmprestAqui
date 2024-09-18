@@ -137,17 +137,13 @@
         {% endif %}
         <!-- Formulário -->
         <div class="form-container">
-            <form method="post">
-                <dl>
-                    <div class="search-bar">
-                        <p>{{ form.search(required='required') }}</p>
-                    </div>
-                    <div class="form-group">
-                        <p>{{ location.filter }}</p>
-                    </div>
-                </dl>
-                <input type="submit" value="Buscar" class="search-button">
-            </form>
+            <form method="post" action="/results">
+                <label for="search">busque</label>
+                <input type="search" id="search" name="search" required>
+                <label for="city"></label> 
+                {{ location.filter }}
+                <input type="submit" name="submit" id="submit" value="filtrar"/> 
+        </form>
         </div>
     </div>
 </body>

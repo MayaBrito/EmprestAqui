@@ -133,26 +133,33 @@ def confirmation():
 @app.route('/menu',defaults={'error': ""},methods=['GET','POST'])
 def menu(error):
     print(error)
-    search = Forms(request.form)    
     location = Location(request.form)
-    if request.method == 'POST':
-        return results(search,user)
-    else:
-        return render_template('index.html', location=location,form=search,name=user,error=error)
+    return render_template('index.html', error=error, location=location)
 
 
-@app.route('/results')
-def results(search,user):
+@app.route('/results',methods=['GET', 'POST'])
+def results():
     results = []
     text_search = request.form['search']
-    filter = request.form['filter']
-    results = engine.search(text_search)
+    filter_location = request.form['filter']
+    if 'avaliability' in request.form:
+        filter_avaliability = request.form['avaliability']
+    else :
+        filter_avaliability = None
+
+    if 'review' in request.form:
+        filter_review = request.form['review']
+    else :
+        filter_review = None
+
+    results = engine.search(text_search, filter_location, filter_review, filter_avaliability)
+    location = Location(request.form)
 
     if len(results) == 0:
         #flash('sem results, tente novamente!') 
         return redirect(url_for('menu',error="sem resultados"))
     else:
-        return render_template('results.html', results=results)
+        return render_template('results.html', results=results, location = location, search = text_search)
 
 @app.route('/item')
 def item():

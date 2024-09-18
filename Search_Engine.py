@@ -14,7 +14,7 @@ class SearchEngine():
 		self.index.index_item(item)
 	
 	#TODO pass filters
-	def search(self, query: str) -> list:
+	def search(self, query: str, filter1, filter2, filter3) -> list:
 		return self.index.search(query)
 	
 	
