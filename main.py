@@ -445,5 +445,6 @@ if __name__ == '__main__':
     if not os.path.exists(os.path.join("data",PHOTOS_DIR)):
         os.mkdir(os.path.join(DATA_DIR,PHOTOS_DIR))
     engine = SearchEngine(itens.values())
+    load()
     app.run(host="0.0.0.0",port=80)
     #app.run()
