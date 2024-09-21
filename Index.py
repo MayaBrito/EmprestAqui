@@ -98,8 +98,8 @@ class Index():
 
         query_result_items = self.rank(entry_tokens, items)
 
-        
-        query_result_items = [item for item in query_result_items if users[item.owner_id]._city  == location]
+        if not (location == "Todas as localizações"):
+            query_result_items = [item for item in query_result_items if users[item.owner_id]._city  == location]
 
         if disponibilidade:
             query_result_items = [item for item in query_result_items if item.available]
