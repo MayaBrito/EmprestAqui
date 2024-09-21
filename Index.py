@@ -87,7 +87,7 @@ class Index():
     def _results(self, analyzed_query):
         return [self.index.get(token) for token in analyzed_query if self.index.get(token) is not None]
     
-    def search(self, query, filterByAverage, disponibilidade):
+    def search(self, query, location, users, filterByAverage, disponibilidade):
         entry_tokens = self.generate_tokens(query)
         results = self._results(entry_tokens)
         if len(results) >= 1:
@@ -95,7 +95,12 @@ class Index():
         else:
                 items = []
 
+
         query_result_items = self.rank(entry_tokens, items)
+
+        if location:
+            query_result_items = [item for item in query_result_items if users[item.owner_id]._city  == location]
+
         if disponibilidade:
             query_result_items = [item for item in query_result_items if item.available]
         if filterByAverage:

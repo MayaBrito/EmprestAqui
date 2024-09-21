@@ -136,17 +136,17 @@ def menu(error):
     search = Forms(request.form)    
     location = Location(request.form)
     if request.method == 'POST':
-        return results(search,user)
+        return results(search,user,location)
     else:
         return render_template('index.html', location=location,form=search,name=user,error=error)
 
 
 @app.route('/results')
-def results(search,user):
+def results(search,user,location):
     results = []
     text_search = request.form['search']
     filter = request.form['filter']
-    results = engine.search(text_search)
+    results = engine.search(text_search, users=users, location=location)
 
     if len(results) == 0:
         #flash('sem results, tente novamente!') 
@@ -332,7 +332,6 @@ def load():
     global users
     global itens
     global engine
-
     with open('people.json') as f:
         data = json.loads(f.read())
         users = {

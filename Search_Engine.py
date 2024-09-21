@@ -14,8 +14,8 @@ class SearchEngine():
 		self.index.index_item(item)
 	
 
-	def search(self, query: str, filterByAverage=False, disponibilidade=False) -> list: #se tiver com disponibilidade false, pode ter tanto item disponivel quanto indisponivel.
-		return self.index.search(query, filterByAverage, disponibilidade)
+	def search(self, query: str, location: str, users, filterByAverage=False, disponibilidade=False) -> list: #se tiver com disponibilidade false, pode ter tanto item disponivel quanto indisponivel.
+		return self.index.search(query, location, users, filterByAverage, disponibilidade)
 	
 	
 
