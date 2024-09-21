@@ -1,3 +1,4 @@
+import math
 from item import Item
 import nltk
 from nltk.corpus import stopwords
@@ -28,7 +29,13 @@ class Index():
                         self.index[token] = set()
                 self.index[token].add(item.id)
     
+    def document_frequency(self, token):
+        return len(self.index.get(token, set()))
+
+    def inverse_document_frequency(self, token):
+        return math.log10(len(self.items) / self.document_frequency(token))
     
+
     def stem_words_pt(self,tokens):
         stemmer = RSLPStemmer()
         return [stemmer.stem(token) for token in tokens]
@@ -69,7 +76,7 @@ class Index():
         item_ids = []
 
         for item in items:
-            score = sum([item.term_frequency(token) for token in entry_tokens if item.term_frequency(token) is not None])
+            score = sum([item.term_frequency(token) * self.inverse_document_frequency(token) for token in entry_tokens if item.term_frequency(token) is not None])
             results.append((item, score))
 
         sorted_results = sorted(results, key=lambda item: item[1], reverse=True)
@@ -80,7 +87,7 @@ class Index():
     def _results(self, analyzed_query):
         return [self.index.get(token) for token in analyzed_query if self.index.get(token) is not None]
     
-    def search(self, query, filter, disponibilidade):
+    def search(self, query, filterByAverage, disponibilidade):
         entry_tokens = self.generate_tokens(query)
         results = self._results(entry_tokens)
         if len(results) >= 1:
@@ -91,7 +98,7 @@ class Index():
         query_result_items = self.rank(entry_tokens, items)
         if disponibilidade:
             query_result_items = [item for item in query_result_items if item.available]
-        if filter:
+        if filterByAverage:
             filtered_items = sorted(query_result_items, key=lambda item: item.get_avg_score(), reverse=True)
             return filtered_items
         else:
