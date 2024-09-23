@@ -1,4 +1,5 @@
 import json
+import os
 from comment import Comment
 from item import Item
 from person import Person
@@ -6,8 +7,11 @@ from request import Request
 from utils import read_csv
 from Search_Engine import SearchEngine
 from forms import Forms, Location
-from flask import Flask, flash, render_template, request, redirect, make_response,url_for
+from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file
 import pickle as pk
+
+DATA_DIR = "data"
+PHOTOS_DIR = "photos"
 
 app = Flask(__name__)
 emailsearch = {}
@@ -240,19 +244,28 @@ def evaluate_publication():
         return render_template('login.html')
     name = request.form['name']
     desc = request.form['desc']
-    photo = request.form['photo']
+    photo = request.files['photo']
     item_id = len(itens)
+    photo_name = str(item_id)+".jpg"
+    photo.save(os.path.join(DATA_DIR,PHOTOS_DIR,photo_name))
     user = users[emailsearch[email]]
-    verified = verify_information([name,desc,photo])
+    verified = verify_information([name,desc,photo_name])
     if not verified:
         output = "Existem campos não preenchidos" 
         resp = render_template("error.html",error=output)
         return resp
-    new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo)
+    new_item = Item(item_id,name,owner_id=user.id,desc=desc,photo=photo_name)
     user.itens[item_id] = new_item
     itens[item_id] = new_item
     engine.index_item(new_item)
     return make_response(redirect(url_for('menu'))) 
+
+@app.route('/image',methods=['GET'])
+def image():
+    photo_id = request.args['id']
+    if os.path.exists(os.path.join(DATA_DIR,PHOTOS_DIR,photo_id)):
+        return send_file(os.path.join(DATA_DIR,PHOTOS_DIR,photo_id))
+    return send_file(os.path.join(PHOTOS_DIR,"null.png"))
 
 @app.route('/user',methods=['GET','POST'])
 def user():
@@ -318,11 +331,11 @@ def open_requests():
 
 @app.route('/save')
 def save():
-    with open('emailsearch.pickle', 'wb') as handle:
+    with open(os.path.join(DATA_DIR,'emailsearch.pickle'), 'wb') as handle:
         pk.dump(emailsearch, handle, protocol=pk.HIGHEST_PROTOCOL)
-    with open('users.pickle', 'wb') as handle:
+    with open(os.path.join(DATA_DIR,'users.pickle'), 'wb') as handle:
         pk.dump(users, handle, protocol=pk.HIGHEST_PROTOCOL)
-    with open('itens.pickle', 'wb') as handle:
+    with open(os.path.join(DATA_DIR,'itens.pickle'), 'wb') as handle:
         pk.dump(itens, handle, protocol=pk.HIGHEST_PROTOCOL)
     return make_response("ok")
 
@@ -332,40 +345,41 @@ def load():
     global users
     global itens
     global engine
-    with open('people.json') as f:
-        data = json.loads(f.read())
-        users = {
-            int(user_dict['id']): Person(
-                int(user_dict['id']),
-                user_dict['name'],
-                user_dict['password'],
-                user_dict['phone'],
-                user_dict['email'],
-                user_dict['city'],
-            )
-            for user_dict in data.values()
-        }
-    with open('items.json') as f:
-        data = json.loads(f.read())
-        itens = {
-            item_dict['id']: Item(
-                item_dict['id'],
-                item_dict['name'],
-                item_dict['owner_id'],
-                item_dict['desc'],
-                item_dict['photo'],
-                item_dict['available'],
-            )
-            for item_dict in data.values()
-        }
 
-    # with open('emailsearch.pickle', 'rb') as f1:
-    #     emailsearch = pk.load(f1)
-    # with open('users.pickle', 'rb') as f2:
-    #     users = pk.load(f2)
-    # with open('itens.pickle', 'rb') as f3:
-    #     itens = pk.load(f3)
-    engine = Engine(list(itens.values()))
+    # with open('people.json') as f:
+    #     data = json.loads(f.read())
+    #     users = {
+    #         int(user_dict['id']): Person(
+    #             int(user_dict['id']),
+    #             user_dict['name'],
+    #             user_dict['password'],
+    #             user_dict['phone'],
+    #             user_dict['email'],
+    #             user_dict['city'],
+    #         )
+    #         for user_dict in data.values()
+    #     }
+    # with open('items.json') as f:
+    #     data = json.loads(f.read())
+    #     itens = {
+    #         item_dict['id']: Item(
+    #             item_dict['id'],
+    #             item_dict['name'],
+    #             item_dict['owner_id'],
+    #             item_dict['desc'],
+    #             item_dict['photo'],
+    #             item_dict['available'],
+    #         )
+    #         for item_dict in data.values()
+    #     }
+
+    with open(os.path.join(DATA_DIR,'emailsearch.pickle'), 'rb') as f1:
+        emailsearch = pk.load(f1)
+    with open(os.path.join(DATA_DIR,'users.pickle'), 'rb') as f2:
+        users = pk.load(f2)
+    with open(os.path.join(DATA_DIR,'itens.pickle'), 'rb') as f3:
+        itens = pk.load(f3)
+    engine = SearchEngine(list(itens.values()))
     return make_response("ok")
 
 @app.route('/test')
@@ -427,7 +441,9 @@ if __name__ == '__main__':
     # save_comment("olha eu commentando em mim mesmo, como isso é possivel?",5,1,1,"user")
     # make_request(bananas[1],programmers[1],programmers[0])
     # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
-    load_data()
+    #load_data()
+    if not os.path.exists(os.path.join("data",PHOTOS_DIR)):
+        os.mkdir(os.path.join(DATA_DIR,PHOTOS_DIR))
     engine = SearchEngine(itens.values())
-    #app.run(host="0.0.0.0",port=80)
-    app.run()
+    app.run(host="0.0.0.0",port=80)
+    #app.run()

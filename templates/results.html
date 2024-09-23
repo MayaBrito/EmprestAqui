@@ -30,7 +30,7 @@
         }
 
         .header button {
-          padding-right: 10px;
+            padding-right: 10px;
             background-color: transparent;
             border: none;
             font-size: 20px;
@@ -43,7 +43,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             padding: 20px;
-            margin-top: 20px; /* Espaço adicional para compensar o header fixo */
+            margin-top: 20px; 
         }
 
         .results li {
@@ -52,7 +52,8 @@
 
         .results img {
             width: 100%;
-            height: auto;
+            height: 300px; 
+            object-fit: cover;
         }
     </style>
 </head>
@@ -65,7 +66,7 @@
         {% for post in results %}
         <li>
             <a href="{{url_for('item', id=post.id)}}">
-                <img src="{{post.photo}}" alt="{{post.name}}"{% if not post.available %}style="filter: grayscale(100%);"{% endif  %}>
+                <img src="/image?id={{post.photo}}" alt="{{post.name}}"{% if not post.available %} style="filter: grayscale(100%);"{% endif %}>
             </a>
         </li>
         {% endfor %}

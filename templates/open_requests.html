@@ -78,7 +78,7 @@
                 {% if request.state == 'open' %}
                 <li>
                     <a href="{{url_for('item',id=request.item_id)}}">
-                        <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                        <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
                     </a>
                 </li>
                 {% endif %}
@@ -91,7 +91,7 @@
                 {% if request.state == 'accepted' %}
                 <li>
                     <a href="{{url_for('item',id=request.item_id)}}">
-                        <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                        <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
                     </a>
                     <br>
                     Entre em contato por:
@@ -112,7 +112,7 @@
                 {% if request.state == 'rejected' %}
                 <li>
                     <a href="{{url_for('item',id=request.item_id)}}">
-                        <img src="{{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                        <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
                     </a>
                 </li>
                 {% endif %}
