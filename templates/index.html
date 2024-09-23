@@ -1,4 +1,4 @@
-{% from '_top_bar.html' import render_header%}
+{% from '_top_bar.html' import render_header %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,23 +18,6 @@
         }
 
         .header {
-            width: 100%;
-            background-color: #f1f1f1;
-            padding: 10px;
-            display: flex;
-            justify-content: flex-end;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .header button {
-            background-color: transparent;
-            border: none;
-            font-size: 20px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        .header {
             position: fixed;
             top: 0;
             left: 0;
@@ -44,9 +27,9 @@
             display: flex;
             justify-content: flex-end;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1000; /* Certifica-se de que o header fique acima de outros elementos */
+            z-index: 1000;
         }
-    
+
         .header button {
             background-color: transparent;
             border: none;
@@ -58,7 +41,7 @@
         .container {
             text-align: center;
             width: 100%;
-            max-width: 500px; 
+            max-width: 800px; /* Ajuste aqui também para permitir mais espaço */
             margin-top: 50px;
         }
 
@@ -70,14 +53,14 @@
         }
 
         .search-bar {
-            width: 100%; /* Largura da barra de busca */
-            max-width: 600px; /* Ajuste o tamanho máximo da barra de busca */
-            margin: 0 auto 20px; /* Margem inferior para espaçamento */
+            width: 80%;
+            max-width: 600px; 
+            margin: 0 auto 20px;
         }
 
         .search-bar input {
-            width: 100%;
-            padding: 8px; /* Padding da barra de busca */
+            width: 100%; 
+            padding: 12px; 
             border-radius: 50px;
             border: 2px solid #ccc;
             background-color: #ddd;
@@ -86,18 +69,18 @@
         }
 
         .form-container {
-            width: 100%; /* Largura do formulário */
-            max-width: 400px; /* Ajuste o tamanho máximo do formulário */
-            margin: 0 auto; /* Centralizar o formulário */
+            width: 100%;
+            max-width: 800px; 
+            margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 15px; /* Ajuste da margem inferior */
+            margin-bottom: 15px;
         }
 
         .form-group select {
-            width: 50%;
-            padding: 15px; /* Padding do select */
+            width: 40%;
+            padding: 15px;
             border-radius: 50px;
             border: 2px solid #ccc;
             background-color: #ddd;
@@ -113,12 +96,12 @@
 
         .search-button {
             width: 30%;
-            padding: 15px; /* Padding do botão */
+            padding: 15px;
             border-radius: 50px;
             border: none;
             background-color: #1ECAA1;
             color: white;
-            font-size: 18px; /* Tamanho da fonte */
+            font-size: 18px;
             cursor: pointer;
         }
 
@@ -133,20 +116,22 @@
     <div class="container">
         <h2>EmprestaAqui</h2>
         {% if error != "" %}
-            {{error}}
+            {{ error }}
         {% endif %}
         <!-- Formulário -->
         <div class="form-container">
-            <form method="post">
-                <dl>
-                    <div class="search-bar">
-                        <p>{{ form.search(required='required') }}</p>
-                    </div>
-                    <div class="form-group">
-                        <p>{{ location.filter }}</p>
-                    </div>
-                </dl>
-                <input type="submit" value="Buscar" class="search-button">
+            <form method="post" action="/results">
+                <div class="form-group search-bar">
+                    <label for="search"></label>
+                    <input type="search" id="search" name="search" required>
+                </div>
+                <div class="form-group">
+                    <label for="city"></label> 
+                    {{ location.filter }}
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" id="submit" class="search-button" value="Buscar"/> 
+                </div>
             </form>
         </div>
     </div>

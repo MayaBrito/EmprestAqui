@@ -4,7 +4,8 @@ class Forms(Form):
     search = StringField('')
 
 class Location(Form):
-    escolha = [('João Pessoa', 'João Pessoa'),
+    escolha = [('Todas as localizações', 'Todas as localizações'), 
+            ('João Pessoa', 'João Pessoa'),
             ('Campina Grande', 'Campina Grande'),
             ('Santa Rita', 'Santa Rita'),
             ('Patos','Patos'),

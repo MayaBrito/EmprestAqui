@@ -59,8 +59,21 @@
 </head>
 <body>
     {{ render_header() }}
-
+    
     <h2>Resultados</h2>
+
+    <div>
+        <form method="post" action="/results">
+                <label for="city"></label> 
+                {{ location.filter }}
+                <input type="hidden" id="search" value="{{search}}" name="search">
+                <label for="avaliability">Disponibilidade</label> 
+                <input type="checkbox" name="avaliability" id="avaliability"/>
+                <label for="review">Avaliação</label> 
+                <input type="checkbox" name="review" id="review"/>
+                <input type="submit" name="submit" id="submit" value="filtrar"/> 
+        </form>
+    </div>
 
     <ul class="results">
         {% for post in results %}
