@@ -54,6 +54,32 @@
             width: 100%;
             height: 300px; 
             object-fit: cover;
+
+            .form-container {
+            width: 100%;
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group select {
+            width: 40%;
+            padding: 15px;
+            border-radius: 50px;
+            border: 2px solid #ccc;
+            background-color: #ddd;
+            font-size: 18px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .form-group select:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
         }
     </style>
 </head>
@@ -64,8 +90,11 @@
 
     <div>
         <form method="post" action="/results">
+            <div class="form-group">
+                <div class="form-group">
                 <label for="city"></label> 
                 {{ location.filter }}
+                </div>
                 <input type="hidden" id="search" value="{{search}}" name="search">
                 <label for="avaliability">Disponibilidade</label> 
                 <input type="checkbox" name="avaliability" id="avaliability"/>
