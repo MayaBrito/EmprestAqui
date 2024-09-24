@@ -346,7 +346,6 @@ def save():
         pk.dump(itens, handle, protocol=pk.HIGHEST_PROTOCOL)
     return make_response("ok")
 
-@app.route('/load')
 def load():
     global emailsearch
     global users
@@ -387,7 +386,6 @@ def load():
     with open(os.path.join(DATA_DIR,'itens.pickle'), 'rb') as f3:
         itens = pk.load(f3)
     engine = SearchEngine(list(itens.values()))
-    return make_response("ok")
 
 @app.route('/test')
 def test():
@@ -449,9 +447,9 @@ if __name__ == '__main__':
     # make_request(bananas[1],programmers[1],programmers[0])
     # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
     #load_data()
-
-    #if not os.path.exists(os.path.join("data",PHOTOS_DIR)):
-    #    os.mkdir(os.path.join(DATA_DIR,PHOTOS_DIR))
+    if not os.path.exists(os.path.join("data",PHOTOS_DIR)):
+        os.mkdir(os.path.join(DATA_DIR,PHOTOS_DIR))
     engine = SearchEngine(itens.values())
+    load()
     app.run(host="0.0.0.0",port=80)
     #app.run()

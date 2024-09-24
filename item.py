@@ -77,7 +77,7 @@ class Item:
         """set item availability"""
         self._available = value
 
-    
+    @classmethod
     def get_avg_score(self) -> float:
         comment_count: float = float(len(self._comments))
         total_score: float = 0.0
