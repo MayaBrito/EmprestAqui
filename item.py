@@ -38,6 +38,11 @@ class Item:
     def name(self) -> str:
         """get item name"""
         return self._name
+    
+    @name.setter
+    def name(self, value: str):
+        """set item availability"""
+        self._name = value
 
     @property
     def general_score(self)-> str:
@@ -56,11 +61,21 @@ class Item:
     def desc(self) -> str:
         """get item description"""
         return self._desc
+    
+    @desc.setter
+    def desc(self, value: str):
+        """set item availability"""
+        self._desc = value
 
     @property
     def photo(self) -> str:
         """get item photo"""
         return self._photo
+    
+    @photo.setter
+    def photo(self, value: str):
+        """set item availability"""
+        self._photo = value
 
     @property
     def comments(self) -> dict[int, Comment]:

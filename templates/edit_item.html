@@ -76,11 +76,14 @@
     </style>
 </head> 
 <body>
+    <div>
     {{ render_header() }}
+    </div>
     <div class="form-container">
         <h1>Cadastrar Item</h1>
         <form method="post" action="/evaluate_edition" enctype="multipart/form-data"> 
-            <input type="checkbox" name="available" id="available" checked = "{{item.available}}"/>
+            <label for="available">Disponibilidade</label>
+            <input type="checkbox" name="available" id="available" checked = {{item.available}}/>
             <input type="text" name="name" id="name" placeholder="Nome" value = "{{item.name}}" required/>  
             <input type="text" name="desc" id="desc" placeholder="Descrição" value = "{{item.desc}}" required/>
             <input type="hidden" name="id" value="{{item.id}}">

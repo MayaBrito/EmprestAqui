@@ -259,7 +259,7 @@ def edit_item():
         output = "not your item" 
         resp = render_template("error.html",error=output)
         return resp
-    return render_template("edit_item.html",item=edit_item)
+    return render_template("edit_item.html",item=edited_item)
 
 
 @app.route('/evaluate_edition',methods=['GET','POST'])
@@ -267,7 +267,7 @@ def evaluate_edition():
     email, err= check_user()
     if err:
         return render_template('login.html')
-    available = request.form['available']
+    available = 'available' in request.form
     name = request.form['name']
     desc = request.form['desc']
     item_id = int(request.form['id'])
@@ -285,9 +285,11 @@ def evaluate_edition():
     edited_item.desc = desc
     if 'photo' in request.files:
         photo = request.files['photo']
-        photo_name = str(item_id)+".jpg"
-        photo.save(os.path.join(DATA_DIR,PHOTOS_DIR,photo_name))
-        edited_item.photo = photo_name
+        if photo.filename != "":
+            photo_name = str(item_id)+".jpg"
+            photo.save(os.path.join(DATA_DIR,PHOTOS_DIR,photo_name))
+            edited_item.photo = photo_name
+    engine.index_item(edited_item)
     return redirect(url_for("item",id=item_id))
 
 @app.route('/remove_item',methods=['GET','POST'])
@@ -308,11 +310,12 @@ def remove_item():
     itens.pop(item_id)
     user = users[emailsearch[email]]
     user.itens.pop(item_id)
-    for i,k in user.requests_received.keys():
+    pairs = [(i,k) for i,k in user.requests_received.keys()]
+    for i,k in pairs:
         if i == item_id:
             req = user.requests_received[(i,k)]
             interested_id = req.interested_id
-            users[interested_id].requests_received.pop(item_id)
+            users[interested_id].requests_made.pop(i)
             user.requests_received.pop((i,k))
     return redirect(url_for("user"))
     
