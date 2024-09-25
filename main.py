@@ -175,10 +175,10 @@ def item():
     else:
         item = itens[item_id]
         email, err = check_user()
-        not_owner = True 
+        is_owner = False 
         if not err:
-            not_owner = not users[emailsearch[email]].id == item.owner_id
-        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users,not_owner=not_owner)
+            is_owner = users[emailsearch[email]].id == item.owner_id
+        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users,is_owner=is_owner)
 
 @app.route('/comment',methods=['GET','POST'])
 def comment():
@@ -243,6 +243,79 @@ def publish_item():
     if err:
         return render_template('login.html')
     return render_template('publish_item.html')
+
+@app.route('/edit_item',methods=['GET','POST'])
+def edit_item():
+    email,err = check_user()
+    if err:
+        return render_template('login.html')
+    item_id = int(request.form['id'])
+    if item_id not in itens.keys():
+        output = "non-existent item" 
+        resp = render_template("error.html",error=output)
+        return resp
+    edited_item = itens[item_id]
+    if edited_item.owner_id != emailsearch[email]:
+        output = "not your item" 
+        resp = render_template("error.html",error=output)
+        return resp
+    return render_template("edit_item.html",item=edit_item)
+
+
+@app.route('/evaluate_edition',methods=['GET','POST'])
+def evaluate_edition():
+    email, err= check_user()
+    if err:
+        return render_template('login.html')
+    available = request.form['available']
+    name = request.form['name']
+    desc = request.form['desc']
+    item_id = int(request.form['id'])
+    if item_id not in itens.keys():
+        output = "non-existent item" 
+        resp = render_template("error.html",error=output)
+        return resp
+    edited_item = itens[item_id]
+    if edited_item.owner_id != emailsearch[email]:
+        output = "not your item" 
+        resp = render_template("error.html",error=output)
+        return resp
+    edited_item.available = available
+    edited_item.name = name
+    edited_item.desc = desc
+    if 'photo' in request.files:
+        photo = request.files['photo']
+        photo_name = str(item_id)+".jpg"
+        photo.save(os.path.join(DATA_DIR,PHOTOS_DIR,photo_name))
+        edited_item.photo = photo_name
+    return redirect(url_for("item",id=item_id))
+
+@app.route('/remove_item',methods=['GET','POST'])
+def remove_item():
+    email, err= check_user()
+    if err:
+        return render_template('login.html')
+    item_id = int(request.form['id'])
+    if item_id not in itens.keys():
+        output = "non-existent item" 
+        resp = render_template("error.html",error=output)
+        return resp
+    edited_item = itens[item_id]
+    if edited_item.owner_id != emailsearch[email]:
+        output = "not your item" 
+        resp = render_template("error.html",error=output)
+        return resp
+    itens.pop(item_id)
+    user = users[emailsearch[email]]
+    user.itens.pop(item_id)
+    for i,k in user.requests_received.keys():
+        if i == item_id:
+            req = user.requests_received[(i,k)]
+            interested_id = req.interested_id
+            users[interested_id].requests_received.pop(item_id)
+            user.requests_received.pop((i,k))
+    return redirect(url_for("user"))
+    
 
 @app.route('/evaluate_publication',methods=['GET','POST'])
 def evaluate_publication():
