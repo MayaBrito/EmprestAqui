@@ -200,7 +200,7 @@ def apply_comment():
     instance_type = request.form["type"]
     new_score = int(request.form["score"])
     new_comment = request.form["comment"]
-    verified = verify_information([new_score])
+    verified = verify_information([new_comment])
     if not verified:
         output = "Existem campos não preenchidos" 
         resp = render_template("error.html",error=output)
