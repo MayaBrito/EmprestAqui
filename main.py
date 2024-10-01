@@ -546,7 +546,7 @@ if __name__ == '__main__':
     #print(dir_list[0])
     #os.rmdir(os.path.join(DATA_DIR,"backup_1"))
     if not (len(dir_list) == 0):
-        BACKUP_COUNTER = int(dir_list[-1].split("_")[-1])
+        BACKUP_COUNTER = int(sorted(dir_list)[-1].split("_")[-1])
         data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
         load(BACKUP_COUNTER)
 
