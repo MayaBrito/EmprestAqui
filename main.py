@@ -10,6 +10,12 @@ from forms import Forms, Location
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file
 import pickle as pk
 
+import threading
+import time
+import shutil
+
+BACKUP_COUNTER = -1
+BACKUP_DIR = "backup_"
 DATA_DIR = "data"
 PHOTOS_DIR = "photos"
 
@@ -346,8 +352,9 @@ def evaluate_publication():
 @app.route('/image',methods=['GET'])
 def image():
     photo_id = request.args['id']
-    if os.path.exists(os.path.join(DATA_DIR,PHOTOS_DIR,photo_id)):
-        return send_file(os.path.join(DATA_DIR,PHOTOS_DIR,photo_id))
+    data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
+    if os.path.exists(os.path.join(data_path,PHOTOS_DIR,photo_id)):
+        return send_file(os.path.join(data_path,PHOTOS_DIR,photo_id))
     return send_file(os.path.join(PHOTOS_DIR,"null.png"))
 
 @app.route('/user',methods=['GET','POST'])
@@ -412,21 +419,38 @@ def open_requests():
     user = users[emailsearch[email]]
     return render_template('open_requests.html',requests=user.requests_made,itens=itens,users=users)   
 
-@app.route('/save')
+#@app.route('/save')
 def save():
-    with open(os.path.join(DATA_DIR,'emailsearch.pickle'), 'wb') as handle:
+    print("saving...",BACKUP_COUNTER)
+    data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
+    with open(os.path.join(data_path,'emailsearch.pickle'), 'wb') as handle:
         pk.dump(emailsearch, handle, protocol=pk.HIGHEST_PROTOCOL)
-    with open(os.path.join(DATA_DIR,'users.pickle'), 'wb') as handle:
+    with open(os.path.join(data_path,'users.pickle'), 'wb') as handle:
         pk.dump(users, handle, protocol=pk.HIGHEST_PROTOCOL)
-    with open(os.path.join(DATA_DIR,'itens.pickle'), 'wb') as handle:
+    with open(os.path.join(data_path,'itens.pickle'), 'wb') as handle:
         pk.dump(itens, handle, protocol=pk.HIGHEST_PROTOCOL)
-    return make_response("ok")
+    print("saved")
+    return
 
-def load():
+def backup():
+    global BACKUP_COUNTER
+    print("backing up..",BACKUP_COUNTER)
+    old_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
+    BACKUP_COUNTER += 1
+    new_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
+    shutil.copytree(old_path,new_path)
+    print("backed up")
+    return
+
+def load(new_counter=-1):
     global emailsearch
     global users
     global itens
     global engine
+    global BACKUP_COUNTER
+    if new_counter != -1:
+        BACKUP_COUNTER = new_counter
+    data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
 
     # with open('people.json') as f:
     #     data = json.loads(f.read())
@@ -455,13 +479,14 @@ def load():
     #         for item_dict in data.values()
     #     }
 
-    with open(os.path.join(DATA_DIR,'emailsearch.pickle'), 'rb') as f1:
+    with open(os.path.join(data_path,'emailsearch.pickle'), 'rb') as f1:
         emailsearch = pk.load(f1)
-    with open(os.path.join(DATA_DIR,'users.pickle'), 'rb') as f2:
+    with open(os.path.join(data_path,'users.pickle'), 'rb') as f2:
         users = pk.load(f2)
-    with open(os.path.join(DATA_DIR,'itens.pickle'), 'rb') as f3:
+    with open(os.path.join(data_path,'itens.pickle'), 'rb') as f3:
         itens = pk.load(f3)
     engine = SearchEngine(list(itens.values()))
+    return
 
 @app.route('/test')
 def test():
@@ -506,26 +531,36 @@ def load_data():
             receiver = item_id
             save_comment(comment,score,sender_id,receiver,"item")
     
+def assinc_save():
+    while True:
+        for _ in range(12*60):
+            time.sleep(60)
+            save()
+        backup()
+        
+
 
 if __name__ == '__main__':
-    # programmers = [
-    #     save_user("joão", "henrrique", "99999999","xavier@gmail.com","João Pessoa"),
-    #     save_user("guilherme","silva", "88888888","toledo@gmail.com","Campina Grande")
-    # ]
-    # bananas = [
-    #     save_item("banana maçã",programmers[0],"não é uma maçã","https://st.focusedcollection.com/11312302/i/1800/focused_150226594-stock-photo-apple-and-yellow-banana.jpg",True),
-    #     save_item("banana nanica",programmers[0],"🤏","https://img.freepik.com/premium-photo/very-small-banana-hand_679905-1202.jpg?w=2000",True),
-    #     save_item("maça",programmers[0],":)","https://static.vecteezy.com/system/resources/previews/002/520/838/original/apple-logo-black-isolated-on-transparent-background-free-vector.jpg",False),
-    #     save_item("banana prata",programmers[0],"ingual o fredie mercury","https://thumbs.dreamstime.com/b/silver-banana-isolated-white-background-festive-summer-concept-silver-banana-isolated-white-background-festive-226246185.jpg",True),
-    #     save_item("banana nevada",programmers[1],"da groomis","https://receitinhas.com.br/wp-content/uploads/2022/09/image-730x365.jpg",True),
-    # ]
-    # save_comment("olha eu commentando em mim mesmo, como isso é possivel?",5,1,1,"user")
-    # make_request(bananas[1],programmers[1],programmers[0])
-    # make_request(bananas[4],programmers[0],programmers[1],state='accepted')
-    #load_data()
-    if not os.path.exists(os.path.join("data",PHOTOS_DIR)):
-        os.mkdir(os.path.join(DATA_DIR,PHOTOS_DIR))
-    engine = SearchEngine(itens.values())
-    load()
+    dir_list = os.listdir(DATA_DIR)
+    #os.mkdir(os.path.join(DATA_DIR,"backup_1"))
+    #print(dir_list[0])
+    #os.rmdir(os.path.join(DATA_DIR,"backup_1"))
+    if not (len(dir_list) == 0):
+        BACKUP_COUNTER = int(dir_list[-1].split("_")[-1])
+        data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
+        load(BACKUP_COUNTER)
+
+    else:
+        BACKUP_COUNTER = 0
+        data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
+        os.mkdir(data_path)
+        engine = SearchEngine([])
+
+    photo_path = os.path.join(data_path,PHOTOS_DIR)
+
+    if not os.path.exists(photo_path):
+        os.mkdir(photo_path)
+    saver = threading.Thread(target=assinc_save)
+    saver.start()
     app.run(host="0.0.0.0",port=80)
     #app.run()
