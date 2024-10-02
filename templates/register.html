@@ -116,13 +116,13 @@
         <h1>Registrar</h1>
         <form method="post" action="/confirmation">
             <label for="email">Email</label> 
-            <input type="text" name="email" id="email" required/>  
+            <input type="text" name="email" id="email" value="{{email}}" required/>  
             <label for="username">Apelido</label> 
-            <input type="text" name="username" id="username" required/>  
+            <input type="text" name="username" id="username" value = "{{name}}" required/>  
             <label for="password">Senha</label> 
             <input type="password" name="password" id="password" required/>  
             <label for="phone">Telefone</label> 
-            <input type="text" name="phone" id="phone" required/>  
+            <input type="text" name="phone" id="phone" value = "{{phone}}" required/>  
             <label for="city">Cidade</label> 
             <div class="form-group">
                 <p>{{ location.filter }}</p>
