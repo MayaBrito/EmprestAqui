@@ -95,7 +95,7 @@ def default():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
-    resp = render_template('login.html')
+    resp = make_response(render_template('login.html'))
     if "exit" in request.form:
         resp.set_cookie('email', "")
         resp.set_cookie('password',"")
