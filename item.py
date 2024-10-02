@@ -98,7 +98,7 @@ class Item:
         for c in self._comments.values():
             total_score += c.score
         if comment_count == 0.0 :
-            return 5
+            return 2.5
         return total_score/comment_count
 
     def get_full_text(self) -> str:
