@@ -7,7 +7,7 @@ from request import Request
 from utils import read_csv
 from Search_Engine import SearchEngine
 from forms import Forms, Location
-from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file
+from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file, session
 import pickle as pk
 
 import threading
@@ -116,9 +116,21 @@ def login_confirmation():
     return resp
 
 @app.route('/register',methods=['GET','POST'])
-def register():
+def register(error,defaults={'error': ""}):
+    name = ""
+    phone = ""
+    #city = ""
+    email = ""
+    if "name" in session:
+        name = session["name"]
+    if "phone" in session:
+        phone = session['phone']
+    # if "city" in session:
+    #     city = session['city']
+    if "email" in session:
+        email = session['email']
     location = Location(request.form)
-    return render_template('register.html',location = location)
+    return render_template('register.html',location = location,name=name,phone=phone,email=email)
 
 @app.route('/confirmation', methods = ['GET','POST']) 
 def confirmation(): 
@@ -129,6 +141,11 @@ def confirmation():
         email = request.form['email']
         city = request.form['filter']
         verified = verify_information([name,password,phone,email,city])
+        if "@" not in email or ".com" not in email:
+            session['name'] = name
+            session['phone'] = phone
+            session['email'] = email
+            return make_response(redirect(url_for("register",error="e-mail invalido")))
         if not verified:
             output = "Existem campos não preenchidos" 
             resp = render_template("error.html",error=output)
