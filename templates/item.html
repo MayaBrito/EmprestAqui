@@ -132,15 +132,16 @@
         <h2>Item</h2>
         <div class="item-image">
         <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
-        {% if item.available and not is_owner %}
         </div>
+        {% if item.available and not is_owner %}
+        <div class="botao-request">
         <form method="post" action="/item_request"> 
             <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
             <input type="hidden" name="id" value="{{item.id}}" />
         </form>
+        </div>
         {% endif %}
         {% if is_owner %}
-        </div>
         <form method="post" action="/edit_item"> 
             <input type="submit" name="edit_item" id="edit_item" value="Editar item" class="btn-request"/>
             <input type="hidden" name="id" value="{{item.id}}" />
