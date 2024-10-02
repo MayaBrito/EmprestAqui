@@ -78,7 +78,6 @@
             width: 100%;
         }
 
-
         .items-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -121,6 +120,27 @@
             margin-right: 20px;
         }
 
+        .form-evaluate {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-evaluate {
+            background-color: #1ECAA1;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            max-width: 200px; 
+            margin: 0 auto;
+        }
+
+        .btn-evaluate:hover {
+            background-color: #17a488;
+        }
     </style>
 </head> 
 <body> 
@@ -173,8 +193,8 @@
         </div>
 
         {% if not active_user %}
-        <form method="post" action="/comment"> 
-            <input type="submit" name="comment" id="comment" value="Avaliar">
+        <form method="post" action="/comment" class="form-evaluate"> 
+            <input type="submit" name="comment" id="comment" value="Avaliar" class="btn-evaluate">
             <input type="hidden" name="id" value="{{user.id}}">
             <input type="hidden" name="type" value="user">
         </form> 
