@@ -270,6 +270,7 @@ def edit_item():
 
 @app.route('/evaluate_edition',methods=['GET','POST'])
 def evaluate_edition():
+    global engine
     email, err= check_user()
     if err:
         return render_template('login.html')
@@ -296,6 +297,7 @@ def evaluate_edition():
             photo.save(os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER),PHOTOS_DIR,photo_name))
             edited_item.photo = photo_name
     engine.index_item(edited_item)
+    engine = SearchEngine(itens.values())
     return redirect(url_for("item",id=item_id))
 
 @app.route('/remove_item',methods=['GET','POST'])
