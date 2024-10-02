@@ -95,7 +95,11 @@ def default():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
-    return  render_template('login.html')
+    resp = render_template('login.html')
+    if "exit" in request.form:
+        resp.set_cookie('email', "")
+        resp.set_cookie('password',"")
+    return resp
 
 @app.route('/login_confirmation',methods=['GET','POST'])
 def login_confirmation():
