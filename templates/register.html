@@ -114,6 +114,7 @@
     {{ render_header() }}
     <div class="container">
         <h1>Registrar</h1>
+        <div style="color: #e74c3c;">{{error}}</div>
         <form method="post" action="/confirmation">
             <label for="email">Email</label> 
             <input type="text" name="email" id="email" value="{{email}}" required/>  
