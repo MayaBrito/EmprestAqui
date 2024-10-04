@@ -116,21 +116,17 @@ def login_confirmation():
     return resp
 
 @app.route('/register',methods=['GET','POST'])
-def register(error,defaults={'error': ""}):
-    name = ""
-    phone = ""
-    #city = ""
-    email = ""
-    if "name" in session:
-        name = session["name"]
-    if "phone" in session:
-        phone = session['phone']
-    # if "city" in session:
-    #     city = session['city']
-    if "email" in session:
-        email = session['email']
+def register():
+    name = request.cookies.get("name")
+    if name == None: name = ""
+    phone = request.cookies.get('phone')
+    if phone == None: phone = ""
+    error = request.cookies.get('error')
+    if error == None: error = ""
+    email = request.cookies.get('email')
+    if email == None: email = ""
     location = Location(request.form)
-    return render_template('register.html',location = location,name=name,phone=phone,email=email)
+    return render_template('register.html',location = location,name=name,phone=phone,email=email,error=error)
 
 @app.route('/confirmation', methods = ['GET','POST']) 
 def confirmation(): 
@@ -142,10 +138,12 @@ def confirmation():
         city = request.form['filter']
         verified = verify_information([name,password,phone,email,city])
         if "@" not in email or ".com" not in email:
-            session['name'] = name
-            session['phone'] = phone
-            session['email'] = email
-            return make_response(redirect(url_for("register",error="e-mail invalido")))
+            resp = make_response(redirect(url_for("register")))
+            resp.set_cookie('name',name)
+            resp.set_cookie('phone',phone)
+            resp.set_cookie('email',email)
+            resp.set_cookie('error',"e-mail invalido")
+            return resp
         if not verified:
             output = "Existem campos não preenchidos" 
             resp = render_template("error.html",error=output)
@@ -569,7 +567,7 @@ if __name__ == '__main__':
     #print(dir_list[0])
     #os.rmdir(os.path.join(DATA_DIR,"backup_1"))
     if not (len(dir_list) == 0):
-        BACKUP_COUNTER = int(sorted(dir_list)[-1].split("_")[-1])
+        BACKUP_COUNTER = sorted([int(a.split("_")[-1]) for a in dir_list])[-1]
         data_path = os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER))
         load(BACKUP_COUNTER)
 
