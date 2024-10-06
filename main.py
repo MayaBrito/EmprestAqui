@@ -137,12 +137,15 @@ def confirmation():
         email = request.form['email']
         city = request.form['filter']
         verified = verify_information([name,password,phone,email,city])
-        if "@" not in email or ".com" not in email:
-            resp = make_response(redirect(url_for("register")))
-            resp.set_cookie('name',name)
-            resp.set_cookie('phone',phone)
-            resp.set_cookie('email',email)
+        resp = make_response(redirect(url_for("register")))
+        resp.set_cookie('name',name)
+        resp.set_cookie('phone',phone)
+        resp.set_cookie('email',email)
+        if ("@" not in email or ".com" not in email):
             resp.set_cookie('error',"e-mail invalido")
+            return resp
+        if ("Todas as localizações" in city):
+            resp.set_cookie("error","localização invalida")
             return resp
         if not verified:
             output = "Existem campos não preenchidos" 
@@ -413,7 +416,10 @@ def apply_location():
     user = users[emailsearch[email]]
     
     new_address = request.form["filter"]
-
+    if new_address == "Todas as localizações":
+        output = "localização invalida"
+        resp = render_template("error.html",error=output)
+        return resp
     verified = verify_information([new_address])
     if not verified:
         output = "Existem campos não preenchidos" 
