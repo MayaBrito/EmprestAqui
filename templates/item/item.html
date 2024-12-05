@@ -1,0 +1,60 @@
+{% from '_top_bar.html' import render_header%}
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Item</title> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='item/item.css') }}">
+</head> 
+<body>
+
+    {{ render_header() }}
+    </div>
+
+    <div class="container">
+        <h2>Item</h2>
+        <div class="item-image">
+        <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+        </div>
+        {% if item.available and not is_owner %}
+        <div class="botao-request">
+        <form method="post" action="/item_request"> 
+            <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
+            <input type="hidden" name="id" value="{{item.id}}" />
+        </form>
+        </div>
+        {% endif %}
+        {% if is_owner %}
+        <form method="post" action="/edit_item"> 
+            <input type="submit" name="edit_item" id="edit_item" value="Editar item" class="btn-request"/>
+            <input type="hidden" name="id" value="{{item.id}}" />
+        </form>
+        {% endif %}
+
+        <div class="details">
+            <dd><strong>Nome:</strong> {{item.name}}</dd>
+            <dd><strong>Descrição:</strong> {{item.desc}}</dd>
+            <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
+            <dd><strong>Quem está emprestando:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
+        </div>
+
+        <div class="reviews">
+            <h3>Avaliações</h3>
+            <div class="general-score">NOTA MÉDIA: {{item.general_score}}</div>
+            {% for commenter in comments.keys() %}
+            <div class="review-box">
+                <strong>{{users[commenter].name}} - {{"★"*comments[commenter].score+"☆"*(5-comments[commenter].score)}}</strong>
+                <p>{{comments[commenter].comment}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% if not is_owner %}
+        <form method="post" action="/comment"> 
+            <input type="submit" name="comment" id="comment" value="Avaliar" class="btn-evaluate">
+            <input type="hidden" name="id" value="{{item.id}}">
+            <input type="hidden" name="type" value="item">
+        </form> 
+        {% endif %}
+    </div>
+
+</body> 
+</html>

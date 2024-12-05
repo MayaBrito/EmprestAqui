@@ -1,5 +1,5 @@
 {% macro render_header() -%}
-    <div class="header">
+    <header class="header">
         <form method="post" action="/login">
             <button type="submit" name="exit" id="exit">🔚</button>
         </form>
@@ -14,7 +14,7 @@
         </form>
     
         <button 
-        disabled style="visibility:hidden;">&nbsp;
+            disabled style="visibility:hidden;">&nbsp;
         </button> 
-    </div>
+    </header>
 {%- endmacro %}

@@ -1,0 +1,45 @@
+{% from '_top_bar.html' import render_header%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedidos Feitos Abertos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user/open_received_requests.css') }}">
+</head>
+<body>
+    {{ render_header() }}
+
+    <div class="container">
+        <h1>Solicitações Recebidas</h1>
+        <ul>
+            {% for request in requests.values() %}
+                {% if request.state != 'rejected' %}
+                    <li>
+                        <div class="info-item">
+                            <b>Item:</b> <a href="{{url_for('item',id=request.item_id)}}">{{ itens[request.item_id].name|e }}</a>
+                        </div>
+                        <div class="info-item">
+                            <b>Nome do solicitante:</b> <a href="{{url_for('user',id=users[request.interested_id].id)}}">{{users[request.interested_id].name}}</a>
+                        </div>
+                        {% if request.state == 'accepted' %}
+                        <div class="info-item">
+                            <b>Email do solicitante:</b> {{users[request.interested_id].email}}
+                        </div>
+                        <div class="info-item">
+                            <b>Telefone do solicitante:</b> {{users[request.interested_id].phone}}
+                        </div>
+                        {% endif %}
+                        {% if request.state == 'open' %}
+                        <form method="post" action="/accept_request" class="action-buttons"> 
+                            <input type="submit" name="accept" id="accept" value="Aceitar"/>
+                            <input type="submit" name="reject" id="reject" value="Recusar"/>
+                            <input type="hidden" name="id" value="{{request.item_id}}" />
+                            <input type="hidden" name="interested" value="{{request.interested_id}}"/>
+                        </form> 
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

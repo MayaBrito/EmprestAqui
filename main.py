@@ -95,7 +95,7 @@ def default():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
-    resp = make_response(render_template('login.html'))
+    resp = make_response(render_template('login-form/login.html'))
     if "exit" in request.form:
         resp.set_cookie('email', "")
         resp.set_cookie('password',"")
@@ -126,7 +126,7 @@ def register():
     email = request.cookies.get('email')
     if email == None: email = ""
     location = Location(request.form)
-    return render_template('register.html',location = location,name=name,phone=phone,email=email,error=error)
+    return render_template('login-form/register.html',location = location,name=name,phone=phone,email=email,error=error)
 
 @app.route('/confirmation', methods = ['GET','POST']) 
 def confirmation(): 
@@ -166,7 +166,7 @@ def confirmation():
 def menu(error):
     print(error)
     location = Location(request.form)
-    return render_template('index.html', error=error, location=location)
+    return render_template('search-product/index.html', error=error, location=location)
 
 
 @app.route('/results',methods=['GET', 'POST'])
@@ -191,7 +191,7 @@ def results():
         #flash('sem results, tente novamente!') 
         return redirect(url_for('menu',error="sem resultados"))
     else:
-        return render_template('results.html', results=results, location = location, search = text_search)
+        return render_template('search-product/results.html', results=results, location = location, search = text_search)
 
 @app.route('/item')
 def item():
@@ -206,23 +206,23 @@ def item():
         is_owner = False 
         if not err:
             is_owner = users[emailsearch[email]].id == item.owner_id
-        return render_template('item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users,is_owner=is_owner)
+        return render_template('item/item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users,is_owner=is_owner)
 
 @app.route('/comment',methods=['GET','POST'])
 def comment():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     user = users[emailsearch[email]]
     instance_id = request.form['id']
     instance_type = request.form['type']
-    return render_template('comment.html',instance_id=instance_id,instance_type=instance_type)
+    return render_template('user/comment.html',instance_id=instance_id,instance_type=instance_type)
 
 @app.route('/apply_comment',methods=['GET','POST'])
 def apply_comment():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     user = users[emailsearch[email]]
     instance_id = int(request.form["id"])
     instance_type = request.form["type"]
@@ -243,7 +243,7 @@ def apply_comment():
 def item_request():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     item_id = int(request.form["id"])
     user = users[emailsearch[email]]
     seller = users[itens[item_id].owner_id]
@@ -254,7 +254,7 @@ def item_request():
 def accept_request():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     item_id = int(request.form["id"])
     user = users[emailsearch[email]]
     interested = int(request.form["interested"])
@@ -269,14 +269,14 @@ def accept_request():
 def publish_item():
     email, err = check_user()
     if err:
-        return render_template('login.html')
-    return render_template('publish_item.html')
+        return render_template('login-form/login.html')
+    return render_template('item/publish_item.html')
 
 @app.route('/edit_item',methods=['GET','POST'])
 def edit_item():
     email,err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     item_id = int(request.form['id'])
     if item_id not in itens.keys():
         output = "non-existent item" 
@@ -287,7 +287,7 @@ def edit_item():
         output = "not your item" 
         resp = render_template("error.html",error=output)
         return resp
-    return render_template("edit_item.html",item=edited_item)
+    return render_template("item/edit_item.html",item=edited_item)
 
 
 @app.route('/evaluate_edition',methods=['GET','POST'])
@@ -295,7 +295,7 @@ def evaluate_edition():
     global engine
     email, err= check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     available = 'available' in request.form
     name = request.form['name']
     desc = request.form['desc']
@@ -326,7 +326,7 @@ def evaluate_edition():
 def remove_item():
     email, err= check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     item_id = int(request.form['id'])
     if item_id not in itens.keys():
         output = "non-existent item" 
@@ -354,7 +354,7 @@ def remove_item():
 def evaluate_publication():
     email, err= check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     name = request.form['name']
     desc = request.form['desc']
     photo = request.files['photo']
@@ -386,7 +386,7 @@ def user():
     email, err = check_user()
     if err: 
         if'id' not in request.args:
-            return render_template('login.html')
+            return render_template('login-form/login.html')
     else:
         user = users[emailsearch[email]]
     if 'id' in request.args:
@@ -397,22 +397,22 @@ def user():
     active_user = False
     if (not err and requested_user_id == user.id):
         active_user=True
-    return render_template('user.html',user=requested_user,active_user=active_user,users=users)
+    return render_template('user/user.html',user=requested_user,active_user=active_user,users=users)
 
 @app.route('/change_location',methods=['GET','POST'])
 def change_location():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     user = users[emailsearch[email]]
     location = Location(request.form)
-    return render_template('change_location.html',location=location )
+    return render_template('login-form/change_location.html',location=location )
 
 @app.route('/apply_location_changes',methods=['GET','POST'])
 def apply_location():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     user = users[emailsearch[email]]
     
     new_address = request.form["filter"]
@@ -434,17 +434,17 @@ def apply_location():
 def open_received_requests():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     user = users[emailsearch[email]]
-    return render_template('open_received_requests.html',requests=user.requests_received,itens=itens,users=users)
+    return render_template('user/open_received_requests.html',requests=user.requests_received,itens=itens,users=users)
 
 @app.route('/open_requests',methods=['GET','POST'])
 def open_requests():
     email, err = check_user()
     if err:
-        return render_template('login.html')
+        return render_template('login-form/login.html')
     user = users[emailsearch[email]]
-    return render_template('open_requests.html',requests=user.requests_made,itens=itens,users=users)   
+    return render_template('user/open_requests.html',requests=user.requests_made,itens=itens,users=users)   
 
 #@app.route('/save')
 def save():

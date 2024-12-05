@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Avaliação</title> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user/comment.css') }}">
+</head> 
+<body> 
+    <div class="form-container">
+        <h2>Avaliação</h2>
+        <form method="post" action="/apply_comment"> 
+            <select name="score" id="score">
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
+            </select>
+            <input type="text" name="comment" id="comment" placeholder="Escreva seu comentário"/>  
+            <input type="hidden" name="id" value="{{instance_id}}">
+            <input type="hidden" name="type" value="{{instance_type}}">
+            <input type="submit" name="submit" id="submit" value="Avaliar">  
+        </form> 
+    </div>
+</body> 
+</html>

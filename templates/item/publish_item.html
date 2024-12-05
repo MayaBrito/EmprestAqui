@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Cadastrar Item</title> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='item/publish_item.css') }}">
+</head> 
+<body> 
+    <div class="form-container">
+        <h1>Cadastrar Item</h1>
+        <form method="post" action="/evaluate_publication" enctype="multipart/form-data"> 
+            <input type="text" name="name" id="name" placeholder="Nome" required/>  
+            <input type="text" name="desc" id="desc" placeholder="Descrição" required/>
+            <!-- <input type="text" name="photo" id="photo" placeholder="link da imagem" required/> -->
+            <input type="file" name="photo">
+            <!-- <div class="file-upload">
+                <img src="https://via.placeholder.com/40" alt="Upload Icon">
+            </div> -->
+            <input type="submit" name="submit" id="submit" value="Cadastrar"/>  
+        </form> 
+    </div>
+</body> 
+</html>

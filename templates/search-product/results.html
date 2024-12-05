@@ -1,0 +1,40 @@
+{% from '_top_bar.html' import render_header%}
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Resultados</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search-product/results.css') }}">
+</head>
+<body>
+    {{ render_header() }}
+    
+    <h2>Resultados</h2>
+
+    <div>
+        <form method="post" action="/results">
+            <div class="form-group">
+                <label for="city"></label> 
+                {{ location.filter }}
+            </div>
+            <div>
+                <input type="hidden" id="search" value="{{search}}" name="search">
+                <label for="avaliability">Disponibilidade</label> 
+                <input type="checkbox" name="avaliability" id="avaliability"/>
+                <label for="review">Avaliação</label> 
+                <input type="checkbox" name="review" id="review"/>
+                <input type="submit" name="submit" id="submit" value="filtrar"/> 
+            </div>
+        </form>
+    </div>
+
+    <ul class="results">
+        {% for post in results %}
+        <li>
+            <a href="{{url_for('item', id=post.id)}}">
+                <img src="/image?id={{post.photo}}" alt="{{post.name}}"{% if not post.available %} style="filter: grayscale(100%);"{% endif %}>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

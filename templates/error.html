@@ -2,48 +2,7 @@
 <html> 
 <head> 
     <title>{{error}}</title> 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9f9f9;
-        }
-
-        .form-container {
-            background-color: #e0e0e0;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 300px;
-            width: 100%;
-        }
-
-        h2 {
-            color: #e74c3c;
-            margin-bottom: 20px;
-        }
-
-        input[type="submit"] {
-            background-color: #1ECAA1;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #1ECAA1;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='error.css') }}">
 </head> 
 <body>
     <div class="form-container">

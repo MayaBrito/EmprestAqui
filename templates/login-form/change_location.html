@@ -1,0 +1,21 @@
+{% from '_top_bar.html' import render_header%}
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Localização</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='login-form/change_location.css') }}">
+</head> 
+<body> 
+    {{ render_header() }}
+    <div class="form-container">
+        <h2>Localização</h2>
+        <form method="post" action="/apply_location_changes"> 
+            <label for="city"></label> 
+            <div class="form-group">
+                <p>{{ location.filter }}</p>
+            </div>
+            <input type="submit" name="change" id="change" value="Mudar Localização">  
+        </form> 
+    </div>
+</body> 
+</html>
