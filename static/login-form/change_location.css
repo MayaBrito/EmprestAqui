@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -31,13 +31,13 @@ body {
 }
 
 .form-container {
-    background-color: #e0e0e0;
+    background-color: #F8F8EC;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 800px;
-    width: 100%;
+    width: 450px;
+    height: 300px;
 }
 
 .form-group {
@@ -45,14 +45,16 @@ body {
 }
 
 .form-group select {
-    width: 40%;
+    width: 80%;
     padding: 15px;
-    border-radius: 50px;
-    border: 2px solid #ccc;
-    background-color: #ddd;
+    border-radius: 5px;
+    border: none;
+    background-color: #FFFFFF;
     font-size: 18px;
     box-sizing: border-box;
     margin-bottom: 15px;
+    margin-top: 20px;
+    color: #746D6D;
 }
 
 .form-group select:focus {
@@ -62,7 +64,8 @@ body {
 
 h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: black;
+    font-size: 40px;
 }
 
 label {
@@ -84,16 +87,17 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-    background-color:  #1ECAA1;
-    color: white;
+    background-color:  #D9FC77;
+    color: black;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
+    width: 80%;
+    margin-top: 20px;
 }
 
 input[type="submit"]:hover {
-background-color: #17a488;
+    background-color: #bbd86b;
 }
