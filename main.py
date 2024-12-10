@@ -9,6 +9,7 @@ from Search_Engine import SearchEngine
 from forms import Forms, Location
 from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file, session
 import pickle as pk
+from flask import Flask, send_from_directory
 
 import threading
 import time
@@ -87,6 +88,10 @@ def validate_password(email,password) ->bool:
     return not null and real_account and (
         users[emailsearch[email]].password == password
         )
+
+@app.route('/photos/<path:filename>')
+def serve_photos(filename):
+    return send_from_directory('photos', filename)
 
 @app.route('/',methods=['GET','POST'])
 def default():

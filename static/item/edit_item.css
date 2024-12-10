@@ -53,7 +53,6 @@ label {
     color: #333;
 }
 
-/* Estilo para o toggle de disponibilidade */
 .availability-container {
     display: flex;
     align-items: center;

@@ -1,20 +1,36 @@
 {% macro render_header() -%}
-    <header class="header">
-        <form method="post" action="/login">
-            <button type="submit" name="exit" id="exit">🔚</button>
+<header class="header">
+
+    <img src="{{ url_for('serve_photos', filename='logo.png') }}" alt="Logo" class="header-logo">
+
+
+    <div class="header-right">
+        <form method="post" action="/user">
+            <button type="submit" class="header-button">
+                <img src="{{ url_for('static', filename='images/user.png') }}" alt="Conta" class="icon">
+                <span>Conta</span>
+            </button>
         </form>
         <form method="post" action="/change_location">
-            <button type="submit" name="change_location" id="change_location">🌎</button>
+            <button type="submit" class="header-button">
+                <img src="{{ url_for('static', filename='images/location.png') }}" alt="Localização" class="icon">
+                <span>Local</span>
+            </button>
         </form>
-        <form method="post" action="/user">
-            <button type="submit" name="user" id="user">👤</button>
+        <form method="post" action="/login">
+            <button type="submit" class="header-button">
+                <img src="{{ url_for('static', filename='images/logout.png') }}" alt="Logout" class="icon">
+                <span>Logout</span>
+            </button>
         </form>
-        <form method="post" action="/">
-            <button type="submit" name="menu" id="menu">🔍</button>
+
+        <form action="">
+            <button class="header-button"></button>
         </form>
-    
-        <button 
-            disabled style="visibility:hidden;">&nbsp;
-        </button> 
-    </header>
+
+    </div>
+</header>
+
+
+
 {%- endmacro %}
