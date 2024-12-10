@@ -5,24 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmprestaAqui - Registrar</title>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login-form/register.css') }}">
 </head>
 <body>
     {{ render_header() }}
     <div class="container">
-        <h1>Registrar</h1>
+        <h1>Registro</h1>
         <div style="color: #e74c3c;">{{error}}</div>
         <form method="post" action="/confirmation">
-            <label for="email">Email</label> 
-            <input type="text" name="email" id="email" value="{{email}}" required/>  
-            <label for="username">Apelido</label> 
-            <input type="text" name="username" id="username" value = "{{name}}" required/>  
-            <label for="password">Senha</label> 
-            <input type="password" name="password" id="password" required/>  
-            <label for="phone">Telefone</label> 
-            <input type="text" name="phone" id="phone" value = "{{phone}}" required/>  
-            <label for="city">Cidade</label> 
+            <input type="text" name="email" id="email" value="{{email}}" placeholder="Email" required/> 
+            <input type="text" name="username" id="username" value = "{{name}}" placeholder="Apelido" required/>
+            <input type="password" name="password" id="password" placeholder="Senha" required/>  
+            <input type="text" name="phone" id="phone" value = "{{phone}}" placeholder="Telefone" required/>  
+            <label for="city"><span>Escolha sua cidade:</span></label> 
             <div class="form-group">
                 <p>{{ location.filter }}</p>
             </div>

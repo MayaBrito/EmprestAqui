@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmprestaAqui - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login-form/login.css') }}">
 </head>
 <body>
     {{ render_header() }}
     <div class="container">
-        <h1>EmprestaAqui</h1>
+        <h1>Alugaqui</h1>
         <form method="post" action="/login_confirmation">
             <input type="text" name="email" placeholder="Email" id="email" required>
             <input type="password" name="password" placeholder="Senha" id="password" required>
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" class="login-button">
         </form>
         <form method="post" action="/register">
-            <input type="submit" value="Cadastrar">
+            <input type="submit" value="Cadastrar" class="register-button">
         </form>
     </div>
 </body>
