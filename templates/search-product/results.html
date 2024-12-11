@@ -4,15 +4,18 @@
 <head>
     <title>Resultados</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search-product/results.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     {{ render_header() }}
     
-    <h2>Resultados</h2>
+    <div class="results-title">Resultados</div>
 
-    <div>
+    <div class="filter-container">
         <form method="post" action="/results">
-            <div class="form-group">
+            <div>
                 <label for="city"></label> 
                 {{ location.filter }}
             </div>
@@ -27,14 +30,15 @@
         </form>
     </div>
 
-    <ul class="results">
+    <div class="results">
         {% for post in results %}
-        <li>
+        <div class="photo-card">
             <a href="{{url_for('item', id=post.id)}}">
                 <img src="/image?id={{post.photo}}" alt="{{post.name}}"{% if not post.available %} style="filter: grayscale(100%);"{% endif %}>
+                <span>{{post.name}}</span>
             </a>
-        </li>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>

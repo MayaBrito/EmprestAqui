@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,29 +8,78 @@ body {
     height: 100vh;
     background-color: #f9f9f9;
 }
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #D9FC77;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.header-logo {
+    height: 40px; 
+    margin-right: auto;
+}
+
+.header-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    color: #333; 
+    text-decoration: none; 
+}
+
+.header-button .icon {
+    height: 24px; 
+    width: 24px; 
+    margin-bottom: 4px; 
+}
+
+.header-button span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 
 .form-container {
-    background-color: #e0e0e0;
+    background-color: #F8F8EC;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 300px;
-    width: 100%;
+    width: calc(100% - 20px);
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 24px;
+.title {
+    margin-bottom: 40px;
+    color: black;
+    font-size: 35px;
+    font-weight: 600;
 }
 
 input[type="text"] {
     width: calc(100% - 20px);
-    padding: 10px;
+    padding: 15px 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
     box-sizing: border-box;
     font-size: 16px;
 }
@@ -54,16 +103,28 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-    background-color: #1ECAA1;
-    color: white;
+    background-color: #D9FC77;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
+    width: 94%;
+    margin-top: 20px;
 }
 
 input[type="submit"]:hover {
-background-color: #17a488;
+    background-color: #bbd86b;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload{
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-bottom: 10px;
 }

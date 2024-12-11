@@ -52,6 +52,23 @@ body {
     justify-content: flex-end;
 }
 
+.header-button .icon {
+    height: 24px; 
+    width: 24px; 
+    margin-bottom: 4px; 
+}
+
+.header-button span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 
 .container {
     max-width: 800px;

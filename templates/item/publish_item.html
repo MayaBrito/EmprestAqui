@@ -1,17 +1,25 @@
+{% from '_top_bar.html' import render_header %}
 <!DOCTYPE html> 
 <html> 
 <head> 
     <title>Cadastrar Item</title> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='item/publish_item.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head> 
 <body> 
+    {{ render_header() }}
     <div class="form-container">
-        <h1>Cadastrar Item</h1>
+        <div class="title">Cadastrar Item</div>
         <form method="post" action="/evaluate_publication" enctype="multipart/form-data"> 
             <input type="text" name="name" id="name" placeholder="Nome" required/>  
             <input type="text" name="desc" id="desc" placeholder="Descrição" required/>
             <!-- <input type="text" name="photo" id="photo" placeholder="link da imagem" required/> -->
-            <input type="file" name="photo">
+            <label for="file-upload" class="custom-file-upload">
+                Subir Imagem
+            </label>
+            <input type="file" name="photo" id="file-upload">
             <!-- <div class="file-upload">
                 <img src="https://via.placeholder.com/40" alt="Upload Icon">
             </div> -->

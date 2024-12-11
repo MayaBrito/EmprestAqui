@@ -79,3 +79,10 @@ li {
     display: block;
     margin-top: 10px;
 }
+
+a img {
+    border-radius: 5px;
+    width: 150px;
+    height: auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
