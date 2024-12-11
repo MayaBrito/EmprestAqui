@@ -12,10 +12,9 @@
 </head>
 <body>
     {{ render_header() }}
-    
     <div class="container">
         <div class="img-container">
-            <img src="{{url_for('static', filename='Logo.png')}}" alt="Alugaqui Logo">
+            <img src="{{ url_for('serve_photos', filename='logo.png') }}" alt="Alugaqui Logo">
         </div>
         <div class="title">Alugaqui</div>
         {% if error != "" %}
