@@ -12,13 +12,23 @@
 
     <div class="container">
         <h2>Item</h2>
-        <div class="item-image">
-        <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+        <div class="image-description-container">
+            <div class="item-image">
+                <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+            <div class="details">
+                <dd><strong>Nome:</strong> {{item.name}}</dd>
+                <dd><strong>Descrição:</strong> {{item.desc}}</dd>
+                <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
+                <dd><strong>Quem está emprestando:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
+                <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
+            </div>
+            </div>
         </div>
+       
         {% if item.available and not is_owner %}
         <div class="botao-request">
         <form method="post" action="/item_request"> 
-            <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
+            
             <input type="hidden" name="id" value="{{item.id}}" />
         </form>
         </div>
@@ -30,16 +40,13 @@
         </form>
         {% endif %}
 
-        <div class="details">
-            <dd><strong>Nome:</strong> {{item.name}}</dd>
-            <dd><strong>Descrição:</strong> {{item.desc}}</dd>
-            <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
-            <dd><strong>Quem está emprestando:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
-        </div>
+        
 
         <div class="reviews">
+            <div id="reviews_header">
             <h3>Avaliações</h3>
             <div class="general-score">NOTA MÉDIA: {{item.general_score}}</div>
+            </div>
             {% for commenter in comments.keys() %}
             <div class="review-box">
                 <strong>{{users[commenter].name}} - {{"★"*comments[commenter].score+"☆"*(5-comments[commenter].score)}}</strong>
