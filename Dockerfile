@@ -1,7 +1,8 @@
 FROM python:3.11.10-alpine3.20
+COPY requirements.txt /
+RUN pip install -r requirements.txt
 WORKDIR /
 COPY . /
 EXPOSE 80
-RUN pip install -r requirements.txt
 CMD ["python","-u","main.py"]
 

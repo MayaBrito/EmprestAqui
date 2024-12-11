@@ -1,12 +1,14 @@
+{% from '_top_bar.html' import render_header%}
 <!DOCTYPE html> 
 <html> 
 <head> 
     <title>Avaliação</title> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user/comment.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head> 
 <body> 
+    {{ render_header() }}
     <div class="form-container">
-        <h2>Avaliação</h2>
         <form method="post" action="/apply_comment"> 
             <select name="score" id="score">
                 <option value="1">★</option>
@@ -15,7 +17,8 @@
                 <option value="4">★★★★</option>
                 <option value="5">★★★★★</option>
             </select>
-            <input type="text" name="comment" id="comment" placeholder="Escreva seu comentário"/>  
+            <h2>Avaliação</h2>
+            <textarea type="text" name="comment" id="comment" placeholder="Escreva seu comentário"></textarea>  
             <input type="hidden" name="id" value="{{instance_id}}">
             <input type="hidden" name="type" value="{{instance_type}}">
             <input type="submit" name="submit" id="submit" value="Avaliar">  

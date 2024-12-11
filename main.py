@@ -363,7 +363,7 @@ def evaluate_publication():
     name = request.form['name']
     desc = request.form['desc']
     photo = request.files['photo']
-    item_id = max(itens.keys())+1
+    item_id = max(itens.keys())+1 if len(itens) > 0 else 0
     photo_name = str(item_id)+".jpg"
     photo.save(os.path.join(DATA_DIR,BACKUP_DIR+str(BACKUP_COUNTER),PHOTOS_DIR,photo_name))
     user = users[emailsearch[email]]
