@@ -4,19 +4,20 @@
 <head> 
     <title>Perfil de Usuário</title> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user/user.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head> 
 <body> 
     {{ render_header() }}
 
     <div class="container">
         {% if active_user %}
-        <h2>Meu perfil</h2>
+        <h2>Meu Perfil</h2>
         {% else %}
         <h2>Perfil</h2>
         {% endif %}
         <div class="profile-info">
-            <b>Nome:</b> {{user.name}}<br>
-            <b>Cidade:</b> {{user.city}}
+            <b>Nome:</b> <span class="user-name">{{user.name}}</span><br>
+            <b>Cidade:</b> <span class="user-city">{{user.city}}</span>
         </div>
 
         {% if active_user %}
@@ -35,17 +36,20 @@
 
         <div class="items-gallery">
             {% for item in user.itens.values() %}
-            <div>
+            <div class="photo-card">
                 <a href="{{url_for('item',id=item.id)}}" >
                     <img src="/image?id={{item.photo}}" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+                    <span>{{item.name}}</span>
                 </a>
             </div>
             {% endfor %}
         </div>
 
         <div class="reviews">
-            <h3>Avaliações</h3>
-            <div class="general-score">NOTA MÉDIA: {{user.general_score}}</div>
+            <div class="reviews-header">
+                <h3>Avaliações</h3>
+                <div class="general-score">NOTA MÉDIA: {{user.general_score}}</div>
+            </div>
             {% for commenter in user.received_comments.keys() %}
             <div class="review-box">
                 <strong>{{users[commenter].name}} - {{"★"*user.received_comments[commenter].score+"☆"*(5-user.received_comments[commenter].score)}}</strong>

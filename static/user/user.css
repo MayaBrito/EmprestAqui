@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -33,7 +33,8 @@ body {
     flex-direction: column; 
     align-items: center; 
     color: #333; 
-    text-decoration: none; 
+    text-decoration: none;
+    
 }
 
 .header-button .icon {
@@ -59,9 +60,27 @@ body {
     padding: 20px;
 }
 
+
 h2 {
-    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    color: #02416D;
     margin-bottom: 20px;
+    font-size: 40px;
+}
+
+b {
+    font-family: 'Montserrat', sans-serif;
+    color: #02416D;
+}
+
+.user-name {
+    font-family: 'Montserrat', sans-serif;
+    color: #02416D;
+}
+
+.user-city {
+    font-family: 'Montserrat', sans-serif;
+    color: #02416D;
 }
 
 .profile-info {
@@ -90,20 +109,20 @@ h2 {
 }
 
 .action-buttons input {
-    background-color: #1ECAA1;
-    color: white;
+    background-color: #D9FC77;
+    color: rgb(0, 0, 0);
     border: none;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
+    width: 90%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 input[type="submit"]:hover {
-background-color: #17a488;
+background-color: #D9FC77;
 }
-
 
 .items-gallery {
     display: grid;
@@ -127,24 +146,38 @@ background-color: #17a488;
     margin-bottom: 40px;
 }
 
-.reviews h3 {
-    font-size: 20px;
+.reviews-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #02416D;
+    font-size: 24px;
     margin-bottom: 10px;
+    
+}
+
+.reviews-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .review-box {
-    border: 1px solid #ccc;
+    border: 1px solid #066699;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 5px;
     background-color: #f9f9f9;
+    color: #02416D;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .general-score {
+    font-family: 'Montserrat', sans-serif;
+    color: #02416D;
     font-weight: bold;
     font-size: 24px;
     text-align: right;
     margin-right: 20px;
+    
 }
 
 .form-evaluate {
@@ -153,8 +186,8 @@ background-color: #17a488;
 }
 
 .btn-evaluate {
-    background-color: #1ECAA1;
-    color: white;
+    background-color: #D9FC77;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 12px;
     border-radius: 5px;
@@ -163,8 +196,41 @@ background-color: #17a488;
     width: 100%;
     max-width: 200px; 
     margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .btn-evaluate:hover {
-    background-color: #17a488;
+    background-color: #D9FC77;
+}
+
+.items-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 20px;
+    margin-top: 20px; 
+}
+
+.items-gallery img {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.photo-card a span{
+    color: black;
+    font-weight: 800;
+    font-size: 15px;
+    text-align: center;
+}
+.photo-card a{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-decoration: none;
+}
+.photo-card{
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 10px;
 }
