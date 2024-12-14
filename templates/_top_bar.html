@@ -1,9 +1,10 @@
 {% macro render_header() -%}
 <header class="header">
-
-    <img src="{{ url_for('serve_photos', filename='logo.png') }}" alt="Logo" class="header-logo">
-
-
+    <form method="post" action="/menu">
+        <button type="submit" class="header-button">
+            <img src="{{ url_for('serve_photos', filename='logo.png') }}" alt="Logo" class="header-logo">
+        </button>
+    </form>
     <div class="header-right">
         <form method="post" action="/user">
             <button type="submit" class="header-button">
