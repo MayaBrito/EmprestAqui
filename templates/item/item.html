@@ -46,7 +46,7 @@
         <div class="reviews">
             <div id="reviews_header">
             <h3>Avaliações</h3>
-            <div class="general-score">NOTA MÉDIA: {{item.general_score}}</div>
+            <div class="general-score">NOTA MÉDIA: {{item.general_score()}}</div>
             </div>
             {% for commenter in comments.keys() %}
             <div class="review-box">
