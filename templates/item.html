@@ -1,0 +1,187 @@
+{% from '_top_bar.html' import render_header%}
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Item</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            margin-left: 20px;
+            margin-top: 80px; 
+            color: #333;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .item-image {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            width: auto;
+            height: auto;
+            align-items: center;
+            max-height: 400px;
+        }
+
+        .btn-request {
+            background-color: #1ECAA1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .details {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .details dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .reviews {
+            margin-top: 40px;
+        }
+
+        .reviews h3 {
+            margin-bottom: 20px;
+        }
+
+        .review-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .review-box p {
+            margin: 0;
+            margin-top: 10px;
+            text-indent: 30px;
+        }
+
+        .general-score {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .btn-evaluate {
+            background-color: #1ECAA1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        input[type="submit"]:hover {
+        background-color: #17a488;
+        }
+
+        .btn-request:hover {
+            background-color: #e5533b;
+        }
+    </style>
+</head> 
+<body>
+
+    {{ render_header() }}
+    </div>
+
+    <div class="container">
+        <h2>Item</h2>
+        <div class="item-image">
+        <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
+        </div>
+        {% if item.available and not is_owner %}
+        <div class="botao-request">
+        <form method="post" action="/item_request"> 
+            <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
+            <input type="hidden" name="id" value="{{item.id}}" />
+        </form>
+        </div>
+        {% endif %}
+        {% if is_owner %}
+        <form method="post" action="/edit_item"> 
+            <input type="submit" name="edit_item" id="edit_item" value="Editar item" class="btn-request"/>
+            <input type="hidden" name="id" value="{{item.id}}" />
+        </form>
+        {% endif %}
+
+        <div class="details">
+            <dd><strong>Nome:</strong> {{item.name}}</dd>
+            <dd><strong>Preco: R$</strong> {{item.price}}</dd>
+            <dd><strong>Descrição:</strong> {{item.desc}}</dd>
+            <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
+            <dd><strong>Quem está emprestando:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
+        </div>
+
+        <div class="reviews">
+            <h3>Avaliações</h3>
+            <div class="general-score">NOTA MÉDIA: {{item.general_score()}}</div>
+            {% for commenter in comments.keys() %}
+            <div class="review-box">
+                <strong>{{users[commenter].name}} - {{"★"*comments[commenter].score+"☆"*(5-comments[commenter].score)}}</strong>
+                <p>{{comments[commenter].comment}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% if not is_owner %}
+        <form method="post" action="/comment"> 
+            <input type="submit" name="comment" id="comment" value="Avaliar" class="btn-evaluate">
+            <input type="hidden" name="id" value="{{item.id}}">
+            <input type="hidden" name="type" value="item">
+        </form> 
+        {% endif %}
+    </div>
+
+</body> 
+</html>
