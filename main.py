@@ -7,7 +7,7 @@ from request import Request
 from utils import read_csv
 from Search_Engine import SearchEngine
 from forms import Forms, Location
-from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file, session
+from flask import Flask, flash, render_template, request, redirect, make_response,url_for,send_file, session,send_from_directory
 import pickle as pk
 import qrcode
 
