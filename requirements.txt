@@ -11,3 +11,5 @@ nltk
 Werkzeug==3.0.4
 WTForms==3.1.2
 pytest
+qrcode
+pillow

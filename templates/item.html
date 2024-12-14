@@ -158,6 +158,7 @@
 
         <div class="details">
             <dd><strong>Nome:</strong> {{item.name}}</dd>
+            <dd><strong>Preco: R$</strong> {{item.price}}</dd>
             <dd><strong>Descrição:</strong> {{item.desc}}</dd>
             <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
             <dd><strong>Quem está emprestando:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
@@ -165,7 +166,7 @@
 
         <div class="reviews">
             <h3>Avaliações</h3>
-            <div class="general-score">NOTA MÉDIA: {{item.general_score}}</div>
+            <div class="general-score">NOTA MÉDIA: {{item.general_score()}}</div>
             {% for commenter in comments.keys() %}
             <div class="review-box">
                 <strong>{{users[commenter].name}} - {{"★"*comments[commenter].score+"☆"*(5-comments[commenter].score)}}</strong>
