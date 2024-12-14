@@ -4,6 +4,7 @@
 <head>
     <title>Pedidos Feitos Abertos</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user/open_requests.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     {{ render_header() }}
@@ -13,11 +14,14 @@
         <ul>
             {% for request in requests.values() %}
                 {% if request.state == 'open' %}
-                <li>
-                    <a href="{{url_for('item',id=request.item_id)}}">
-                        <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
-                    </a>
-                </li>
+                <div class="results">
+                    <div class="photo-card">
+                        <a href="{{url_for('item', id=request.item_id)}}">
+                            <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                            <span>{{itens[request.item_id].name}}</span>
+                        </a>
+                    </div>
+                </div>
                 {% endif %}
             {% endfor %}
         </ul>
@@ -27,16 +31,24 @@
             {% for request in requests.values() %}
                 {% if request.state == 'accepted' %}
                 <li>
-                    <a href="{{url_for('item',id=request.item_id)}}">
-                        <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
-                    </a>
+                    <div class="results">
+                        <div class="photo-card">
+                            <a href="{{url_for('item', id=request.item_id)}}">
+                                <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                                <span>{{itens[request.item_id].name}}</span>
+                            </a>
+                            <div class="contact-info">
+                                <span>Entre em contato por:</span>
+                                <details>
+                                    <summary>Contactar</summary>
+                                    <li> Telefone: {{users[request.supplier_id].phone}}</li>
+                                    <li> Email: {{users[request.supplier_id].email}}</li>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
                     <br>
-                    Entre em contato por:
-                    <details>
-                        <summary>Contactar</summary>
-                        <li> Telefone: {{users[request.supplier_id].phone}}</li>
-                        <li> Email: {{users[request.supplier_id].email}}</li>
-                    </details>
+                    
                     <!-- <button class="contact-button">Contactar</button> -->
                 </li>
                 {% endif %}
@@ -47,11 +59,14 @@
         <ul>
             {% for request in requests.values() %}
                 {% if request.state == 'rejected' %}
-                <li>
-                    <a href="{{url_for('item',id=request.item_id)}}">
-                        <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
-                    </a>
-                </li>
+                <div class="results">
+                    <div class="photo-card">
+                        <a href="{{url_for('item', id=request.item_id)}}">
+                            <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                            <span>{{itens[request.item_id].name}}</span>
+                        </a>
+                    </div>
+                </div>
                 {% endif %}
             {% endfor %}
         </ul>

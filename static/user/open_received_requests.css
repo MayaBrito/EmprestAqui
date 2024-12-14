@@ -131,6 +131,7 @@ a:hover {
 
 .action-buttons input[type="submit"]:nth-child(2) {
     background-color: #066699;
+    background-color: white;
 }
 
 .info-item {

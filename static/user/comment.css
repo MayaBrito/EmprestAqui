@@ -18,13 +18,13 @@ body {
     background-color: #D9FC77;
     padding: 10px 20px;
     display: flex;
-    align-items: center;
+    align-items: center; 
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
 .header-logo {
-    height: 40px;
+    height: 40px; 
     margin-right: auto;
 }
 
@@ -36,16 +36,16 @@ body {
     margin-right: 15px;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #333;
-    text-decoration: none;
+    flex-direction: column; 
+    align-items: center; 
+    color: #333; 
+    text-decoration: none; 
 }
 
 .header-button .icon {
-    height: 24px;
-    width: 24px;
-    margin-bottom: 4px;
+    height: 24px; 
+    width: 24px; 
+    margin-bottom: 4px; 
 }
 
 .header-button span {
@@ -75,7 +75,7 @@ h2 {
     overflow: hidden;
 }
 
-form {
+.evaluation-form {
     padding: 20px;
     text-align: center;
     display: flex;

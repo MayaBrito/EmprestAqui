@@ -4,12 +4,15 @@
 <head> 
     <title>Cadastrar Item</title> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='item/edit_item.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head> 
 <body>
     {{ render_header() }}
 
     <div class="form-container">
-        <h1>Cadastrar Item</h1>
+        <div class="edit-item-title">Atualizar Item</div>
         <form method="post" action="/evaluate_edition" enctype="multipart/form-data"> 
             <div class="availability-container">
                 <label for="available">Disponibilidade</label>
@@ -21,8 +24,11 @@
             <input type="text" name="name" id="name" placeholder="Nome" value="{{item.name}}" required/>  
             <input type="text" name="desc" id="desc" placeholder="Descrição" value="{{item.desc}}" required/>
             <input type="hidden" name="id" value="{{item.id}}">
-            <input type="file" name="photo">
-            <input type="submit" name="submit" id="submit" value="Atualizar"/>  
+            <label for="file-upload" class="custom-file-upload">
+                Subir Imagem
+            </label>
+            <input type="file" name="photo" id="file-upload">
+            <input type="submit" name="submit" id="submit" value="Atualizar" class="evaluate-button"/>  
         </form> 
         <form method="post" action="/remove_item"> 
             <input type="submit" name="remove_item" id="remove_item" value="Remover item" class="btn-request"/>

@@ -58,9 +58,11 @@ body {
     padding: 20px;
 }
 
-h2, h1 {
-    color: #333;
+h1 {
+    color: #02416D;
+    font-size: 40px;
     margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 li {
@@ -85,4 +87,51 @@ a img {
     width: 150px;
     height: auto;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 20px;
+    margin-top: 20px; 
+}
+
+.results img {
+    font-family: 'Montserrat', sans-serif;
+    width: 200px;
+    height: 200px; 
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.photo-card a span{
+    color: black;
+    font-weight: 800;
+    font-size: 15px;
+    text-align: center;
+}
+.photo-card a{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-decoration: none;
+}
+.photo-card{
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 10px;
+}
+.contact-info{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    color: #0A5483;
+}
+.contact-info span{
+    font-weight: 600;
+}
+.contact-info details{
+    font-weight: 500;
+    margin-left: 20px;
+}
+.contact-info li{
+    margin-top: 10px;
 }
