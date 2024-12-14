@@ -10,6 +10,23 @@
     {{ render_header() }}
 
     <div class="container">
+        <h1>Aguardando Pagamento</h1>
+        <ul>
+            {% for request in requests.values() %}
+                {% if request.state == 'payment-pending' %}
+                <li>
+                    <div class="results">
+                        <div class="photo-card">
+                            <a href="{{url_for('paymentqr',item_id=request.item_id,user_id=request.interested_id,seller_id=request.supplier_id)}}">
+                                <img src="/image?id={{itens[request.item_id].photo}}" alt="{{itens[request.item_id].name}}">
+                                <span>{{itens[request.item_id].name}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
         <h1>Aguardando Aprovação</h1>
         <ul>
             {% for request in requests.values() %}
