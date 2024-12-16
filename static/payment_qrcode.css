@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -57,115 +57,16 @@ body {
 .container {
     max-width: 800px;
     margin: 100px auto 0;
-    padding: 20px;
+    padding-left: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #333;
+    color: #02416D;
     margin-bottom: 20px;
-}
-
-.profile-info {
-    margin-bottom: 30px;
-}
-
-.profile-info b {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.action-buttons form {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.action-buttons form:last-child {
-    margin-right: 0;
-}
-
-.action-buttons input {
-    background-color: #1ECAA1;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-}
-
-input[type="submit"]:hover {
-background-color: #17a488;
-}
-
-
-.items-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.items-gallery li {
-    list-style: none;
-}
-
-.items-gallery img {
-    width: 100%;
-    height: 300px; 
-    object-fit: cover;
-}
-
-.reviews {
-    margin-bottom: 40px;
-}
-
-.reviews h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.review-box {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.general-score {
-    font-weight: bold;
-    font-size: 24px;
-    text-align: right;
-    margin-right: 20px;
-}
-
-.form-evaluate {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.btn-evaluate {
-    background-color: #1ECAA1;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    max-width: 200px; 
-    margin: 0 auto;
-}
-
-.btn-evaluate:hover {
-    background-color: #17a488;
 }

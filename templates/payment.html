@@ -4,14 +4,18 @@
 <head> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='payment.css') }}">
     <title>Perfil de Usuário</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head> 
 <body> 
     {{ render_header() }}
 
     <div class="container">
-        <h2>obrigado por pagar</h2>
+        <h2>Pagamento realizado com sucesso!</h2>
         <form method="post" action="/open_requests">
-            <input type="submit" name="minhasSolicitacoes" id="minhasSolicitacoes" value="Ir para meus pedidos"/>
+            <input type="submit" name="minhasSolicitacoes" id="minhasSolicitacoes" value="Voltar para meus pedidos"/>
+        </form>
     </div>
 </body> 
 </html>

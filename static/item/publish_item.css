@@ -75,7 +75,7 @@ body {
     font-weight: 600;
 }
 
-input[type="text"] {
+input[type="text"],  input[type="number"] {
     width: calc(100% - 20px);
     padding: 15px 10px;
     margin-bottom: 20px;
