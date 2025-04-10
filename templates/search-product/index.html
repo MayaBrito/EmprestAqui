@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alugaqui</title>
+    <title>TabLi</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search-product/index.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
         <div class="img-container">
             <img src="{{ url_for('serve_photos', filename='logo.png') }}" alt="Alugaqui Logo">
         </div>
-        <div class="title">Alugaqui</div>
+        <div class="title">TabLi</div>
         {% if error != "" %}
             {{ error }}
         {% endif %}
