@@ -16,20 +16,20 @@
         <div class="image-description-container">
             <div class="item-image">
                 <img src="/image?id={{item.photo}}" class="item-image" alt="{{item.name}}"{% if not item.available %}style="filter: grayscale(100%);"{% endif  %}>
-                <div class="details">
-                    <dd><strong>Nome:</strong> {{item.name}}</dd>
-                    <dd><strong>Descrição:</strong> {{item.desc}}</dd>
-                    <dd><strong>Preco: R$</strong> {{item.price}}</dd>
-                    <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
-                    <dd><strong>Quem está emprestando:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
-                    <!--<input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>-->
-                    {% if item.available and not is_owner %}
-                    <form method="post" action="/item_request"> 
-                        <input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>
-                        <input type="hidden" name="id" value="{{item.id}}" />
-                    </form>
-                    {% endif %}
-                </div>
+            </div>
+            <div class="details">
+                <dd><strong>Nome:</strong> {{item.name}}</dd>
+                <dd><strong>Descrição:</strong> {{item.desc}}</dd>
+                <dd><strong>Preco: R$</strong> {{item.price}}</dd>
+                <dd><strong>Disponibilidade:</strong> {{item.available}}</dd>
+                <dd><strong>Dono:</strong> <a href="{{url_for('user',id=item.owner_id)}}">{{owner.name}}</a></dd>
+                <!--<input type="submit" name="item_request" id="item_request" value="Pedir Emprestado" class="btn-request"/>-->
+                {% if item.available and not is_owner %}
+                <form method="post" action="/item_request"> 
+                    <input type="submit" name="item_request" id="item_request" value="Pedir" class="btn-request"/>
+                    <input type="hidden" name="id" value="{{item.id}}" />
+                </form>
+                {% endif %}
             </div>
         </div>
 

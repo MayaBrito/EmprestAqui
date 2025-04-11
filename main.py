@@ -214,7 +214,7 @@ def item():
     else:
         item = itens[item_id]
         email, err = check_user()
-        is_owner = True 
+        is_owner = False 
         if not err:
             is_owner = users[emailsearch[email]].id == item.owner_id
         return render_template('item/item.html',item=item,comments=item.comments,owner=users[item.owner_id],users=users,is_owner=is_owner)

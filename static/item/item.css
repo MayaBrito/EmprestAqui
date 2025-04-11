@@ -91,6 +91,9 @@ h3 {
     align-items: center; 
     width: auto;
     height: auto;
+    max-height: 400px;
+    max-width:400px;
+    object-fit: cover;
     align-items: center;
     height: 400px;
 }
@@ -113,9 +116,10 @@ h3 {
 .details {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: -50px;
+    gap: 10px;
+    /* margin-top: -50px; */
     font-size: 18px;
+    width:auto;
 }
 
 .details dd {
